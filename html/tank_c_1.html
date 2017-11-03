@@ -1,0 +1,214 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script type="text/javascript" src="../jscript/pfcUtils.js"></script>	
+	<script type="text/javascript" src="../jscript/TankDesign_c.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+
+	<link href="../jscript/tooltip.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/tooltip.js" type="text/javascript"></script>	
+	<link href="../jscript/modal.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/modal.js" type="text/javascript"></script>	
+	<link href="../css/button.css" rel="stylesheet" type="text/css" />	
+	<style>
+input[type=text] {
+    width: 80px;
+	height:32px; 
+	font-size:20px;
+	text-align:center; 
+}
+
+
+.myform {
+	position:absolute;
+	left:0%;
+	top:2em;	
+	padding:10px;
+}
+
+</style>
+	
+</head>
+<script language="JavaScript" type="text/JavaScript">
+
+
+
+</script>
+
+<body >
+<div class="topbar">
+			<ul class="topbar">
+			<li ><a href="index.html" target="right"><img src="../img/web.png" width="30px"></a></li>
+			<li ><a href="../WebLink使用手冊.pdf" target="right"><strong>WebLink使用說明</strong></a></li>
+			<li style="float:right"><a href="mailto:jack.you@fortune.com.tw"><strong>問題回饋</strong></a></li>
+			<li style="float:right"><a href="http://www.fortune.com.tw/" target="right"><strong>關於我們</strong></a></li>
+			</ul>
+</div>
+<!-- Trigger/Open The Modal -->
+<!-- FY按鈕 -->
+<!--1.<button> 標籤在表格內無法使用modal改成<input type>或其他圖片方式即可，原因不明2.Chrome無法以jQuery讀取不同protocol檔案-->
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+<!-- Modal content -->
+	<div class="modal-content">
+		<div class="modal-header">
+			<span class="close" onclick="modal_close()">×</span>
+			<h2>歷史異常</h2>
+		</div>
+		
+		<div class="modal-body" id="modal-body">
+		</div>
+		
+		<div class="modal-footer">
+		<span class="close-btn" onclick="modal_close()">close</span>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="button-group">
+<li><div class="button" onclick="TRParametersSave();" style="cursor:pointer;"><a><img src="../img/wrench.png"  align="left" style="height:30px;"/><strong>寫入參數</strong></a></div></li>
+<li><div class="button" onclick="rege();" style="cursor:pointer;"><a><img src="../img/circle.png"  align="left" style="height:30px;"/><strong>切換至模型</strong></a></div></li>
+<li><div class="button" id="closetip"><a href="#." ><img src="../img/delete.png"  align="left" style="height:30px;"/><strong >關閉提示</strong></a></div></li>
+<li><div class="button" id="opentip"><a href="#." ><img src="../img/arrows.png"  align="left" style="height:30px;"/><strong >開啟提示</strong></a></div></li>
+</div>
+
+
+	<form name="tankForm" id="tankFormID" class="myform">
+           	<table width="900" border="0" cellspacing="0" cellpadding="0">
+                       <tr><td>
+			
+
+				
+				
+	
+			
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+                <tr>
+				<td colspan="2" align="right" valign="middle" style="font-size:40px"><p><i> <marquee> <font face="monospace font" color="gray">變壓器外殼設計</font></marquee></i></p></td>
+				</tr>
+				</table>
+			
+				
+						
+				<div style="display:none;">
+						<div id="tip0">
+							<img src="../pic/BRACET.png" style="float:right;width:800px;height:600px;" alt="" />
+							<h1 align="center"><font face="monospace font">橫補強示意圖</font></h1>
+						</div>
+						<div id="tip1">
+						<h1>法蘭種類:</h1>
+						<h1>1: 無銅遮蔽</h1>
+						<h1>2: 有銅遮蔽</h1>
+						</div>
+
+				</div>	
+				
+				
+
+	
+	
+
+	
+	<UL type=disc>
+
+
+	
+	
+	<!--上蓋-->
+	<LI><A name="外殼"><B><I><font face="monospace font"  size="5.5" color="blue">外殼外型</font></B></I></A>
+
+	
+		<p><table width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr style="background-color:#00FFFF;">			                                             
+					<th style="width: 30%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>	
+					<th  style="width: 55%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th  style="width: 15%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+			
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">TR中心偏移</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					
+					</td>				
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>  偏移方向X<input type="text" name="TR_CENTER_XP" id="TR_CENTER_XP" value="" size="5.5"/></p>
+					<p>  偏移距離X<input type="text" name="TR_CENTER_X" id="TR_CENTER_X" value="" size="5.5"/></p>
+					<p>  偏移方向Y<input type="text" name="TR_CENTER_YP" id="TR_CENTER_YP" value="" size="5.5"/></p>
+					<p>  偏移距離Y<input type="text" name="TR_CENTER_Y" id="TR_CENTER_Y" value="" size="5.5"/></p>					
+					</td>	
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+
+					</td>					
+				</tr>
+				
+				
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">底板</font>
+					<br>
+					<!--<img src="../pic/q1.png" align="center" width="75" height="75" value="說明一"  onmouseover="tooltip.pop(this, '#tip15',{hideDelay:100,calloutPosition: 0.5, maxWidth: 500})">-->
+					<img src="../pic/q1.png" align="center" width="75" height="75" id="pic1" style="cursor:help">
+					</td>
+
+					<td style="background-color:#FFFACD;"  align="left"> <font face="monospace font"  size="5.5">
+					<p>  底板厚度<input type="text" name="TANK_BASE_T" id="TANK_BASE_T" value="" size="5"/></p>
+					<p>  底板長度L<input type="text" name="" id="" value="" size="5"/></p>
+					<p>  底板厚度W<input type="text" name="" id="" value="" size="5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+
+					</td>					
+				</tr>
+				
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">外殼側板</font>
+					</td>
+
+					<td style="background-color:#FFFACD;" align="left"> <font face="monospace font"  size="5.5">
+					<p>  側板厚度<input type="text" name="TANK_WALL_T" id="TANK_WALL_T" value="" size="5"/></p>
+					<p>  外殼側板實外長度<input type="text" name="TANK_WALL_2L" id="TANK_WALL_2L" value="" size="5"/></p>
+					<p>  內縮距離LEFT<input type="text" name="WALL_LEFT_DIS" id="WALL_LEFT_DIS" value="" size="5"/></p>
+					<p>  內縮高LEFT<input type="text" name="WALL_LEFT_H" id="WALL_LEFT_H" value="" size="5"/></p>
+					<p>  內縮距離RIGHT<input type="text" name="WALL_RIGHT_DIS" id="WALL_RIGHT_DIS" value="" size="5"/></p>
+					<p>  內縮高RIGHT<input type="text" name="WALL_RIGHT_H" id="WALL_RIGHT_H" value="" size="5"/></p>					
+					<p>  外殼側板實外寬度<input type="text" name="TANK_WALL_2W" id="TANK_WALL_2W" value="" size="5"/></p>
+					<p>  內縮距離FRONT<input type="text" name="WALL_FRONT_DIS" id="WALL_FRONT_DIS" value="" size="5"/></p>
+					<p>  內縮距離BACK<input type="text" name="WALL_BACK_DIS" id="WALL_BACK_DIS" value="" size="5"/></p>					
+					<p>  外殼側板實外高度<input type="text" name="WALL_H" id="WALL_H" value="" size="5"/></p>
+					<p>  側板高度S1<input type="text" name="WALL_H_S1" id="WALL_H_S1" value="" size="5"/></p>
+					<p>  側板高度S2<input type="text" name="WALL_H_S2" id="WALL_H_S2" value="" size="5"/></p>					
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<div class="myBtn" id="myBtn24" style="cursor:pointer;"><strong>側板異常</strong></div>
+					</td>					
+				</tr>
+
+				
+			</tbody>			
+		</table></p>
+		
+	</form>
+
+	<script type="text/javascript">
+	
+	//取得資料
+	TRParametersSet();
+	</script>
+</body>
+
+
+</HTML>

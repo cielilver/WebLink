@@ -1,0 +1,275 @@
+<html xml0ns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<script type="text/javascript" src="../jscript/pfcUtils.js"></script>	
+	<script type="text/javascript" src="../jscript/TankDesign.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<link href="../jscript/tooltip.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/tooltip.js" type="text/javascript"></script>
+	<link href="../jscript/modal.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/modal.js" type="text/javascript"></script>	
+	<link href="../css/button.css" rel="stylesheet" type="text/css" />
+	<style>
+input[type=text] {
+    width: 80px;
+	height:32px; 
+	font-size:20px;
+	text-align:center; 
+}
+
+
+.myform {
+	position:absolute;
+	left:0%;
+	top:2em;
+	padding:10px;
+}
+	</style>
+	
+</head>
+<script language="JavaScript" type="text/JavaScript">
+
+$(document).ready(function(){
+	
+    $("#pic1").on("click",function(){
+		tooltip.pop(this, '#tip0',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic2").on("click",function(){
+		tooltip.pop(this, '#tip4',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic3").on("click",function(){
+		tooltip.pop(this, '#tip6',{hideDelay:100,calloutPosition: 0.5});
+		});
+
+});
+</script>
+
+<body >
+<div class="topbar">
+			<ul class="topbar">
+			<li ><a href="index.html" target="right"><img src="../img/web.png" width="30px"></a></li>
+			<li ><a href="../WebLink使用手冊.pdf" target="right"><strong>WebLink使用說明</strong></a></li>
+			<li style="float:right"><a href="mailto:jack.you@fortune.com.tw"><strong>問題回饋</strong></a></li>
+			<li style="float:right"><a href="http://www.fortune.com.tw/" target="right"><strong>關於我們</strong></a></li>
+			</ul>
+</div>
+<!-- Trigger/Open The Modal -->
+<!-- FY按鈕 -->
+<!--1.<button> 標籤在表格內無法使用modal改成<input type>或其他圖片方式即可，原因不明2.Chrome無法以jQuery讀取不同protocol檔案-->
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+<!-- Modal content -->
+	<div class="modal-content">
+		<div class="modal-header">
+			<span class="close" onclick="modal_close()">×</span>
+			<h2>歷史異常</h2>
+		</div>
+		
+		<div class="modal-body" id="modal-body">
+		</div>
+		
+		<div class="modal-footer">
+		<span class="close-btn" onclick="modal_close()">close</span>
+		</div>
+	</div>
+</div>
+		
+
+<div class="button-group">
+<li><div class="button" onclick="TRParametersSave();" style="cursor:pointer;"><a><img src="../img/wrench.png"  align="left" style="height:30px;"/><strong>寫入參數</strong></a></div></li>
+<li><div class="button" onclick="rege();" style="cursor:pointer;"><a><img src="../img/circle.png"  align="left" style="height:30px;"/><strong>切換至模型</strong></a></div></li>
+<li><div class="button" id="closetip"><a href="#." ><img src="../img/delete.png"  align="left" style="height:30px;"/><strong >關閉提示</strong></a></div></li>
+<li><div class="button" id="opentip"><a href="#." ><img src="../img/arrows.png"  align="left" style="height:30px;"/><strong >開啟提示</strong></a></div></li>
+</div>
+
+
+	<form name="tankForm" id="tankFormID" class="myform">
+           	<table width="900" border="0" cellspacing="0" cellpadding="0">
+                       <tr><td>
+			
+
+				
+				
+	
+			
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"  >
+                <tr>
+				<td colspan="2" align="right" valign="middle" style="font-size:40px"><p><i> <marquee> <font face="monospace font" color="gray">變壓器上蓋設計</font></marquee></i></p></td>
+				</tr>
+				</table>
+				
+				
+				<div style="display:none;">
+						<div id="tip0">
+							<img src="../pic/HVBCT.PNG" style="float:right;width:1000px;height:400px;" alt="" />
+							<h1 align="center">HV側BCT端子箱示意圖</h1>
+						</div>
+						<div id="tip1">
+							<h1>BCT型式:</h1>
+							<h1>1. 21T3B2765-水平</h1>
+							<h1>2. 21T3B2765-垂直</h1>
+							<h1>3. 21T3B3383-水平</h1>
+							<h1>4. 21T3B3383-垂直</h1>
+							<h1>5. 21T3B3624-水平</h1>
+							<h1>6. 21T3B3624-垂直</h1>
+							<h1>7. 21SA30583(圓形)</h1>
+							<h1>8. 21SA40680(圓形)</h1>
+						</div>
+						<div id="tip2">
+							<h1>位置:</h1>
+							<h1>1: 左</h1>
+							<h1>2: 右</h1>
+						</div>
+						<div id="tip3">
+							<h1>法蘭端面至上蓋基準</h1>
+						</div>
+						<div id="tip4">
+							<img src="../pic/HVCGT.PNG" style="float:right;width:900px;height:600px;" alt="" />
+							<h1 align="center">HV側鐵心接地箱示意圖</h1>
+						</div>
+						<div id="tip5">
+							<h1>CGT型式:</h1>
+							<h1>1.  21T3B3986</h1>
+							<h1>2.  21T3B6009</h1>
+							<h1>3.  21T3C2642-A作業</h1>
+							<h1>4.  21T3C2642-B作業</h1>
+							<h1>5.  21T3B7052-水平</h1>
+							<h1>6.  21T3B7052-垂直</h1>
+							<h1>7.  21T3C4060-水平</h1>
+							<h1>8.  21T3C4060-垂直</h1>
+							<h1>9.  21T3C0238-A作業</h1>
+							<h1>10. 21T3C0238-B作業</h1>
+							<h1>11. 21T3C0238-C作業</h1>
+						</div>
+						<div id="tip6">
+							<img src="../pic/HVSWITCHER.PNG" style="float:right;width:900px;height:600px;" alt="" />
+							<h1 align="center">HV切換器示意圖</h1>
+						</div>
+						<div id="tip7">
+							<h1>型式:</h1>
+							<h1>1: 650孔徑</h1>
+							<h1>2: 570孔徑</h1>
+						</div>	
+						<div id="tip8">
+							<h1>端子箱中心至TR中心</h1>
+						</div>	
+						<div id="tip9">
+							<h1>鐵心接地箱中心至TR中心</h1>
+						</div>
+						<div id="tip10">
+							<h1>切換器中心至TR中心</h1>
+						</div>							
+				</div>	
+				
+				
+
+	
+	
+
+	
+	<UL type=disc>
+
+<!--HV側BCT&CGT-->
+	<LI><A name="HV側BCT&CGT"><B><I><font face="monospace font"  size="5.5" color="blue">HV側BCT&CGT </font></B></I></A>
+
+		<p><table width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr>			
+					<th style="width: 30%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>	
+					<th  style="width: 55%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th  style="width: 15%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+				
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">HV側鐵心接地箱1<br>
+					<!--<img src="../pic/q1.png" align="center" width="75" height="75" value="說明三"  onmouseover="tooltip.pop(this, '#tip4',{hideDelay:100,calloutPosition: 0.5, maxWidth: 500})">-->
+					<img src="../pic/q1.png" align="center" width="75" height="75" id="pic2" style="cursor:help">
+					</font>
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left">  <font face="monospace font"  size="5.5">
+					<p>   CGT形式<input type="text" name="HC_1" id="HC_1" value="" size="5"/> </p>
+					<p>   CGT位置<input type="text" name="HV_CGT_1_XP" id="HV_CGT_1_XP" value="" size="5"/></p>
+					<p>   CGT距離X<input type="text" name="HV_CGT_1_X" id="HV_CGT_1_X" value="" size="5"/> </p>
+					<p>   CGT距離Y<input type="text" name="HV_CGT_1_Y" id="HV_CGT_1_Y" value="" size="5"/> </p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<div class="myBtn" id="myBtn15" style="cursor:pointer;"><strong >HV側鐵心接地箱異常</strong></div>
+					</td>					
+				</tr>
+				
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">HV側鐵心接地箱2
+					</font>
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left">  <font face="monospace font"  size="5.5">
+					<p>   CGT形式<input type="text" name="HC_2" id="HC_2" value="" size="5"/> </p>
+					<p>   CGT位置<input type="text" name="HV_CGT_2_XP" id="HV_CGT_2_XP" value="" size="5"/></p>
+					<p>   CGT距離X<input type="text" name="HV_CGT_2_X" id="HV_CGT_2_X" value="" size="5"/> </p>
+					<p>   CGT距離Y<input type="text" name="HV_CGT_2_Y" id="HV_CGT_2_Y" value="" size="5"/> </p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					
+					</td>					
+				</tr>
+				
+			</tbody>			
+		</table></p>
+		
+		<p><table width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr>			
+					<th style="width: 30%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>	
+					<th  style="width: 55%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th  style="width: 15%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+				
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">HV切換器<br>
+					<!--<img src="../pic/q1.png" align="center" width="75" height="75" value="說明三"  onmouseover="tooltip.pop(this, '#tip6',{hideDelay:100,calloutPosition: 0.5, maxWidth: 500})">-->
+					<img src="../pic/q1.png" align="center" width="75" height="75" id="pic3" style="cursor:help">
+					</font>
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left">  <font face="monospace font"  size="5.5">
+					<p>   SW形式<input type="text" name="HV_SW" id="HV_SW" value="" size="5"/> </p>
+					<p>   SW位置<input type="text" name="HV_SW_XP" id="HV_SW_XP" value="" size="5"/></p>
+					<p>   SW距離X<input type="text" name="HV_SW_X" id="HV_SW_X" value="" size="5"/> </p>
+					<p>   SW距離Y<input type="text" name="HV_SW_Y" id="HV_SW_Y" value="" size="5"/> </p>
+					<p>   SW高度<input type="text" name="HV_SW_H" id="HV_SW_H" value="" size="5"/> </p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<div class="myBtn" id="myBtn16" style="cursor:pointer;"><strong >HV側切換器異常</strong></div>
+					</td>					
+				</tr>
+	
+				
+			</tbody>			
+		</table></p>
+	
+	</form>
+	<script type="text/javascript">
+	
+	//取得資料
+	TRParametersSet();
+	</script>
+</body>
+
+
+</HTML>

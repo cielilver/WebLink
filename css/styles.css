@@ -1,0 +1,203 @@
+/* Slider
+http://www.freshdesignweb.com/fashion-responsive-slider-tutorial.html
+*/
+/* Slider
+/*-----------------------------------------------------------------------------------*/
+.slider_container{ width:920px; margin:30px 250px;padding:30px 0 0 0;}
+.flex-caption{ position: absolute; right:10px; bottom:10px;}  /*綠色方框位置*/
+.caption_title_line{ width:180px; height:120px; padding:5px 15px 10px 15px;background:url(../images/slider_caption_bg.png) repeat;color: #FFF;} /*說明內容*/
+.flex-caption h2{ color:#FFF;font-size:20px; padding:5px 0 5px 0; margin:0px;font-family: 'Ovo', serif;} /*說明標題*/
+
+.flex-container a:active,
+.flexslider a:active {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none;} 
+
+/* FlexSlider Necessary Styles
+*********************************/ 
+.flexslider {width: 920px; margin: 0; padding: 0 0 30px 0;}
+.flexslider .slides > li {display: none;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {max-width: 100%; display: block; border:10px #ededed solid;}
+.flex-pauseplay span {text-transform: capitalize;}
+.slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;} 
+html[xmlns] .slides {display: block;} 
+* html .slides {height: 1%;}
+.no-js .slides > li:first-child {display: block;}
+.flexslider {position: absolute; zoom: 1;left:10%;top:5%;}    /*slider 位置調整*/
+.flexslider .slides {zoom: 1;}
+.flexslider .slides > li {position: relative;}
+.flex-container {zoom: 1; position: relative;}
+
+/* Direction Nav 按鈕設定 */
+/*  同一邊
+.flex-direction-nav li a {width:45px; height:42px; margin:0; display: block; position: absolute; right:11px; cursor: pointer; text-indent: -9999px;}
+.flex-direction-nav li a.next {background:url(../images/next.png) no-repeat center; bottom:184px;}
+.flex-direction-nav li a.prev {background:url(../images/prev.png) no-repeat center;bottom:141px;}
+*/
+/*左右*/
+/*
+.flex-direction-nav  a {width:64px; height:64px; margin:0; display: block; position: absolute; cursor: pointer; text-indent: -9999px;z-index: 10}
+.flex-direction-nav  a.flex-next {background:url(../images/circle-back-arrow-next.png) no-repeat center;right:8px;bottom:50%;}
+.flex-direction-nav  a.flex-prev {background:url(../images/circle-back-arrow-prev.png) no-repeat center;left:10px;bottom:50%;}
+
+
+.flex-direction-nav  a.flex-next:hover {background:url(../images/circle-back-arrow-next-a.png) no-repeat center;}
+.flex-direction-nav  a.flex-prev:hover {background:url(../images/circle-back-arrow-prev-a.png) no-repeat center;}
+.flex-direction-nav  a.flex-disabled {opacity: .3; filter:alpha(opacity=30); cursor: default;}
+*/
+
+/*隱藏浮動*/
+.flex-direction-nav {
+  *height: 0;
+}
+.flex-direction-nav a {
+  text-decoration: none;
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: -20px 0 0;
+  position: absolute;
+  
+  top: 50%;
+  z-index: 10;
+  overflow: hidden;
+  opacity: 0;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.flex-direction-nav a:before {
+  font-family: "flexslider-icon";
+  font-size: 40px;
+  
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+}
+.flex-direction-nav a.flex-next:before {
+	
+}
+.flex-direction-nav .flex-prev {									/*PREV選取前狀態*/
+  background:url(../images/circle-back-arrow-prev.png) no-repeat center; bottom:184px;
+  left: -50px;
+}
+.flex-direction-nav .flex-next {                                 /*Next選取前狀態*/
+  background:url(../images/circle-back-arrow-next.png) no-repeat center; bottom:184px;
+  right: -50px;
+  text-align: right;
+}
+.flexslider:hover .flex-direction-nav .flex-prev {               /*滑鼠移置slider後PREV出現狀態*/
+
+  opacity: 0.5;
+  left: 10px;
+  top:45%;
+
+}
+.flexslider:hover .flex-direction-nav .flex-prev:hover {
+  opacity: 1;
+}
+.flexslider:hover .flex-direction-nav .flex-next {                /*滑鼠移置slider後NEXT出現狀態*/
+  opacity: 0.5;
+  right: 10px;
+  top:45%;
+}
+.flexslider:hover .flex-direction-nav .flex-next:hover {
+  opacity: 1;
+}
+.flex-direction-nav .flex-disabled {
+  opacity: 0!important;
+  filter: alpha(opacity=0);
+  cursor: default;
+  z-index: -1;
+}
+
+
+
+/* Control Nav */
+.flex-control-nav {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  z-index:100;
+}
+.flex-control-nav li {
+  margin: 0 6px;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+.flex-control-paging li a {
+  width: 11px;
+  height: 11px;
+  display: block;
+  background: #666;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  text-indent: -9999px;
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;              /*按鈕 20px 圓形 0px方形*/
+}
+.flex-control-paging li a:hover {
+  background: #333;
+  background: rgba(0, 0, 0, 0.7);
+}
+.flex-control-paging li a.flex-active {
+  background: #000;
+  background: rgba(0, 0, 0, 0.9);
+  cursor: default;
+}
+.flex-control-thumbs {
+  margin: 5px 0 0;
+  position: static;
+  overflow: hidden;
+}
+.flex-control-thumbs li {
+  width: 25%;
+  float: left;
+  margin: 0;
+}
+.flex-control-thumbs img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: .7;
+  cursor: pointer;
+  -moz-user-select: none;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+.flex-control-thumbs img:hover {
+  opacity: 1;
+}
+.flex-control-thumbs .flex-active {
+  opacity: 1;
+  cursor: default;
+}
+
+/* Media Queries
+/*-----------------------------------------------------------------------------------*/
+/*
+@media screen and (max-width: 1000px) {
+.slider_container{ width:90%; margin:0 0 0 2%; clear:both; background:none; padding:30px 0 0 0;}
+.flexslider {width: 100%; margin: 0; padding:0 0 30px 0;background:none;}
+.flex-direction-nav li a {width:45px; height:42px; margin:0; display: block; position: absolute; right:-10px; cursor: pointer; text-indent: -9999px;}
+.flex-direction-nav li a.next {background:url(../images/next.png) no-repeat center; bottom:85px;}
+.flex-direction-nav li a.prev {background:url(../images/prev.png) no-repeat center;bottom:40px;}
+.flex-caption { display:none;}
+}
+*/

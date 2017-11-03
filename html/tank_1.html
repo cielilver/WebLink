@@ -1,0 +1,1604 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script type="text/javascript" src="../jscript/pfcUtils.js"></script>	
+	<script type="text/javascript" src="../jscript/TankDesign.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+
+	<link href="../jscript/tooltip.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/tooltip.js" type="text/javascript"></script>	
+	<link href="../jscript/modal.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/modal.js" type="text/javascript"></script>	
+	<link href="../css/button.css" rel="stylesheet" type="text/css" />	
+	<style>
+input[type=text] {
+    width: 80px;
+	height:32px; 
+	font-size:20px;
+	text-align:center; 
+}
+
+
+.myform {
+	position:absolute;
+	left:0%;
+	top:2em;	
+	padding:10px;
+}
+.DETC_MR {
+	display:none;
+
+}
+.DETC_connect {
+	display:none;
+}
+.A {
+    height: 20px;
+    width: 80;
+    position: relative;
+    left: -124px;
+    top: 274px;
+}
+.B {
+    height: 20px;
+    width: 80;
+    position: relative;
+    left: -117px;
+    top: 96px;
+}
+.C {
+	height: 20px;
+    width: 80;
+    position: relative;
+    left: -406px;
+    top: 160px;
+	
+}
+.D {
+    height: 20px;
+    width: 80;
+    position: relative;
+    left: 167px;
+    top: 133px;	
+}
+.E {
+    height: 20px;
+    width: 80;
+    position: relative;
+    left: 370px;
+    top: 256px;
+}
+.F {
+    height: 20px;
+    width: 80;
+    position: relative;
+    left: 370px;
+    top: -46px;
+}
+.P {
+    height: 20px;
+    width: 80;
+    position: relative;
+    left: -30px;
+    top: 34px;
+}
+.Core_H {
+    height: 20px;
+    width: 20px;
+    position: relative;
+    left: 357px;
+    top: 22px;	
+}
+.Core_D {
+    height: 20px;
+    width: 130;
+    position: relative;
+    left: 53px;
+    top: 56px;	
+}
+.demo {
+	height: 400px;
+	width:900px;
+	margin:0;
+	//border:1px solid;
+	background-image: url("../pic/COREANDTANK.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 900px 400px;
+
+}
+</style>
+	
+</head>
+<script language="JavaScript" type="text/JavaScript">
+
+var new_open;
+function openwin(){
+
+	//new_open=window.open('HtmlPage4.html','_blank','channelmode=0, directories=1, fullscreen=1, height=1080, left=0, location=1, menubar=1, resizable=1, scrollbars=1, status=0, titlebar=0, toolbar=0, top=0, width=1920','true');
+	new_open=window.open('HtmlPage4.html','_blank','height=1500, left=0,top=0, width=3000,true, scrollbars=1');
+
+}
+function sendparam(){
+	//new_open.focus();
+	var Tank_H = document.getElementById("TANK_WALL_H").value;
+	var Tank_Flange = document.getElementById("TANK_FLANGE_TYPE").value;
+	new_open.document.myform.Tank_2L.value = document.getElementById("TANK_WALL_2L").value;	
+	new_open.document.myform.Tank_2W.value = document.getElementById("TANK_WALL_2W").value;
+	
+    
+	
+	var Tank_T  = document.getElementById("TANK_WALL_T").value;
+	/*---------匯入法蘭寬、厚-------*/
+	if (Tank_Flange == 1){
+		new_open.document.myform.W_L.value = 115;
+		new_open.document.myform.W_S.value = 115;
+		new_open.document.myform.T2_L.value = 22;
+		new_open.document.myform.T2_S.value = 22;
+	}
+	if (Tank_Flange == 2){
+		new_open.document.myform.W_L.value = 165;
+		new_open.document.myform.W_S.value = 165;
+		new_open.document.myform.T2_L.value = 22;
+		new_open.document.myform.T2_S.value = 22;
+	}
+
+	/*---------匯入側板厚T-------*/
+	if (Tank_T == 1){
+		new_open.document.myform.T_L.value = 9;
+		new_open.document.myform.T_S.value = 9;
+		new_open.document.myform.T_Ls.value = 9;
+		new_open.document.myform.T_Ss.value = 9;
+	}
+	if (Tank_T == 2){
+		new_open.document.myform.T_L.value = 12;
+		new_open.document.myform.T_S.value = 12;
+		new_open.document.myform.T_Ls.value = 12;
+		new_open.document.myform.T_Ss.value = 12;
+	}
+	if (Tank_T == 3){
+		new_open.document.myform.T_L.value = 16;
+		new_open.document.myform.T_S.value = 16;
+		new_open.document.myform.T_Ls.value = 16;
+		new_open.document.myform.T_Ss.value = 16;
+	}
+	if (Tank_T == 4){
+		new_open.document.myform.T_L.value = 19;
+		new_open.document.myform.T_S.value = 19;
+		new_open.document.myform.T_Ls.value = 19;
+		new_open.document.myform.T_Ss.value = 19;
+	}
+	if (Tank_T == 5){
+		new_open.document.myform.T_L.value = 22;
+		new_open.document.myform.T_S.value = 22;
+		new_open.document.myform.T_Ls.value = 22;
+		new_open.document.myform.T_Ss.value = 22;
+	}
+	/*---------匯入補強高H1-------*/
+	/*--------------2L 3000~3500----------------*/
+	if (new_open.document.myform.Tank_2L.value >= 3000 & new_open.document.myform.Tank_2L.value < 3500){
+		if(Tank_H >= 2400 & Tank_H < 2600){
+		
+			new_open.document.myform.H1_L.value = 130;
+			new_open.document.myform.H1_S.value = 130;
+			new_open.document.myform.H1_Ls.value = 130;
+			new_open.document.myform.H1_Ss.value = 130;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 300;
+			new_open.document.myform.B0_S.value = 300;
+			new_open.document.myform.B0_Ls.value = 300;
+			new_open.document.myform.B0_Ss.value = 300;		
+		}
+		if(Tank_H >= 2600 & Tank_H < 2700){
+		
+			new_open.document.myform.H1_L.value = 130;
+			new_open.document.myform.H1_S.value = 130;
+			new_open.document.myform.H1_Ls.value = 130;
+			new_open.document.myform.H1_Ss.value = 130;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 350;
+			new_open.document.myform.B0_S.value = 350;
+			new_open.document.myform.B0_Ls.value = 350;
+			new_open.document.myform.B0_Ss.value = 350;		
+		}
+		if(Tank_H >= 2700 & Tank_H < 2900){
+		
+			new_open.document.myform.H1_L.value = 140;
+			new_open.document.myform.H1_S.value = 140;
+			new_open.document.myform.H1_Ls.value = 140;
+			new_open.document.myform.H1_Ss.value = 140;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 350;
+			new_open.document.myform.B0_S.value = 350;
+			new_open.document.myform.B0_Ls.value = 350;
+			new_open.document.myform.B0_Ss.value = 350;		
+		}
+		if(Tank_H >= 2900 & Tank_H < 3100){
+		
+			new_open.document.myform.H1_L.value = 140;
+			new_open.document.myform.H1_S.value = 140;
+			new_open.document.myform.H1_Ls.value = 140;
+			new_open.document.myform.H1_Ss.value = 140;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 400;
+			new_open.document.myform.B0_S.value = 400;
+			new_open.document.myform.B0_Ls.value = 400;
+			new_open.document.myform.B0_Ss.value = 400;		
+		}
+		if(Tank_H >= 3100 & Tank_H < 3300){
+		
+			new_open.document.myform.H1_L.value = 140;
+			new_open.document.myform.H1_S.value = 140;
+			new_open.document.myform.H1_Ls.value = 140;
+			new_open.document.myform.H1_Ss.value = 140;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 450;
+			new_open.document.myform.B0_S.value = 450;
+			new_open.document.myform.B0_Ls.value = 450;
+			new_open.document.myform.B0_Ss.value = 450;		
+		}
+		if(Tank_H >= 3300 & Tank_H < 3400){
+		
+			new_open.document.myform.H1_L.value = 140;
+			new_open.document.myform.H1_S.value = 140;
+			new_open.document.myform.H1_Ls.value = 140;
+			new_open.document.myform.H1_Ss.value = 140;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 500;
+			new_open.document.myform.B0_S.value = 500;
+			new_open.document.myform.B0_Ls.value = 500;
+			new_open.document.myform.B0_Ss.value = 500;		
+		}		
+		if(Tank_H >= 3400 & Tank_H < 3500){
+		
+			new_open.document.myform.H1_L.value = 150;
+			new_open.document.myform.H1_S.value = 150;
+			new_open.document.myform.H1_Ls.value = 150;
+			new_open.document.myform.H1_Ss.value = 150;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 500;
+			new_open.document.myform.B0_S.value = 500;
+			new_open.document.myform.B0_Ls.value = 500;
+			new_open.document.myform.B0_Ss.value = 500;		
+		}
+		if(Tank_H >= 3500 ){
+		
+			new_open.document.myform.H1_L.value = 150;
+			new_open.document.myform.H1_S.value = 150;
+			new_open.document.myform.H1_Ls.value = 150;
+			new_open.document.myform.H1_Ss.value = 150;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 600;
+			new_open.document.myform.B0_S.value = 600;
+			new_open.document.myform.B0_Ls.value = 600;
+			new_open.document.myform.B0_Ss.value = 600;		
+		}
+	}
+	/*--------------2L 3500~4000----------------*/
+	if (new_open.document.myform.Tank_2L.value >= 3500 & new_open.document.myform.Tank_2L.value < 4000){
+		if(Tank_H >= 2400 & Tank_H < 2600){
+		
+			new_open.document.myform.H1_L.value = 160;
+			new_open.document.myform.H1_S.value = 160;
+			new_open.document.myform.H1_Ls.value = 160;
+			new_open.document.myform.H1_Ss.value = 160;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 300;
+			new_open.document.myform.B0_S.value = 300;
+			new_open.document.myform.B0_Ls.value = 300;
+			new_open.document.myform.B0_Ss.value = 300;		
+		}
+		if(Tank_H >= 2600 & Tank_H < 2700){
+		
+			new_open.document.myform.H1_L.value = 160;
+			new_open.document.myform.H1_S.value = 160;
+			new_open.document.myform.H1_Ls.value = 160;
+			new_open.document.myform.H1_Ss.value = 160;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 350;
+			new_open.document.myform.B0_S.value = 350;
+			new_open.document.myform.B0_Ls.value = 350;
+			new_open.document.myform.B0_Ss.value = 350;		
+		}
+		if(Tank_H >= 2700 & Tank_H < 2900){
+		
+			new_open.document.myform.H1_L.value = 170;
+			new_open.document.myform.H1_S.value = 170;
+			new_open.document.myform.H1_Ls.value = 170;
+			new_open.document.myform.H1_Ss.value = 170;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 350;
+			new_open.document.myform.B0_S.value = 350;
+			new_open.document.myform.B0_Ls.value = 350;
+			new_open.document.myform.B0_Ss.value = 350;		
+		}
+		if(Tank_H >= 2900 & Tank_H < 3100){
+		
+			new_open.document.myform.H1_L.value = 170;
+			new_open.document.myform.H1_S.value = 170;
+			new_open.document.myform.H1_Ls.value = 170;
+			new_open.document.myform.H1_Ss.value = 170;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 400;
+			new_open.document.myform.B0_S.value = 400;
+			new_open.document.myform.B0_Ls.value = 400;
+			new_open.document.myform.B0_Ss.value = 400;		
+		}
+		if(Tank_H >= 3100 & Tank_H < 3300){
+		
+			new_open.document.myform.H1_L.value = 170;
+			new_open.document.myform.H1_S.value = 170;
+			new_open.document.myform.H1_Ls.value = 170;
+			new_open.document.myform.H1_Ss.value = 170;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 450;
+			new_open.document.myform.B0_S.value = 450;
+			new_open.document.myform.B0_Ls.value = 450;
+			new_open.document.myform.B0_Ss.value = 450;		
+		}
+		if(Tank_H >= 3300 & Tank_H < 3500){
+		
+			new_open.document.myform.H1_L.value = 170;
+			new_open.document.myform.H1_S.value = 170;
+			new_open.document.myform.H1_Ls.value = 170;
+			new_open.document.myform.H1_Ss.value = 170;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 500;
+			new_open.document.myform.B0_S.value = 500;
+			new_open.document.myform.B0_Ls.value = 500;
+			new_open.document.myform.B0_Ss.value = 500;		
+		}		
+		if(Tank_H >= 3500 ){
+		
+			new_open.document.myform.H1_L.value = 180;
+			new_open.document.myform.H1_S.value = 180;
+			new_open.document.myform.H1_Ls.value = 180;
+			new_open.document.myform.H1_Ss.value = 180;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 600;
+			new_open.document.myform.B0_S.value = 600;
+			new_open.document.myform.B0_Ls.value = 600;
+			new_open.document.myform.B0_Ss.value = 600;		
+		}
+	}
+	/*--------------2L 4000~4500----------------*/
+	if (new_open.document.myform.Tank_2L.value >= 4000 & new_open.document.myform.Tank_2L.value < 4500){
+		if(Tank_H >= 2400 & Tank_H < 2600){
+		
+			new_open.document.myform.H1_L.value = 190;
+			new_open.document.myform.H1_S.value = 190;
+			new_open.document.myform.H1_Ls.value = 190;
+			new_open.document.myform.H1_Ss.value = 190;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 300;
+			new_open.document.myform.B0_S.value = 300;
+			new_open.document.myform.B0_Ls.value = 300;
+			new_open.document.myform.B0_Ss.value = 300;		
+		}
+		if(Tank_H >= 2600 & Tank_H < 2700){
+		
+			new_open.document.myform.H1_L.value = 190;
+			new_open.document.myform.H1_S.value = 190;
+			new_open.document.myform.H1_Ls.value = 190;
+			new_open.document.myform.H1_Ss.value = 190;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 350;
+			new_open.document.myform.B0_S.value = 350;
+			new_open.document.myform.B0_Ls.value = 350;
+			new_open.document.myform.B0_Ss.value = 350;		
+		}
+		if(Tank_H >= 2700 & Tank_H < 2900){
+		
+			new_open.document.myform.H1_L.value = 200;
+			new_open.document.myform.H1_S.value = 200;
+			new_open.document.myform.H1_Ls.value = 200;
+			new_open.document.myform.H1_Ss.value = 200;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 350;
+			new_open.document.myform.B0_S.value = 350;
+			new_open.document.myform.B0_Ls.value = 350;
+			new_open.document.myform.B0_Ss.value = 350;		
+		}
+		if(Tank_H >= 2900 & Tank_H < 3100){
+		
+			new_open.document.myform.H1_L.value = 200;
+			new_open.document.myform.H1_S.value = 200;
+			new_open.document.myform.H1_Ls.value = 200;
+			new_open.document.myform.H1_Ss.value = 200;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 400;
+			new_open.document.myform.B0_S.value = 400;
+			new_open.document.myform.B0_Ls.value = 400;
+			new_open.document.myform.B0_Ss.value = 400;		
+		}
+		if(Tank_H >= 3100 & Tank_H < 3300){
+		
+			new_open.document.myform.H1_L.value = 200;
+			new_open.document.myform.H1_S.value = 200;
+			new_open.document.myform.H1_Ls.value = 200;
+			new_open.document.myform.H1_Ss.value = 200;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 450;
+			new_open.document.myform.B0_S.value = 450;
+			new_open.document.myform.B0_Ls.value = 450;
+			new_open.document.myform.B0_Ss.value = 450;		
+		}
+		if(Tank_H >= 3300 & Tank_H < 3500){
+		
+			new_open.document.myform.H1_L.value = 200;
+			new_open.document.myform.H1_S.value = 200;
+			new_open.document.myform.H1_Ls.value = 200;
+			new_open.document.myform.H1_Ss.value = 200;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 500;
+			new_open.document.myform.B0_S.value = 500;
+			new_open.document.myform.B0_Ls.value = 500;
+			new_open.document.myform.B0_Ss.value = 500;		
+		}		
+		if(Tank_H >= 3500 ){
+		
+			new_open.document.myform.H1_L.value = 210;
+			new_open.document.myform.H1_S.value = 210;
+			new_open.document.myform.H1_Ls.value = 210;
+			new_open.document.myform.H1_Ss.value = 210;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 600;
+			new_open.document.myform.B0_S.value = 600;
+			new_open.document.myform.B0_Ls.value = 600;
+			new_open.document.myform.B0_Ss.value = 600;		
+		}
+	}
+	/*--------------2L 4500~5000----------------*/
+	if (new_open.document.myform.Tank_2L.value >= 4500 & new_open.document.myform.Tank_2L.value < 5000){
+		if(Tank_H >= 2400 & Tank_H < 2600){
+		
+			new_open.document.myform.H1_L.value = 190;
+			new_open.document.myform.H1_S.value = 190;
+			new_open.document.myform.H1_Ls.value = 190;
+			new_open.document.myform.H1_Ss.value = 190;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 300;
+			new_open.document.myform.B0_S.value = 300;
+			new_open.document.myform.B0_Ls.value = 300;
+			new_open.document.myform.B0_Ss.value = 300;		
+		}
+		if(Tank_H >= 2600 & Tank_H < 2700){
+		
+			new_open.document.myform.H1_L.value = 190;
+			new_open.document.myform.H1_S.value = 190;
+			new_open.document.myform.H1_Ls.value = 190;
+			new_open.document.myform.H1_Ss.value = 190;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 350;
+			new_open.document.myform.B0_S.value = 350;
+			new_open.document.myform.B0_Ls.value = 350;
+			new_open.document.myform.B0_Ss.value = 350;		
+		}
+		if(Tank_H >= 2700 & Tank_H < 2900){
+		
+			new_open.document.myform.H1_L.value = 200;
+			new_open.document.myform.H1_S.value = 200;
+			new_open.document.myform.H1_Ls.value = 200;
+			new_open.document.myform.H1_Ss.value = 200;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 350;
+			new_open.document.myform.B0_S.value = 350;
+			new_open.document.myform.B0_Ls.value = 350;
+			new_open.document.myform.B0_Ss.value = 350;		
+		}
+		if(Tank_H >= 2900 & Tank_H < 3000){
+		
+			new_open.document.myform.H1_L.value = 200;
+			new_open.document.myform.H1_S.value = 200;
+			new_open.document.myform.H1_Ls.value = 200;
+			new_open.document.myform.H1_Ss.value = 200;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 400;
+			new_open.document.myform.B0_S.value = 400;
+			new_open.document.myform.B0_Ls.value = 400;
+			new_open.document.myform.B0_Ss.value = 400;		
+		}
+		if(Tank_H >= 3000 & Tank_H < 3100){
+		
+			new_open.document.myform.H1_L.value = 190;
+			new_open.document.myform.H1_S.value = 190;
+			new_open.document.myform.H1_Ls.value = 190;
+			new_open.document.myform.H1_Ss.value = 190;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 400;
+			new_open.document.myform.B0_S.value = 400;
+			new_open.document.myform.B0_Ls.value = 400;
+			new_open.document.myform.B0_Ss.value = 400;		
+		}
+		if(Tank_H >= 3100 & Tank_H < 3300){
+		
+			new_open.document.myform.H1_L.value = 190;
+			new_open.document.myform.H1_S.value = 190;
+			new_open.document.myform.H1_Ls.value = 190;
+			new_open.document.myform.H1_Ss.value = 190;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 450;
+			new_open.document.myform.B0_S.value = 450;
+			new_open.document.myform.B0_Ls.value = 450;
+			new_open.document.myform.B0_Ss.value = 450;		
+		}
+		if(Tank_H >= 3300 & Tank_H < 3400){
+		
+			new_open.document.myform.H1_L.value = 190;
+			new_open.document.myform.H1_S.value = 190;
+			new_open.document.myform.H1_Ls.value = 190;
+			new_open.document.myform.H1_Ss.value = 190;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 500;
+			new_open.document.myform.B0_S.value = 500;
+			new_open.document.myform.B0_Ls.value = 500;
+			new_open.document.myform.B0_Ss.value = 500;		
+		}			
+		if(Tank_H >= 3400 & Tank_H < 3500 ){
+		
+			new_open.document.myform.H1_L.value = 200;
+			new_open.document.myform.H1_S.value = 200;
+			new_open.document.myform.H1_Ls.value = 200;
+			new_open.document.myform.H1_Ss.value = 200;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 500;
+			new_open.document.myform.B0_S.value = 500;
+			new_open.document.myform.B0_Ls.value = 500;
+			new_open.document.myform.B0_Ss.value = 500;		
+		}
+		if(Tank_H >= 3500 ){
+		
+			new_open.document.myform.H1_L.value = 200;
+			new_open.document.myform.H1_S.value = 200;
+			new_open.document.myform.H1_Ls.value = 200;
+			new_open.document.myform.H1_Ss.value = 200;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 600;
+			new_open.document.myform.B0_S.value = 600;
+			new_open.document.myform.B0_Ls.value = 600;
+			new_open.document.myform.B0_Ss.value = 600;		
+		}
+	}
+	/*--------------2L 5000~5500----------------*/
+	if (new_open.document.myform.Tank_2L.value >= 5000 & new_open.document.myform.Tank_2L.value < 5500){
+		if(Tank_H >= 2400 & Tank_H < 2600){
+		
+			new_open.document.myform.H1_L.value = 210;
+			new_open.document.myform.H1_S.value = 210;
+			new_open.document.myform.H1_Ls.value = 210;
+			new_open.document.myform.H1_Ss.value = 210;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 300;
+			new_open.document.myform.B0_S.value = 300;
+			new_open.document.myform.B0_Ls.value = 300;
+			new_open.document.myform.B0_Ss.value = 300;		
+		}
+		if(Tank_H >= 2600 & Tank_H < 2900){
+		
+			new_open.document.myform.H1_L.value = 220;
+			new_open.document.myform.H1_S.value = 220;
+			new_open.document.myform.H1_Ls.value = 220;
+			new_open.document.myform.H1_Ss.value = 220;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 350;
+			new_open.document.myform.B0_S.value = 350;
+			new_open.document.myform.B0_Ls.value = 350;
+			new_open.document.myform.B0_Ss.value = 350;		
+		}
+		if(Tank_H >= 2900 & Tank_H < 3100){
+		
+			new_open.document.myform.H1_L.value = 220;
+			new_open.document.myform.H1_S.value = 220;
+			new_open.document.myform.H1_Ls.value = 220;
+			new_open.document.myform.H1_Ss.value = 220;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 400;
+			new_open.document.myform.B0_S.value = 400;
+			new_open.document.myform.B0_Ls.value = 400;
+			new_open.document.myform.B0_Ss.value = 400;		
+		}
+		if(Tank_H >= 3100 & Tank_H < 3300){
+		
+			new_open.document.myform.H1_L.value = 220;
+			new_open.document.myform.H1_S.value = 220;
+			new_open.document.myform.H1_Ls.value = 220;
+			new_open.document.myform.H1_Ss.value = 220;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 450;
+			new_open.document.myform.B0_S.value = 450;
+			new_open.document.myform.B0_Ls.value = 450;
+			new_open.document.myform.B0_Ss.value = 450;		
+		}
+		if(Tank_H >= 3300 & Tank_H < 3500){
+		
+			new_open.document.myform.H1_L.value = 220;
+			new_open.document.myform.H1_S.value = 220;
+			new_open.document.myform.H1_Ls.value = 220;
+			new_open.document.myform.H1_Ss.value = 220;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 500;
+			new_open.document.myform.B0_S.value = 500;
+			new_open.document.myform.B0_Ls.value = 500;
+			new_open.document.myform.B0_Ss.value = 500;		
+		}
+		if(Tank_H >= 3500){
+		
+			new_open.document.myform.H1_L.value = 220;
+			new_open.document.myform.H1_S.value = 220;
+			new_open.document.myform.H1_Ls.value = 220;
+			new_open.document.myform.H1_Ss.value = 220;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 600;
+			new_open.document.myform.B0_S.value = 600;
+			new_open.document.myform.B0_Ls.value = 600;
+			new_open.document.myform.B0_Ss.value = 600;		
+		}
+	}
+	/*--------------2L 5500~6000----------------*/
+	if (new_open.document.myform.Tank_2L.value >= 5500 & new_open.document.myform.Tank_2L.value < 6000){
+		if(Tank_H >= 2400 & Tank_H < 2600){
+		
+			new_open.document.myform.H1_L.value = 220;
+			new_open.document.myform.H1_S.value = 220;
+			new_open.document.myform.H1_Ls.value = 220;
+			new_open.document.myform.H1_Ss.value = 220;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 300;
+			new_open.document.myform.B0_S.value = 300;
+			new_open.document.myform.B0_Ls.value = 300;
+			new_open.document.myform.B0_Ss.value = 300;		
+		}
+		if(Tank_H >= 2600 & Tank_H < 2900){
+		
+			new_open.document.myform.H1_L.value = 220;
+			new_open.document.myform.H1_S.value = 220;
+			new_open.document.myform.H1_Ls.value = 220;
+			new_open.document.myform.H1_Ss.value = 220;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 350;
+			new_open.document.myform.B0_S.value = 350;
+			new_open.document.myform.B0_Ls.value = 350;
+			new_open.document.myform.B0_Ss.value = 350;		
+		}
+		if(Tank_H >= 2900 & Tank_H < 3100){
+		
+			new_open.document.myform.H1_L.value = 220;
+			new_open.document.myform.H1_S.value = 220;
+			new_open.document.myform.H1_Ls.value = 220;
+			new_open.document.myform.H1_Ss.value = 220;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 400;
+			new_open.document.myform.B0_S.value = 400;
+			new_open.document.myform.B0_Ls.value = 400;
+			new_open.document.myform.B0_Ss.value = 400;		
+		}
+		if(Tank_H >= 3100 & Tank_H < 3300){
+		
+			new_open.document.myform.H1_L.value = 220;
+			new_open.document.myform.H1_S.value = 220;
+			new_open.document.myform.H1_Ls.value = 220;
+			new_open.document.myform.H1_Ss.value = 220;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 450;
+			new_open.document.myform.B0_S.value = 450;
+			new_open.document.myform.B0_Ls.value = 450;
+			new_open.document.myform.B0_Ss.value = 450;		
+		}
+		if(Tank_H >= 3300 & Tank_H < 3400){
+		
+			new_open.document.myform.H1_L.value = 220;
+			new_open.document.myform.H1_S.value = 220;
+			new_open.document.myform.H1_Ls.value = 220;
+			new_open.document.myform.H1_Ss.value = 220;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 500;
+			new_open.document.myform.B0_S.value = 500;
+			new_open.document.myform.B0_Ls.value = 500;
+			new_open.document.myform.B0_Ss.value = 500;		
+		}
+		if(Tank_H >= 3400 & Tank_H < 3500){
+		
+			new_open.document.myform.H1_L.value = 230;
+			new_open.document.myform.H1_S.value = 230;
+			new_open.document.myform.H1_Ls.value = 230;
+			new_open.document.myform.H1_Ss.value = 230;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 500;
+			new_open.document.myform.B0_S.value = 500;
+			new_open.document.myform.B0_Ls.value = 500;
+			new_open.document.myform.B0_Ss.value = 500;		
+		}
+		if(Tank_H >= 3500){
+		
+			new_open.document.myform.H1_L.value = 230;
+			new_open.document.myform.H1_S.value = 230;
+			new_open.document.myform.H1_Ls.value = 230;
+			new_open.document.myform.H1_Ss.value = 230;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 600;
+			new_open.document.myform.B0_S.value = 600;
+			new_open.document.myform.B0_Ls.value = 600;
+			new_open.document.myform.B0_Ss.value = 600;		
+		}
+	}
+	/*--------------2L 6000~----------------*/
+	if (new_open.document.myform.Tank_2L.value >= 6000){
+		if(Tank_H >= 2400 & Tank_H < 2600){
+		
+			new_open.document.myform.H1_L.value = 250;
+			new_open.document.myform.H1_S.value = 250;
+			new_open.document.myform.H1_Ls.value = 250;
+			new_open.document.myform.H1_Ss.value = 250;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 300;
+			new_open.document.myform.B0_S.value = 300;
+			new_open.document.myform.B0_Ls.value = 300;
+			new_open.document.myform.B0_Ss.value = 300;		
+		}
+		if(Tank_H >= 2600 & Tank_H < 2900){
+		
+			new_open.document.myform.H1_L.value = 250;
+			new_open.document.myform.H1_S.value = 250;
+			new_open.document.myform.H1_Ls.value = 250;
+			new_open.document.myform.H1_Ss.value = 250;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 350;
+			new_open.document.myform.B0_S.value = 350;
+			new_open.document.myform.B0_Ls.value = 350;
+			new_open.document.myform.B0_Ss.value = 350;		
+		}
+		if(Tank_H >= 2900 & Tank_H < 3100){
+		
+			new_open.document.myform.H1_L.value = 250;
+			new_open.document.myform.H1_S.value = 250;
+			new_open.document.myform.H1_Ls.value = 250;
+			new_open.document.myform.H1_Ss.value = 250;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 400;
+			new_open.document.myform.B0_S.value = 400;
+			new_open.document.myform.B0_Ls.value = 400;
+			new_open.document.myform.B0_Ss.value = 400;		
+		}
+		if(Tank_H >= 3100 & Tank_H < 3300){
+		
+			new_open.document.myform.H1_L.value = 250;
+			new_open.document.myform.H1_S.value = 250;
+			new_open.document.myform.H1_Ls.value = 250;
+			new_open.document.myform.H1_Ss.value = 250;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 450;
+			new_open.document.myform.B0_S.value = 450;
+			new_open.document.myform.B0_Ls.value = 450;
+			new_open.document.myform.B0_Ss.value = 450;		
+		}
+		if(Tank_H >= 3300 & Tank_H < 3400){
+		
+			new_open.document.myform.H1_L.value = 250;
+			new_open.document.myform.H1_S.value = 250;
+			new_open.document.myform.H1_Ls.value = 250;
+			new_open.document.myform.H1_Ss.value = 250;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 500;
+			new_open.document.myform.B0_S.value = 500;
+			new_open.document.myform.B0_Ls.value = 500;
+			new_open.document.myform.B0_Ss.value = 500;		
+		}
+		if(Tank_H >= 3400 & Tank_H < 3500){
+		
+			new_open.document.myform.H1_L.value = 260;
+			new_open.document.myform.H1_S.value = 260;
+			new_open.document.myform.H1_Ls.value = 260;
+			new_open.document.myform.H1_Ss.value = 260;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 500;
+			new_open.document.myform.B0_S.value = 500;
+			new_open.document.myform.B0_Ls.value = 500;
+			new_open.document.myform.B0_Ss.value = 500;		
+		}
+		if(Tank_H >= 3500){
+		
+			new_open.document.myform.H1_L.value = 260;
+			new_open.document.myform.H1_S.value = 260;
+			new_open.document.myform.H1_Ls.value = 260;
+			new_open.document.myform.H1_Ss.value = 260;
+			/*---------匯入補強寬B0-------*/
+			new_open.document.myform.B0_L.value = 600;
+			new_open.document.myform.B0_S.value = 600;
+			new_open.document.myform.B0_Ls.value = 600;
+			new_open.document.myform.B0_Ss.value = 600;		
+		}
+	}
+	/*---------匯入補強厚T1-------*/
+	if (new_open.document.myform.Tank_2L.value >= 3000 & new_open.document.myform.Tank_2L.value < 4500){
+		new_open.document.myform.T1_L.value= 9;
+		new_open.document.myform.T1_S.value= 9;
+		new_open.document.myform.T1_Ls.value= 9;
+		new_open.document.myform.T1_Ss.value= 9;
+	}
+	if (new_open.document.myform.Tank_2L.value >= 4500 & new_open.document.myform.Tank_2L.value < 5500){
+		new_open.document.myform.T1_L.value= 12;
+		new_open.document.myform.T1_S.value= 12;
+		new_open.document.myform.T1_Ls.value= 12;
+		new_open.document.myform.T1_Ss.value= 12;
+	}
+	if (new_open.document.myform.Tank_2L.value >= 5500 & new_open.document.myform.Tank_2L.value < 6000){
+		new_open.document.myform.T1_L.value= 16;
+		new_open.document.myform.T1_S.value= 16;
+		new_open.document.myform.T1_Ls.value= 16;
+		new_open.document.myform.T1_Ss.value= 16;
+	}                                     
+}
+
+$(document).ready(function(){
+	
+    $("#pic1").on("click",function(){
+		tooltip.pop(this, '#tip15',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic2").on("click",function(){
+		tooltip.pop(this, '#tip0',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic3").on("click",function(){
+		tooltip.pop(this, '#tip14',{hideDelay:100,calloutPosition: 0.5});
+		});
+
+});
+
+
+/*DETC按鈕選項改變*/
+function Tap_changer_select(){
+
+	if (document.getElementById("OLTC").checked){
+		document.getElementById("DETC_MR").style.display = "none";
+		document.getElementById("DETC_connect").style.display = "none";
+		document.getElementById("Tap_changer_number").style.display = "block";
+		document.getElementById("LV_RMVII").style.display = "block";
+	}
+	
+	if (document.getElementById("DETC").checked){
+		document.getElementById("DETC_MR").style.display = "block";
+		document.getElementById("DETC_connect").style.display = "block";
+		document.getElementById("Tap_changer_number").style.display = "none";
+		document.getElementById("LV_RMVII").style.display = "none";
+		
+	}
+}
+
+function DETC_type_select(){
+
+	if(document.getElementById("DETC_type").checked){
+		document.getElementById("DETC_connect").style.display = "none";
+	}
+	else{
+		document.getElementById("DETC_connect").style.display = "block";
+	}		
+	
+}
+
+function FE_core_tank_distance(){
+
+/*                           │ BIL│      A     │   B   │    C   │    D   │ E│   F  │Phases│  Rev9 2016-11*/
+/*                           │    │OLTC│D接│Y接│ C │ L │ OL │ DE│STR │ N │  │OL │DE│      │              */
+var FE_core_tank_standard = [
+							[  60, 900,150,150, 40, 40, 900,150, 900, 80,35,150,350, 30],
+							[  75, 900,150,150, 40, 40, 900,150, 900, 80,35,150,350, 30],
+							[  95, 900,150,150, 40, 40, 900,150, 900, 80,35,150,350, 30],
+							[ 110, 900,150,150, 40, 40, 900,150, 900, 80,35,150,350, 30],
+							[ 125, 900,150,150, 40, 40, 900,150, 900, 80,35,150,350, 30],
+							[ 150, 900,150,150, 40, 40, 900,150, 900, 80,35,150,350, 30],
+							[ 200, 900,150,150, 40, 40, 900,150, 900, 80,35,150,350, 30],
+							[ 250, 950,200,200, 60, 70, 950,200, 950,100,40,150,400, 34],							 
+							[ 300, 950,200,200, 60, 70, 950,200, 950,100,40,150,400, 34],							 
+							[ 350, 950,200,200, 60, 70, 950,200, 950,100,40,150,400, 34],
+							[ 450, 900,330,200,100,100, 900,200, 900,120,50,200,200, 50],
+							[ 550, 900,360,250,120,120, 900,250, 900,140,50,200,200, 60],
+							[ 650,1000,390,300,140,140,1000,300,1000,170,50,200,200, 65],
+							[ 750,1100,430,400,160,160,1100,400,1100,200,50,200,200, 75],
+							[ 850,1200,500,500,180,180,1200,500,1200,250,50,200,200, 92],							 
+							[ 900,1200,500,500,180,180,1200,500,1200,250,50,200,200, 92],
+						    [ 950,1300,600,600,200,200,1300,600,1300,300,60,200,200,120],
+						    [ 975,1300,600,600,200,200,1300,600,1300,300,60,200,200,120],							 
+						    [1050,1300,600,600,200,200,1300,600,1300,300,60,200,200,120]
+							];
+
+function Core_tank_distance(BIL,A_OLTC,A_DETC_D,A_DETC_Y,B_C,B_L,C_OLTC,C_DETC,D_STR,D_NOSTR,E,F_OLTC,F_DETC,PHASES){
+	this.BIL = BIL;
+	this.A_OLTC = A_OLTC;
+	this.A_DETC_D = A_DETC_D;
+	this.A_DETC_Y = A_DETC_Y;
+	this.B_C = B_C;
+	this.B_L = B_L;
+	this.C_OLTC = C_OLTC;
+	this.C_DETC = C_DETC;
+	this.D_STR = D_STR;
+	this.D_NOSTR = D_NOSTR;
+	this.E = E;
+	this.F_OLTC = F_OLTC;
+	this.F_DETC = F_DETC; 
+	this.PHASES = PHASES;
+}
+var test =[];
+test[0] = new Core_tank_distance(60, 900,150,150, 40, 40, 900,150, 900, 80,35,150,350, 30);
+test[1] = new Core_tank_distance(1050,1300,600,600,200,200,1300,600,1300,300,60,200,200,120);
+
+//alert(test[1].BIL);
+
+
+							
+var A,B,C,D,E,F,Phases;
+/*BIL等級*/
+var FE_BIL = document.tankForm.FE_BIL.selectedIndex 
+/*切換器種類*/ 
+var OLTC = document.getElementById("OLTC").checked;
+var DETC = document.getElementById("DETC").checked;
+/*切換器數量*/
+var Tap_changer_number = document.getElementById("Tap_changer_number").value;
+/*是否串變*/
+var Reactor = document.getElementById("Reactor").checked;
+/*LV側是否使用RMVII*/
+var RMVII = document.getElementById("RMVII").checked;
+/*DETC是否使用MR等無載切換器*/
+var DETC_type = document.getElementById("DETC_type").checked;
+/*DETC接線方式*/
+var D_connect = document.getElementById("D_connect").checked;
+var Y_connect = document.getElementById("Y_connect").checked;
+
+var Core_D = document.getElementById("Core_D").value;
+var Core_H = document.getElementById("Core_H").value;
+
+
+///*75、95、110、125、150、200、250、300、350kV*/
+//if (FE_BIL <= 9){
+//	distance_calculate(FE_BIL);
+//}
+///*450kV*/
+//if (FE_BIL == 10){
+//	distance_calculate(FE_BIL);
+//}
+///*550kV*/
+//if (FE_BIL == 11){
+//	distance_calculate(FE_BIL);
+//}
+///*650kV*/
+//if (FE_BIL == 12){
+//	distance_calculate(FE_BIL);
+//}
+///*750kV*/
+//if (FE_BIL == 13){
+//	distance_calculate(FE_BIL);
+//}
+///*825kV*/
+//if (FE_BIL == 14){
+//	distance_calculate(FE_BIL);
+//}
+///*850kV*/
+//if (FE_BIL == 15){
+//	distance_calculate(FE_BIL);
+//}
+///*900kV*/
+//if (FE_BIL == 16){
+//	distance_calculate(FE_BIL);
+//}
+///*950kV*/
+//if (FE_BIL == 17){
+//	distance_calculate(FE_BIL);
+//}
+///*975kV*/
+//if (FE_BIL == 18){
+//	distance_calculate(FE_BIL);
+//}
+///*1050kV*/
+//if (FE_BIL == 19){
+//	distance_calculate(FE_BIL);
+//}
+//alert(FE_BIL);
+distance_calculate(FE_BIL);
+
+function distance_calculate(FE_BIL){
+
+var flag = 0;
+
+	if(OLTC == true){
+		if(Tap_changer_number < 4){
+			A = FE_core_tank_standard[FE_BIL][4] + FE_core_tank_standard[FE_BIL][5];
+			if(RMVII == true){
+				if ((FE_core_tank_standard[FE_BIL][4] + FE_core_tank_standard[FE_BIL][5]) > 350){
+					B = FE_core_tank_standard[FE_BIL][4] + FE_core_tank_standard[FE_BIL][5];
+				}
+				else{
+					B = 360;
+				}
+			}
+			else{
+				B = FE_core_tank_standard[FE_BIL][4] + FE_core_tank_standard[FE_BIL][5];
+			}
+			C = FE_core_tank_standard[FE_BIL][6];
+			if(Reactor == true){
+				D = FE_core_tank_standard[FE_BIL][8];
+			}
+			else{
+				D = FE_core_tank_standard[FE_BIL][9];
+			}
+			E = FE_core_tank_standard[FE_BIL][10];
+			F = FE_core_tank_standard[FE_BIL][11];
+			Phases = FE_core_tank_standard[FE_BIL][13];
+		}
+		else{
+			A = FE_core_tank_standard[FE_BIL][1];
+			if(RMVII == true){
+				if ((FE_core_tank_standard[FE_BIL][4] + FE_core_tank_standard[FE_BIL][5]) > 350){
+					B = FE_core_tank_standard[FE_BIL][4] + FE_core_tank_standard[FE_BIL][5];
+				}
+				else{
+					B = 360;
+				}
+			}
+			else{
+				B = FE_core_tank_standard[FE_BIL][4] + FE_core_tank_standard[FE_BIL][5];
+			}
+			C = FE_core_tank_standard[FE_BIL][6];
+			if(Reactor == true){
+				D = FE_core_tank_standard[FE_BIL][8];
+			}
+			else{
+				D = FE_core_tank_standard[FE_BIL][9];
+			}
+			E = FE_core_tank_standard[FE_BIL][10];
+			F = FE_core_tank_standard[FE_BIL][11];		
+			Phases = FE_core_tank_standard[FE_BIL][13];
+		
+		}
+		//alert("A = "+A+"\n"+"B = "+B+"\n"+"C = "+C+"\n"+"D = "+D+"\n"+"E = "+E+"\n"+"F = "+F+"\n"+"Phases = "+Phases+"\n");
+		document.getElementById("A").value = A;
+		document.getElementById("B").value = B;
+		document.getElementById("C").value = C;
+		document.getElementById("D").value = D;
+		document.getElementById("E").value = E;
+		document.getElementById("F").value = F;
+		document.getElementById("P").value = Phases;
+		document.getElementById("Core_Diameter").value = Core_D;
+		document.getElementById("Core_Height").value = Core_H;
+		
+	}
+	if(DETC == true){
+		if(DETC_type == true){
+			A = FE_core_tank_standard[FE_BIL][1];
+			B = FE_core_tank_standard[FE_BIL][4] + FE_core_tank_standard[FE_BIL][5];
+			C = FE_core_tank_standard[FE_BIL][9];
+			if(Reactor == true){
+				D = FE_core_tank_standard[FE_BIL][8];
+			}
+			else{
+				D = FE_core_tank_standard[FE_BIL][9];
+			}
+			E = FE_core_tank_standard[FE_BIL][10];
+			F = FE_core_tank_standard[FE_BIL][12];
+			Phases = FE_core_tank_standard[FE_BIL][13];
+			flag = 1;
+		}
+		else{
+			if(D_connect == true){
+				A = FE_core_tank_standard[FE_BIL][2];
+				flag = 1;
+			}
+			else if(Y_connect == true){
+				A = FE_core_tank_standard[FE_BIL][3];
+				flag = 1;
+			}
+			else{
+				flag = 0;
+				alert("請選擇接線方式");
+			}
+			B = FE_core_tank_standard[FE_BIL][4] + FE_core_tank_standard[FE_BIL][5];
+			C = FE_core_tank_standard[FE_BIL][9];
+			if(Reactor == true){
+				D = FE_core_tank_standard[FE_BIL][8];
+			}
+			else{
+				D = FE_core_tank_standard[FE_BIL][9];
+			}
+			E = FE_core_tank_standard[FE_BIL][10];
+			F = FE_core_tank_standard[FE_BIL][12];
+			Phases = FE_core_tank_standard[FE_BIL][13];
+		}
+		//alert("A = "+A+"\n"+"B = "+B+"\n"+"C = "+C+"\n"+"D = "+D+"\n"+"E = "+E+"\n"+"F = "+F+"\n"+"Phases = "+Phases+"\n");
+		if(flag ==1){
+			document.getElementById("A").value = A;
+			document.getElementById("B").value = B;
+			document.getElementById("C").value = C;
+			document.getElementById("D").value = D;
+			document.getElementById("E").value = E;
+			document.getElementById("F").value = F;
+			document.getElementById("P").value = Phases;
+			document.getElementById("Core_Diameter").value = Core_D;
+			document.getElementById("Core_Height").value = Core_H;	
+			flag = 0;
+		}
+		
+	}	
+
+
+}
+
+
+
+
+}							 
+
+
+</script>
+
+<body >
+<div class="topbar">
+			<ul class="topbar">
+			<li ><a href="index.html" target="right"><img src="../img/web.png" width="30px"></a></li>
+			<li ><a href="../WebLink使用手冊.pdf" target="right"><strong>WebLink使用說明</strong></a></li>
+			<li style="float:right"><a href="mailto:jack.you@fortune.com.tw"><strong>問題回饋</strong></a></li>
+			<li style="float:right"><a href="http://www.fortune.com.tw/" target="right"><strong>關於我們</strong></a></li>
+			</ul>
+</div>
+<!-- Trigger/Open The Modal -->
+<!-- FY按鈕 -->
+<!--1.<button> 標籤在表格內無法使用modal改成<input type>或其他圖片方式即可，原因不明2.Chrome無法以jQuery讀取不同protocol檔案-->
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+<!-- Modal content -->
+	<div class="modal-content">
+		<div class="modal-header">
+			<span class="close" onclick="modal_close()">×</span>
+			<h2>歷史異常</h2>
+		</div>
+		
+		<div class="modal-body" id="modal-body">
+		</div>
+		
+		<div class="modal-footer">
+		<span class="close-btn" onclick="modal_close()">close</span>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="button-group">
+<li><div class="button" onclick="TRParametersSave();" style="cursor:pointer;"><a><img src="../img/wrench.png"  align="left" style="height:30px;"/><strong>寫入參數</strong></a></div></li>
+<li><div class="button" onclick="rege();" style="cursor:pointer;"><a><img src="../img/circle.png"  align="left" style="height:30px;"/><strong>切換至模型</strong></a></div></li>
+<li><div class="button" id="closetip"><a href="#." ><img src="../img/delete.png"  align="left" style="height:30px;"/><strong >關閉提示</strong></a></div></li>
+<li><div class="button" id="opentip"><a href="#." ><img src="../img/arrows.png"  align="left" style="height:30px;"/><strong >開啟提示</strong></a></div></li>
+<li><div class="button" onclick="openwin()" style="cursor:pointer;"><a><img src="../img/technology.png"  align="left" style="height:30px;"/><strong >補強計算</strong></a></div></li>
+<li><div class="button" onclick="draw2();" style="cursor:pointer;"><a><img src="../img/location.png"  align="left" style="height:30px;"/><strong >外殼出圖</strong></a></div></li>
+</div>
+
+
+	<form name="tankForm" id="tankFormID" class="myform">
+           	<table width="900" border="0" cellspacing="0" cellpadding="0">
+                       <tr><td>
+			
+
+				
+				
+	
+			
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+                <tr>
+				<td colspan="2" align="right" valign="middle" style="font-size:40px"><p><i> <marquee> <font face="monospace font" color="gray">變壓器外殼設計</font></marquee></i></p></td>
+				</tr>
+				</table>
+			
+				
+						
+				<div style="display:none;">
+						<div id="tip0">
+							<img src="../pic/BRACET.png" style="float:right;width:800px;height:600px;" alt="" />
+							<h1 align="center"><font face="monospace font">橫補強示意圖</font></h1>
+						</div>
+						<div id="tip1">
+						<h1>法蘭種類:</h1>
+						<h1>1: 無銅遮蔽</h1>
+						<h1>2: 有銅遮蔽</h1>
+						</div>
+						<div id="tip2">
+							<h1>位置:</h1>
+							<h1>1: 左</h1>
+							<h1>2: 右</h1>
+						</div>				
+						<div id="tip3">
+							<h1>底板厚度:</h1>
+							<h1>1: 9T</h1>
+							<h1>2: 12T</h1>
+							<h1>3: 16T</h1>
+							<h1>4: 19T</h1>
+							<h1>5: 22T</h1>
+						</div>
+						<div id="tip4">
+							<h1>側板厚度:</h1>
+							<h1>1: 9T</h1>
+							<h1>2: 12T</h1>
+							<h1>3: 16T</h1>
+							<h1>4: 19T</h1>
+							<h1>5: 22T</h1>
+						</div>		
+						<div id="tip5">
+							<h1>依橫補強配置標準作連動</h1>
+						</div>	
+						<div id="tip6">
+							<h1>補強厚度:</h1>
+							<h1>1: 9mm</h1>
+							<h1>2: 12mm</h1>
+							<h1>3: 16mm</h1>
+						</div>	
+						<div id="tip7">
+							<h1>L決定底座垂直補強數量與間距，詳如電力變壓器底座設計標準</h1>
+						</div>
+						<div id="tip8">
+							<h1>L決定底座水平間距，詳如電力變壓器底座設計標準</h1>
+						</div>
+						<div id="tip9">
+							<h1>切換器型式: </h1>
+							<h1>0. 關 </h1>
+							<h1>1. 21T2A3320</h1>
+							<h1>2. 待標準圖新增</h1>
+						</div>
+						<div id="tip10">
+							<h1>位置:</h1>
+							<h1>1: 左外殼側板</h1>
+							<h1>2: 右外殼側板</h1>
+						</div>
+						<div id="tip11">
+							<h1>中心點至底座上緣距離</h1>
+						</div>
+						<div id="tip12">
+							<h1>1: 59MVA以下, 2: 60MVA以上</h1>
+						</div>
+						<div id="tip13">
+							<h1>1: 100~150噸, 2: 150~200噸</h1>
+						</div>
+						<div id="tip14">
+							<img src="../pic/SF.png" style="float:right;width:648px;height:647px;" alt="" />
+							<h1 align="center"><font face="monospace font">切換器示意圖</font></h1>
+						</div>
+						<div id="tip15">
+							<img src="../pic/TANKALL.png" style="float:right;width:899px;height:661px;" alt="" />
+							<h1 align="center"><font face="monospace font">變壓器示意圖</font></h1>
+						</div>
+				</div>	
+				
+				
+
+	
+	
+
+	
+	<UL type=disc>
+
+
+	
+	
+	<!--上蓋-->
+	<LI><A name="外殼"><B><I><font face="monospace font"  size="5.5" color="blue">外殼外型</font></B></I></A>
+
+	
+		<p><table width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr style="background-color:#00FFFF;">			                                             
+					<th style="width: 30%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>	
+					<th  style="width: 55%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th  style="width: 15%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+			
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">TR中心偏移</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>  偏移方向X<input type="text" name="TR_CENTER_XP" id="TR_CENTER_XP" value="" size="5.5"/></p>
+					<p>  偏移距離X<input type="text" name="TR_CENTER_X" id="TR_CENTER_X" value="" size="5.5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<div class="myBtn" id="myBtn66" style="cursor:pointer;"><strong >TR中心異常異常</strong></div>
+					</td>					
+				</tr>
+				
+				
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">底板</font>
+					<br>
+					<!--<img src="../pic/q1.png" align="center" width="75" height="75" value="說明一"  onmouseover="tooltip.pop(this, '#tip15',{hideDelay:100,calloutPosition: 0.5, maxWidth: 500})">-->
+					<img src="../pic/q1.png" align="center" width="75" height="75" id="pic1" style="cursor:help">
+					</td>
+
+					<td style="background-color:#FFFACD;"  align="left"> <font face="monospace font"  size="5.5">
+					<p>  底板厚度<input type="text" name="TANK_BASE_T" id="TANK_BASE_T" value="" size="5"/></p>
+					<p>  底板長度L<input type="text" name="TBL" id="TBL" value="" size="5"/></p>
+					<p>  底板厚度W<input type="text" name="TANK_BASE_W" id="TANK_BASE_W" value="" size="5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<div class="myBtn" id="myBtn65" style="cursor:pointer;"><strong>底板異常</strong></div>
+					</td>					
+				</tr>
+				
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">外殼側板</font>
+					</td>
+
+					<td style="background-color:#FFFACD;" align="left"> <font face="monospace font"  size="5.5">
+					<p>  側板厚度<input type="text" name="TANK_WALL_T" id="TANK_WALL_T" value="" size="5"/></p>
+					<p>  外殼側板實外長度<input type="text" name="TANK_WALL_2L" id="TANK_WALL_2L" value="" size="5"/></p>
+					<p>  外殼側板實外寬度<input type="text" name="TANK_WALL_2W" id="TANK_WALL_2W" value="" size="5"/></p>
+					<p>  外殼側板實外高度<input type="text" name="TANK_WALL_H" id="TANK_WALL_H" value="" size="5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<div class="myBtn" id="myBtn24" style="cursor:pointer;"><strong>側板異常</strong></div>
+					</td>					
+				</tr>
+
+				
+			</tbody>			
+		</table></p>
+		
+		<p><table width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr style="background-color:#000000;">			                                             
+					<th style="width: 30%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>	
+					<th  style="width: 70%; background-color:#E6E6FA;" colspan="2"><font face="monospace font"  size="5.5">參數設計項目</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+			
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">線圈與外殼距離計算程式</font>
+					<input type="button" class="btn" value="計算" onclick="FE_core_tank_distance()" style="height:40px;width:60px;font-size: 20px;">
+					</td>
+
+					<td style="background-color:#FFFACD;" align="left" colspan="2"> <font face="monospace font"  size="5.5">
+					<p>線圈外徑<input type="text" name="Core_D" id="Core_D" value="" size="5"/></p>
+					<p>線圈高度<input type="text" name="Core_H" id="Core_H" value="" size="5"/></p>
+					<p>選擇BIL等級:
+							<select  name="FE_BIL" id="FE_BIL" style="height:30px;width:100px;font-size:20px" onchange ="">
+							<option value=60     style="font-size:20px">60kV </option>
+							<option value=75     style="font-size:20px">75kV </option>
+							<option value=95     style="font-size:20px">95kV </option>
+							<option value=110    style="font-size:20px">110kV </option>
+							<option value=125    style="font-size:20px">125kV</option>
+							<option value=150    style="font-size:20px">150kV</option>
+							<option value=200    style="font-size:20px">200kV</option>
+							<option value=250    style="font-size:20px">250kV</option>
+							<option value=300    style="font-size:20px">300kV</option>
+							<option value=350    style="font-size:20px">350kV</option>
+							<option value=450    style="font-size:20px">450kV</option>
+							<option value=550    style="font-size:20px">550kV</option>
+							<option value=650    style="font-size:20px">650kV</option>
+							<option value=750    style="font-size:20px">750kV</option>
+							<option value=850    style="font-size:20px">850kV</option>
+							<option value=900    style="font-size:20px">900kV</option>
+							<option value=950    style="font-size:20px">950kV</option>
+							<option value=975    style="font-size:20px">975kV</option>	
+							<option value=1050   style="font-size:20px">1050kV</option>								
+					</select>
+					</p>
+					<p>切換器種類:<input type="radio" name="Tap_changer" id="OLTC" style="height:20px;width:20px;" onchange="Tap_changer_select()"/>OLTC<input type="radio" name="Tap_changer" id="DETC" style="height:20px;width:20px;" onchange="Tap_changer_select()"/>DETC</p>
+					<div class="Tap_changer_number" id="Tap_changer_number"><p>切換器數量:<input type="text" name="Tap_changer_number" id="Tap_changer_number" value="" size="5.5"/></p></div>
+					<p><input type="checkbox" name="Reactor" id="Reactor" style="height:20px;width:20px;"/>是否設計串變(STR)<div class="LV_RMVII" id="LV_RMVII"><input type="checkbox" name="RMVII" id="RMVII" style="height:20px;width:20px;"/>LV側是否使用RMVII OLTC</p></div>
+					<div class="DETC_MR" id="DETC_MR"><p><input type="checkbox" name="DETC_type" id="DETC_type" style="height:20px;width:20px;" onchange="DETC_type_select()"/>DETC是否使用MR、ABB或華明圓筒形無載切換器</p></div>
+					<div class="DETC_connect" id="DETC_connect"><p>DETC接線方式:<input type="radio" name="DETC_connect" id="D_connect" style="height:20px;width:20px;"/>D接<input type="radio" name="DETC_connect" id="Y_connect" style="height:20px;width:20px;"/>Y接</p></div>
+					</td>
+					
+				</tr>
+
+				
+			</tbody>			
+		</table></p>
+		
+	<p><table width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr style="background-color:#000000;">			                                             
+					<th style="width: 100%; background-color:#E6E6FA;" colspan="3"><font face="monospace font"  size="5.5">示意圖</th>	
+
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+		
+				<tr>
+					<td style="background-color:#FFFACD;"  colspan="3" >
+					<div class = "demo">
+					<!--<p><image src="../pic/COREANDTANK.png" style="float:right;width:900px;height:400px;"></p>-->
+					<div class="A" ><font face="monospace font"  size="4">A:<input type="text" name="A" id="A" value="" style="height:25px;width:55px;font-size:14pt;"/></div>
+					<div class="B" >B:<input type="text" name="B" id="B" value="" readonly style="height:25px;width:55px;font-size:14pt;" /></div>
+					<div class="C" >C:<input type="text" name="C" id="C" value="" readonly style="height:25px;width:55px;font-size:14pt;" /></div>
+					<div class="D" >D:<input type="text" name="D" id="D" value="" readonly style="height:25px;width:55px;font-size:14pt;" /></div>
+					<div class="E" >E:<input type="text" name="E" id="E" value="" readonly style="height:25px;width:55px;font-size:14pt;" /></div>
+					<div class="F" >F:<input type="text" name="F" id="F" value="" readonly style="height:25px;width:55px;font-size:14pt;" /></div>
+					<div class="P" >P:<input type="text" name="P" id="P" value="" readonly style="height:25px;width:55px;font-size:14pt;" /></div>
+					<div class="Core_D">Core_D:<input type="text" name="Core_Diameter" id="Core_Diameter" value="" readonly style="height:25px;width:55px;font-size:14pt;"/></div>
+					<div class="Core_H">Core_H:<input type="text" name="Core_Height" id="Core_Height" value="" readonly style="height:25px;width:55px;font-size:14pt;"/></div>					
+					</div>
+
+					</td>
+				</tr>
+				
+			</tbody>			
+		</table></p>			
+		
+		<p><table width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr style="background-color:#000000;">			                                             
+					<th style="width: 30%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>	
+					<th  style="width: 55%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th  style="width: 15%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+			
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">外殼法蘭</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>
+					<!--<a href="cover.PNG"   onclick="window.open(this.href, '_blank', 'scrollbars=0,resizable=0,width=1300,height=700');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					<!--<br><img src="../pic/q1.png" align="center" width="75" height="75" value="說明一"  onmouseover="tooltip.pop(this, '#tip0',{hideDelay:100,calloutPosition: 0.5, maxWidth: 500})">-->
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>  法蘭種類<input type="text" name="TANK_FLANGE_TYPE" id="TANK_FLANGE_TYPE" value="" size="5.5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					
+					</td>
+				</tr>
+
+				
+			</tbody>			
+		</table></p>
+		
+		<p><table width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr style="background-color:#000000;">			                                             
+					<th style="width: 30%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>	
+					<th  style="width: 55%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th  style="width: 15%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+			
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">橫補強</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>
+					<!--<a href="cover.PNG"   onclick="window.open(this.href, '_blank', 'scrollbars=0,resizable=0,width=1300,height=700');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					<br>
+					<!--<img src="../pic/q1.png" align="center" width="75" height="75" value="說明一"  onmouseover="tooltip.pop(this, '#tip0',{hideDelay:100,calloutPosition: 0.5, maxWidth: 500})">-->
+					<img src="../pic/q1.png" align="center" width="75" height="75" id="pic2" style="cursor:help">
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>補強厚度<input type="text" name="BRACE_T" id="BRACE_T" value="" size="5.5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<div class="myBtn" id="myBtn25" style="cursor:pointer;"><strong>橫補強異常</strong></div>
+					</td>					
+				</tr>
+
+			</tbody>			
+		</table></p>
+		
+		<p><table width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr style="background-color:#000000;">			                                             
+					<th style="width: 30%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>	
+					<th  style="width: 55%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th  style="width: 15%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+			
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">切換器法蘭</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>
+					<!--<a href="cover.PNG"   onclick="window.open(this.href, '_blank', 'scrollbars=0,resizable=0,width=1300,height=700');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					<br>
+					<!--<img src="../pic/q1.png" align="center" width="75" height="75" value="說明一"  onmouseover="tooltip.pop(this, '#tip14',{hideDelay:100,calloutPosition: 0.5, maxWidth: 500})">-->
+					<img src="../pic/q1.png" align="center" width="75" height="75" id="pic3" style="cursor:help">
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>切換器型式<input type="text" name="SF" id="SF" value="" size="5.5"/></p>
+					<p>切換器位置<input type="text" name="SFP" id="SFP" value="" size="5.5"/></p>
+					<p>中心點至底座上緣距離<input type="text" name="SF_Y" id="SF_Y" value="" size="5.5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<div class="myBtn" id="myBtn26" style="cursor:pointer;"><strong>切換器法蘭異常</strong></div>
+					</td>					
+				</tr>
+
+			</tbody>			
+		</table></p>		
+
+		<p><table width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr style="background-color:#000000;">			                                             
+					<th style="width: 30%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>	
+					<th  style="width: 55%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th  style="width: 15%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+			
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">長側板邊</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>
+					<!--<a href="cover.PNG"   onclick="window.open(this.href, '_blank', 'scrollbars=0,resizable=0,width=1300,height=700');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					<!--<br><img src="../pic/q1.png" align="center" width="75" height="75" value="說明一"  onmouseover="tooltip.pop(this, '#tip0',{hideDelay:100,calloutPosition: 0.5, maxWidth: 500})">-->
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>容量<input type="text" name="CAPACITY" id="CAPACITY" value="" size="5.5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					
+					</td>					
+				</tr>
+
+			</tbody>			
+		</table></p>	
+
+		<p><table width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr style="background-color:#000000;">			                                             
+					<th style="width: 30%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>	
+					<th  style="width: 55%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th  style="width: 15%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+			
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">底座鋼材種類</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>
+					<!--<a href="cover.PNG"   onclick="window.open(this.href, '_blank', 'scrollbars=0,resizable=0,width=1300,height=700');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					<!--<br><img src="../pic/q1.png" align="center" width="75" height="75" value="說明一"  onmouseover="tooltip.pop(this, '#tip0',{hideDelay:100,calloutPosition: 0.5, maxWidth: 500})">-->
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>變壓器重量<input type="text" name="WE" id="WE" value="" size="5.5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					
+					</td>					
+				</tr>
+
+			</tbody>			
+		</table></p>		
+	</form>
+
+	<script type="text/javascript">
+	
+	//取得資料
+	TRParametersSet();
+	</script>
+</body>
+
+
+</HTML>

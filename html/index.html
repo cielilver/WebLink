@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>WebLink</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="../css/demo.css" media="all" />
+	<link href="../css/button.css" rel="stylesheet" type="text/css" />
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <!-- FlexSlider -->
+    <script type="text/javascript" src="../js/jquery.flexslider.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    var $ = jQuery.noConflict();
+    $(window).load(function() {
+    $('.flexslider').flexslider({
+          animation: "fade"
+    });
+	
+
+  });
+</script>
+<style>
+.note{
+padding:5px;
+margin-top:0px;
+background-color:#d9d9d9;
+height:300px;
+width:100%;
+position:absolute;
+top:80%;
+}
+
+
+</style>
+</head>
+<body style="overflow-x:hidden;">
+
+<div class="topbar">
+			<ul class="topbar">
+			<li ><a href="index.html" target="right"><img src="../img/web.png" width="30px"></a></li>
+			<li ><a href="../WebLink使用手冊.pdf" target="right"><strong>WebLink使用說明</strong></a></li>
+			<li style="float:right"><a href="mailto:jack.you@fortune.com.tw"><strong>問題回饋</strong></a></li>
+			<li style="float:right"><a href="http://www.fortune.com.tw/" target="right"><strong>關於我們</strong></a></li>
+			</ul>
+</div>
+<div class="container" >
+
+			<!-- freshdesignweb top bar -->
+            <!--<div class="freshdesignweb-top">
+                <a href="http://www.google.com.tw" target="_self">Home</a>
+                <span class="right">
+                    <a href="http://www.freshdesignweb.com/responsive-menu-css3-tutorial.html">Back</a>
+                </span>
+                <div class="clr"></div>
+            </div><!--/ freshdesignweb top bar -->
+			<!--<header>
+				<h1><span>Tutorials</span> Demo Fashion Responsive Slider Tutorial</h1>
+            </header>-->  
+
+
+     <div class="slider_container">
+		<div class="flexslider">
+	      <ul class="slides">
+	    	<li>
+	    		<a href="#"><img src="../images/slider/IEEE_banner.jpg" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>Fortune Electric</h2><p>A World Class Transformer Manufacturer</p></div>
+                </div>
+	    	</li>
+	    	<li>
+	    		<a href="#"><img src="../images/slider/e13.jpg" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>超低噪音變壓器</h2><p>50Hz 33/11kV 10/12.5/15 MVA 46dB </p></div>
+                </div>
+	    	</li>
+	    	<li>
+	    		<a href="#"><img src="../images/slider/e15.jpg" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>自耦變壓器</h2><p>外銷美國電力公司 450 MVA</p></div>
+                </div>
+	    	</li>
+	    	<li>
+	    		<a href="#"><img src="../images/slider/e16.jpg" alt="" title=""/></a>
+	    		<div class="flex-caption">
+                     <div class="caption_title_line"><h2>超低噪音變壓器</h2><p>50Hz 33/11kV 15/19/25MVA 46dB </p></div>
+                </div>
+	    	</li>
+	    </ul>
+	  </div>
+   </div>
+   
+   <div class="note" >
+		<ol>
+		<font size="5px">WebLink模組化使用注意事項:</font>
+		<li>請更新Creo 3.0至M070版本，並設定相關參數以啟動WebLink功能★</li>
+		<li>請使用Creo內建瀏覽器開啟，於Chrome與IE開啟網頁無法使用模組化功能★</li>
+		<li>請將模組化資料夾設為工作目錄★</li>
+		<li>除特別註明外，X方向標註基準為TR中心，Y方向依說明為準</li>
+		<li>如設計值無特別說明，預設0為關閉此特徵</li>
+		<li>因各零組件有其參照父子關係，故有些參數更改後需再生2次以上，請注意修改參數後，右下角燈號需再生至綠燈為止</li>
+		</ol>
+    </div>
+    </div>  
+
+
+</body>
+</html>

@@ -1,0 +1,496 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<script type="text/javascript" src="../jscript/pfcUtils.js"></script>	
+	<script type="text/javascript" src="../jscript/TankDesign.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	
+	
+	<link href="../jscript/tooltip.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/tooltip.js" type="text/javascript"></script>
+	<link href="../jscript/modal.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/modal.js" type="text/javascript"></script>	
+	<link href="../css/button.css" rel="stylesheet" type="text/css" />
+	<style>
+input[type=text] {
+    width: 80px;
+	height:32px; 
+	font-size:20px;
+	text-align:center; 
+}
+
+
+.myform {
+	position:absolute;
+	left:0%;
+	top:2em;
+	padding:10px;
+}
+	</style>
+	
+</head>
+<script language="JavaScript" type="text/JavaScript">
+
+var new_open;
+function openwin(){
+
+	//new_open=window.open('HtmlPage4.html','_blank','channelmode=0, directories=1, fullscreen=1, height=1080, left=0, location=1, menubar=1, resizable=1, scrollbars=1, status=0, titlebar=0, toolbar=0, top=0, width=1920','true');
+	new_open=window.open('HtmlPage4.html','_blank','height=1500, left=0,top=0, width=3000,true, scrollbars=1');
+
+}
+function sendparam(){
+	//new_open.focus();
+	
+	new_open.document.myform.Tank_2L.value=document.getElementById("COVER_L").value;	
+	new_open.document.myform.Tank_2W.value=document.getElementById("COVER_W").value;
+	
+}
+
+$(document).ready(function(){
+	
+    $("#pic1").on("click",function(){
+		tooltip.pop(this, '#tip0',{hideDelay:300,calloutPosition: 0.5});
+		});
+    $("#pic2").on("click",function(){
+		tooltip.pop(this, '#tip1',{hideDelay:300,calloutPosition: 0.5});
+		});
+    $("#pic3").on("click",function(){
+		tooltip.pop(this, '#tip4',{hideDelay:300,calloutPosition: 0.5});
+		});
+    $("#pic4").on("click",function(){
+		tooltip.pop(this, '#tip7',{hideDelay:300,calloutPosition: 0.5});
+		});
+	
+});
+
+
+
+
+</script>
+
+<body>
+<div class="topbar">
+			<ul class="topbar">
+			<li ><a href="index.html" target="right"><img src="../img/web.png" width="30px"></a></li>
+			<li ><a href="../WebLink使用手冊.pdf" target="right"><strong>WebLink使用說明</strong></a></li>
+			<li style="float:right"><a href="mailto:jack.you@fortune.com.tw"><strong>問題回饋</strong></a></li>
+			<li style="float:right"><a href="http://www.fortune.com.tw/" target="right"><strong>關於我們</strong></a></li>
+			</ul>
+</div>
+<!-- Trigger/Open The Modal -->
+<!-- FY按鈕 -->
+<!--1.<button> 標籤在表格內無法使用modal改成<input type>或其他圖片方式即可，原因不明2.Chrome無法以jQuery讀取不同protocol檔案-->
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+<!-- Modal content -->
+	<div class="modal-content">
+		<div class="modal-header">
+			<span class="close" onclick="modal_close()">×</span>
+			<h2>歷史異常</h2>
+		</div>
+		
+		<div class="modal-body" id="modal-body">
+		</div>
+		
+		<div class="modal-footer">
+		<span class="close-btn" onclick="modal_close()">close</span>
+		
+		</div>
+	</div>
+</div>
+							
+
+
+<div class="button-group">
+<li><div class="button" onclick="TRParametersSave();" style="cursor:pointer;"><a><img src="../img/wrench.png"  align="left" style="height:30px;"/><strong>寫入參數</strong></a></div></li>
+<li><div class="button" onclick="rege();" style="cursor:pointer;"><a><img src="../img/circle.png"  align="left" style="height:30px;"/><strong>切換至模型</strong></a></div></li>
+<li><div class="button" id="closetip"><a href="#." ><img src="../img/delete.png"  align="left" style="height:30px;"/><strong >關閉提示</strong></a></div></li>
+<li><div class="button" id="opentip"><a href="#." ><img src="../img/arrows.png"  align="left" style="height:30px;"/><strong >開啟提示</strong></a></div></li>
+<li><div class="button" onclick="draw1();" style="cursor:pointer;"><a><img src="../img/location.png"  align="left" style="height:30px;"/><strong>上蓋出圖</strong></a></div></li>
+</div>
+
+<div class="myform">
+	<form name="tankForm" id="tankFormID" >
+       
+			
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"  >
+                <tr>
+				<td colspan="2" align="right" valign="middle" style="font-size:40px"><p><i> <marquee > <font face="monospace font" color="gray">變壓器上蓋設計</font></marquee></i></p></td>
+				</tr>
+				</table>
+			
+				
+				<div style="display:none;">
+						<div id="tip0">
+							<img src="../pic/3.PNG" style="float:right;width:900px;height:400px;" alt="" />
+							<h1 align="center">上蓋示意圖</h1>
+						</div>
+						<div id="tip1">
+							<img src="../pic/core.PNG" style="float:right;width:900px;height:400px;" alt="" />
+							<h1 align="center">上蓋心體擋鐵示意圖</h1>
+						</div>
+						<div id="tip2">
+							<h1>關閉:0 開啟:1</h1>
+						</div>
+						<div id="tip3">
+							<h1>位置:</h1>
+							<h1>1: 左</h1>
+							<h1>2: 右</h1>
+						</div>
+						<div id="tip4">
+							<img src="../pic/oil.PNG" style="float:right;width:900px;height:400px;" alt="" />
+							<h1 align="center">上蓋油管示意圖</h1>
+						</div>
+						<div id="tip5">
+							<h1>型號:</h1>
+							<h1>1: 1/2B</h1>
+							<h1>2: 1B</h1>
+							<h1>3: 3/2B</h1>
+							<h1>4: 2B</h1>
+							<h1>5: 3B</h1>
+							<h1>6: 4B</h1>
+						</div>
+						<div id="tip6">
+							<h1>種類:</h1>
+							<h1>0: 平法蘭</h1>
+							<h1>1: 溝法蘭</h1>
+						</div>
+						<div id="tip7">
+							<img src="../pic/air.PNG" style="float:right;width:900px;height:400px;" alt="" />
+							<h1 align="center">集氣管示意圖</h1>
+						</div>
+						<div id="tip8">
+							<h1>端面至底板上緣</h1>
+						</div>
+						<div id="tip9">
+							<h1>端面至上蓋基準</h1>
+						</div>
+						<div id="tip10">
+							<h1>套管插入上蓋深度</h1>
+						</div>
+						<div id="tip11">
+							<h1>型號:</h1>
+							<h1>1: 9T</h1>
+							<h1>2: 12T</h1>
+							<h1>3: 16T</h1>
+							<h1>4: 19T</h1>
+							<h1>5: 22T</h1>
+						</div>						
+				</div>			
+				
+				
+				
+
+	
+	
+
+	
+	<UL type=disc>
+
+
+	
+	
+	<!--上蓋-->
+	<li><A name="上蓋"><B><I><font face="monospace font"  size="5.5" color="blue">上蓋 </font></B></I></li>
+
+	
+		<p><table width="900" align="center"  style="border:2px solid;" rules="all">
+			<thead >
+				<tr style="background-color:#00FFFF;">			
+					<th style="width: 30%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>	
+					<th  style="width: 55%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th  style="width: 15%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+			
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">   上蓋<br>
+					<!--<img src="pic/q1.png" align="center" width="75" height="75" id="" value="說明一" onmouseover="tooltip.pop(this, '#tip0',{hideDelay:100})" ></a>-->
+					<img src="../pic/q1.png" align="center" width="75" height="75" id="pic1" style="cursor:help">
+					<!--<a href="cover.PNG"   onclick="window.open(this.href, '_blank', 'scrollbars=0,resizable=0,width=1300,height=700');return false"><img src="q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>  厚度<input type="text" class="a" name="COVER_T" id="COVER_T" value="" size="5.5" /></p>
+					<!--<p>  長度<input type="text" name="COVER_L" id="COVER_L" value="" size="5.5" onmouseover="tooltip.pop(this, '#tip3', {sticky:true, position:1})"/></p>-->
+					<p>  長度<input type="text" name="COVER_L" id="COVER_L" value="" size="5.5"/></p>
+					<p>  寬度<input type="text" name="COVER_W" id="COVER_W" value="" size="5.5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<img src="../img/business.png" width="50px" class="myBtn" id="myBtn" style="cursor:pointer;">
+					</td>
+	
+		
+
+				</tr>
+			</tbody>			
+		</table></p>
+
+		<p><table width="900" align="center" style="border:2px solid;" rules="all"  >
+			<thead>
+				<tr>			
+					<th style="width: 30%;background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>		
+					<th style="width: 55%;background-color:#E6E6FA;"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th  style="width: 15%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+			
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">   上蓋心體擋鐵1<br>
+					<!--<img src="pic/q1.png" align="center" width="75" height="75" value="說明一" onmouseover="tooltip.pop(this, '#tip1',{hideDelay:100})"></a>-->
+					<img src="../pic/q1.png" align="center" width="75" height="75" id="pic2" style="cursor:help">
+					</font>
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"> <font face="monospace font"  size="5.5"  >
+					<p>  開關<input type="text" name="CORE_STOPPER_S1" id="CORE_STOPPER_S1" value="" size="5" /></p>
+					<p>  位置<input type="text" name="CORE_STOPPER_XP1" id="CORE_STOPPER_XP1" value="" size="5"/></p>
+					<p>  與TR中心水平距離<input type="text" name="CORE_STOPPER_X1" id="CORE_STOPPER_X1" value="" size="5"/></p>
+					<p>  高度<input type="text" name="CORE_STOPPER_H1" id="CORE_STOPPER_H1" value="" size="5"/></p>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<img src="../img/business.png" width="50px" class="myBtn" id="myBtn1" style="cursor:pointer;">
+					</td>
+					</td>
+					
+					
+				</tr>
+			
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">   上蓋心體擋鐵2
+					</font>
+					</td>
+
+					<td style="background-color:#FFFACD;" align="left"> <font face="monospace font"  size="5.5">
+					<p>  開關<input type="text" name="CORE_STOPPER_S2" id="CORE_STOPPER_S2" value="" size="5"/></p>
+					<p>  位置<input type="text" name="CORE_STOPPER_XP2" id="CORE_STOPPER_XP2" value="" size="5"/></p>
+					<p>  與TR中心水平距離<input type="text" name="CORE_STOPPER_X2" id="CORE_STOPPER_X2" value="" size="5"/></p>
+					<p>  高度<input type="text" name="CORE_STOPPER_H2" id="CORE_STOPPER_H2" value="" size="5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					
+					</td>
+					
+				</tr>
+				
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">   上蓋心體擋鐵3
+					</font>
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"> <font face="monospace font"  size="5.5">
+					<p>  開關<input type="text" name="CORE_STOPPER_S3" id="CORE_STOPPER_S3" value="" size="5"/></p>
+					<p>  位置<input type="text" name="CORE_STOPPER_XP3" id="CORE_STOPPER_XP3" value="" size="5"/></p>
+					<p>  與TR中心水平距離<input type="text" name="CORE_STOPPER_X3" id="CORE_STOPPER_X3" value="" size="5"/></p>
+					<p>  高度<input type="text" name="CORE_STOPPER_H3" id="CORE_STOPPER_H3" value="" size="5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					</td>
+					
+					</tr>
+			</tbody>			
+		</table></p>
+		
+		<p><table width="900" align="center" style="border:2px solid;" rules="all"  >
+			<thead>
+				<tr>			
+					<th style="width: 30%;background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>		
+					<th style="width: 55%;background-color:#E6E6FA;"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th style="width: 15%;background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+			
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">  上蓋油管<br>
+					<!--<img src="pic/q1.png" align="center" width="75" height="75" value="說明一" onmouseover="tooltip.pop(this, '#tip4',{hideDelay:100})">-->
+					<img src="../pic/q1.png" align="center" width="75" height="75" id="pic3" style="cursor:help">
+					</font>
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5">
+					<p>  法蘭型號<input type="text" name="OTC_1" id="OTC_1" value="" size="5" /><br></p>
+					<p>  法蘭種類<input type="text" name="OT_1_S" id="OT_1_S" value="" size="5"/><br></p>
+					<p>  油管位置<input type="text" name="OT_1_XP" id="OT_1_XP" value="" size="5"/></p>
+					<p>  與TR中心水平距離<input type="text" name="OT_1_X" id="OT_1_X" value="" size="5"/></p>
+					<p>  法蘭高度<input type="text" name="OT_1_H" id="OT_1_H" value="" size="5"/></p>
+					<p>  插入深度<input type="text" name="OT_1_DEEP" id="OT_1_DEEP" value="" size="5.5"/></p>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<img src="../img/business.png" width="50px" class="myBtn" id="myBtn2" style="cursor:pointer;">
+					</td>					
+					
+					</td>
+					</tr>
+			</tbody>			
+		</table></p>
+		
+		<p><table  width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr>			
+					<th style="width: 30%;background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>		
+					<th style="width: 55%;background-color:#E6E6FA;"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th style="width: 15%;background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+			
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">   集氣管<br>
+					<!--<img src="pic/q1.png" align="center" width="75" height="75" value="說明一" onmouseover="tooltip.pop(this, '#tip7',{hideDelay:100})">-->
+					<img src="../pic/q1.png" align="center" width="75" height="75" id="pic4" style="cursor:help">
+					</font>
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"> <font face="monospace font"  size="5.5">
+					<p>  集氣管數量<input type="text" name="AH" id="AH" value="" size="5"/> 件</p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<img src="../img/business.png" width="50px" class="myBtn" id="myBtn3" style="cursor:pointer;">
+					</td>	
+					</tr>
+			
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">   集氣管1
+					</font>
+					</td>
+
+					<td style="background-color:#FFFACD;" align="left"> <font face="monospace font"  size="5.5">
+					<p>  管位置<input type="text" name="AH_1_XP" id="AH_1_XP" value="" size="5"/></p>
+					<p>  與TR中心水平距離<input type="text" name="AH_1_X" id="AH_1_X" value="" size="5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					</td>						
+					</tr>
+				
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">   集氣管2
+					</font>
+					</td>
+
+					<td style="background-color:#FFFACD;" align="left"> <font face="monospace font"  size="5.5">
+					<p>  管位置<input type="text" name="AH_2_XP" id="AH_2_XP" value="" size="5"/></p>
+					<p>  與TR中心水平距離<input type="text" name="AH_2_X" id="AH_2_X" value="" size="5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					</td>						
+					</tr>
+				
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">   集氣管3
+					</font>						
+					</td>
+
+					<td style="background-color:#FFFACD;" align="left"> <font face="monospace font"  size="5.5">
+					<p>  管位置<input type="text" name="AH_3_XP" id="AH_3_XP" value="" size="5"/></p>
+					<p>  與TR中心水平距離<input type="text" name="AH_3_X" id="AH_3_X" value="" size="5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					</td>					
+					</tr>
+				
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">   集氣管4
+					</font>
+					</td>
+
+					<td style="background-color:#FFFACD;" align="left"> <font face="monospace font"  size="5.5">
+					<p>  管位置<input type="text" name="AH_4_XP" id="AH_4_XP" value="" size="5"/></p>
+					<p>  與TR中心水平距離<input type="text" name="AH_4_X" id="AH_4_X" value="" size="5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					</td>						
+					</tr>
+				
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">   集氣管5
+					</font>
+					</td>
+
+					<td style="background-color:#FFFACD;" align="left"> <font face="monospace font"  size="5.5">
+					<p>  管位置<input type="text" name="AH_5_XP" id="AH_5_XP" value="" size="5"/></p>
+					<p>  與TR中心水平距離<input type="text" name="AH_5_X" id="AH_5_X" value="" size="5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					</td>						
+					</tr>
+				
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">   集氣管6
+					</font>
+					</td>
+
+					<td style="background-color:#FFFACD;" align="left"> <font face="monospace font"  size="5.5">
+					<p>  管位置<input type="text" name="AH_6_XP" id="AH_6_XP" value="" size="5"/></p>
+					<p>  與TR中心水平距離<input type="text" name="AH_6_X" id="AH_6_X" value="" size="5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					</td>						
+					</tr>
+				
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">   集氣管7
+					</font>
+					</td>
+
+					<td style="background-color:#FFFACD;" align="left"> <font face="monospace font"  size="5.5">
+					<p>  管位置<input type="text" name="AH_7_XP" id="AH_7_XP" value="" size="5"/></p>
+					<p>  與TR中心水平距離<input type="text" name="AH_7_X" id="AH_7_X" value="" size="5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					</td>						
+					</tr>
+				
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">   集氣管8
+					</font>
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"> <font face="monospace font"  size="5.5">
+					<p>  管位置<input type="text" name="AH_8_XP" id="AH_8_XP" value="" size="5"/></p>
+					<p>  與TR中心水平距離<input type="text" name="AH_8_X" id="AH_8_X" value="" size="5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					</td>						
+					</tr>
+				
+			</tbody>			
+		</table></p>
+
+	</form>
+
+
+	<script type="text/javascript">
+	
+	//取得資料
+	TRParametersSet();
+	</script>
+</body>
+
+
+</HTML>

@@ -1,0 +1,41 @@
+﻿/*--------------------------------------------------|
+| dTree 2.05 | www.destroydrop.com/javascript/tree/ |
+|---------------------------------------------------|
+| Copyright (c) 2002-2003 Geir Landr?              |
+|--------------------------------------------------*/
+
+.dtree {
+	font-family: monospace font;
+	font-size: 20px;
+	font-weight: bold;
+	color: #000;        /*root字體顏色*/
+	white-space: nowrap;
+	/*border: 1px solid;    /*樹狀目錄外框*/ 
+    /*background-color: #f5f5ef;*/	
+	width:400px;              /*樹狀目錄外框寬度*/
+	
+}  
+.dtree img {
+	border: 0px;
+	vertical-align: middle;      /*icon垂直對齊*/
+}
+.dtree a {
+	color: #000;        /*root以外項目字體顏色*/
+	text-decoration: none;
+}
+.dtree a.node, .dtree a.nodeSel {
+	/*border: 1px solid;*/
+	white-space: nowrap;
+	padding: 1px 1px 1px 1px;    /*選取項目所占範圍*/
+	/*background-color: #f5f5ef;      /*選取項目所占範陪背景顏色 預設為白*/
+}
+.dtree a.node:hover, .dtree a.nodeSel:hover {
+	color: red;                               /*項目選取後特效顏色*/
+	text-decoration: underline;               /*項目選取後特效  underline:底線*/
+}
+.dtree a.nodeSel {
+	/*background-color: #f5f5ef;                    /*項目選取後所佔範圍背景顏色*/
+}
+.dtree .clip {
+	overflow: hidden;
+}

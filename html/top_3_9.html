@@ -1,0 +1,621 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<script type="text/javascript" src="../jscript/pfcUtils.js"></script>	
+	<script type="text/javascript" src="../jscript/TankDesign.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<link href="../jscript/tooltip.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/tooltip.js" type="text/javascript"></script>
+	<link href="../jscript/modal.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/modal.js" type="text/javascript"></script>		
+	<link href="../css/button.css" rel="stylesheet" type="text/css" />
+	<style>
+
+input[type=text] {
+    width: 80px;
+	height:32px; 
+	font-size:20px;
+	text-align:center; 
+}
+
+
+.myform {
+	position:absolute;
+	left:0%;
+	top:2em;
+	padding:10px;
+}
+.bushing {
+	position:absolute;
+	//border:1px solid;
+	width:130px;
+	height:90px;
+	top:140px;
+}
+.bushing_check {
+	position:absolute;
+
+	//border:1px solid;
+	//width:130px;
+	//height:26px;
+	top:220px;
+	left: 685px;
+	cursor:help;
+}
+	</style>
+	
+</head>
+<script language="JavaScript" type="text/JavaScript">
+//圖片tip
+$(document).ready(function(){
+	
+    $("#pic1").on("click",function(){
+		tooltip.pop(this, '#tip0',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic2").on("click",function(){
+		tooltip.pop(this, '#tip9',{hideDelay:100,calloutPosition: 0.5});
+		});
+
+});
+/*電纜箱寬度判斷*/
+function number(i) {
+
+var LV_CAS_L2 = document.getElementById("LV_CAS_L2").value;
+//alert(LV_CAS_L);
+switch (i) {
+        case 0:    //None
+				
+				break;
+
+        case 1:    //3
+				
+				if (LV_CAS_L2 >= 1180 & LV_CAS_L2 <= 2120 ){document.getElementById("LV_CAS_L2").style.color = "black";alert("電纜箱寬度符合");}
+				else if(LV_CAS_L2 < 1180){document.getElementById("LV_CAS_L2").style.color = "red";alert("電纜箱寬度"+LV_CAS_L2+" mm "+"<1180mm，不符標準");}
+				else if(LV_CAS_L2 > 2120){document.getElementById("LV_CAS_L2").style.color = "red";alert("電纜箱寬度"+LV_CAS_L2+" mm "+">2120mm，不符標準");}
+				break;
+			
+        case 2:   //4
+				if (LV_CAS_L2 >= 1520 & LV_CAS_L2 <= 2780 ){document.getElementById("LV_CAS_L2").style.color = "black";alert("電纜箱寬度符合");}
+				else if(LV_CAS_L2 < 1520){document.getElementById("LV_CAS_L2").style.color = "red";alert("電纜箱寬度"+LV_CAS_L2+" mm "+"<1520mm，不符標準");}
+				else if(LV_CAS_L2 > 2780){document.getElementById("LV_CAS_L2").style.color = "red";alert("電纜箱寬度"+LV_CAS_L2+" mm "+">2780mm，不符標準");}
+				break;			
+				
+				break;
+			}
+
+}
+
+function material(i) {
+
+switch (i) {
+        case 0:    //SS400
+				
+				//document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX1.prt","SS400");
+				document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX2.prt","SS400");
+				//document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX_FR.prt","SS400");
+				//document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX_FR2.prt","SS400");
+				//document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX_TS1.prt","SS400");
+				document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX_TS2.prt","SS400");
+				//document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX_LE.prt","SS400");
+				//document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX_R.prt","SS400");
+				alert("SS400");				
+				
+				break;
+
+        case 1:    //SUS304
+				//document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX1.prt","SUS304");
+				document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX2.prt","SUS304");
+				//document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX_FR.prt","SUS304");
+				//document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX_FR2.prt","SUS304");
+				//document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX_TS1.prt","SUS304");
+				document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX_TS2.prt","SUS304");
+				//document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX_LE.prt","SUS304");
+				//document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX_R.prt","SUS304");
+				alert("電纜箱材料已變更，請確認規範是否指定用SUS304");
+				break;
+				
+        case 2:    //SUS316
+				//document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX1.prt","SUS316");
+				document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX2.prt","SUS316");
+				//document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX_FR.prt","SUS316");
+				//document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX_FR2.prt","SUS316");
+				//document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX_TS1.prt","SUS316");
+				document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX_TS2.prt","SUS316");
+				//document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX_LE.prt","SUS316");
+				//document.pwl.pwlPartMaterialCurrentSet("LV_CABLE_BOX_R.prt","SUS316");
+				alert("電纜箱材料已變更，請確認規範是否指定用SUS316");
+				break;				
+			
+			}
+
+}
+/*讀取電纜箱材質、厚度*/
+function load_material() {
+
+var ItemType = document.pwl.eval("PWL_MODEL");
+	if (parseInt(ItemType) === parseInt(document.pwlc.PWL_MODEL)) {
+		FeatureID = -1;
+	}
+var val_ret = document.pwl.pwlParameterValueGet(layoutModelNameExt, parseInt(ItemType),FeatureID, "MATERIAL");
+var MATERIAL = val_ret.ParamDoubleVal;	
+var val_ret = document.pwl.pwlParameterValueGet(layoutModelNameExt, parseInt(ItemType),FeatureID, "CBT");
+var CBT = val_ret.ParamDoubleVal;
+
+switch (MATERIAL){
+	case 1:
+			document.getElementById("CAB_material2").selectedIndex = 0;
+			break;
+	case 2:
+			document.getElementById("CAB_material2").selectedIndex = 1;
+			break;
+	case 3: 
+			document.getElementById("CAB_material2").selectedIndex = 2;
+			break;
+	}
+switch (CBT){
+	case 1:
+			document.getElementById("CAB_T").selectedIndex = 0;
+			break;
+	case 2:
+			document.getElementById("CAB_T").selectedIndex = 1;
+			break;
+	case 3: 
+			document.getElementById("CAB_T").selectedIndex = 2;
+			break;
+	}	
+	
+
+}
+/*電纜箱材質改變提示*/
+function material_change (i){
+switch (i) {
+        case 0:    //SS400
+				alert("電纜箱材料已變更，請確認規範是否指定用SS400");				
+				break;
+
+        case 1:    //SUS304
+				alert("電纜箱材料已變更，請確認規範是否指定用SUS304");
+				break;
+
+		case 2:    //SUS316
+				alert("電纜箱材料已變更，請確認規範是否指定用SUS316");
+				break;
+			
+			}
+}
+/*寫入電纜箱材質*/
+function material2(i) {
+
+var ItemType = document.pwl.eval("PWL_MODEL");
+	if (parseInt(ItemType) === parseInt(document.pwlc.PWL_MODEL)) {
+		FeatureID = -1;
+	}
+	
+var ValueType = document.pwl.eval("PWL_VALUE_DOUBLE");
+var IntValue;
+var StringValue;
+var BoolValue;
+//Parameter Type: PWL_MODEL, PWL_FEATURE
+var ItemType = document.pwl.eval("PWL_MODEL");
+var featureID;
+if (ItemType === document.pwlc.PWL_MODEL) {
+	featureID = -1;
+} else {
+	//若ItemType是PWL_FEATURE, 則featureID為輸入的【featureID】整數
+	//featureID = parseInt(document.set_value.FeatureID.value);
+}
+
+	
+switch (i) {
+        case 0:    //SS400
+					var ret = document.pwl.pwlParameterValueSet(
+					layoutModelNameExt, ItemType, featureID,
+					'MATERIAL', ValueType, IntValue,
+					1, StringValue, BoolValue);			
+				
+				break;
+
+        case 1:    //SUS304
+
+					var ret = document.pwl.pwlParameterValueSet(
+					layoutModelNameExt, ItemType, featureID,
+					'MATERIAL', ValueType, IntValue,
+					2, StringValue, BoolValue);		
+				break;
+
+		case 2:    //SUS316
+
+					var ret = document.pwl.pwlParameterValueSet(
+					layoutModelNameExt, ItemType, featureID,
+					'MATERIAL', ValueType, IntValue,
+					3, StringValue, BoolValue);		
+				break;
+			
+			}
+
+}
+/*寫入電纜箱厚度*/
+function CBT(i) {
+
+var ItemType = document.pwl.eval("PWL_MODEL");
+	if (parseInt(ItemType) === parseInt(document.pwlc.PWL_MODEL)) {
+		FeatureID = -1;
+	}
+	
+var ValueType = document.pwl.eval("PWL_VALUE_DOUBLE");
+var IntValue;
+var StringValue;
+var BoolValue;
+//Parameter Type: PWL_MODEL, PWL_FEATURE
+var ItemType = document.pwl.eval("PWL_MODEL");
+var featureID;
+if (ItemType === document.pwlc.PWL_MODEL) {
+	featureID = -1;
+} else {
+	//若ItemType是PWL_FEATURE, 則featureID為輸入的【featureID】整數
+	//featureID = parseInt(document.set_value.FeatureID.value);
+}
+
+	
+switch (i) {
+        case 0:    //4.5t
+					var ret = document.pwl.pwlParameterValueSet(
+					layoutModelNameExt, ItemType, featureID,
+					'CBT', ValueType, IntValue,
+					1, StringValue, BoolValue);			
+				
+				break;
+
+        case 1:    //6t
+
+					var ret = document.pwl.pwlParameterValueSet(
+					layoutModelNameExt, ItemType, featureID,
+					'CBT', ValueType, IntValue,
+					2, StringValue, BoolValue);		
+				break;
+
+		case 2:    //9t
+
+					var ret = document.pwl.pwlParameterValueSet(
+					layoutModelNameExt, ItemType, featureID,
+					'CBT', ValueType, IntValue,
+					3, StringValue, BoolValue);		
+				break;
+			
+			}
+
+}
+/*電纜箱參數寫入防呆*/
+function LV_CAB_check(){
+var ItemType = document.pwl.eval("PWL_MODEL");
+	if (parseInt(ItemType) === parseInt(document.pwlc.PWL_MODEL)) {
+		FeatureID = -1;
+	}
+
+var LV_CAS_SW2  = document.getElementById("LV_CAS_SW2").value;
+var LV_CAS_H2 = document.getElementById("LV_CAS_H2").value;
+var LV_CAS_W2 = document.getElementById("LV_CAS_W2").value;
+var LV_CAS_X2 = document.getElementById("LV_CAS_X2").value;
+var LV_CAS_Y2 = document.getElementById("LV_CAS_Y2").value;
+var LV_CAB_Y2 = document.getElementById("LV_CAB_Y2").value;
+var LV_CAB_VW2 = document.getElementById("LV_CAB_VW2").value;
+var val_ret = document.pwl.pwlParameterValueGet(layoutModelNameExt, parseInt(ItemType),FeatureID, "TANK_WALL_2L");
+var TANK_WALL_2L = val_ret.ParamDoubleVal;
+
+var val_ret = document.pwl.pwlParameterValueGet(layoutModelNameExt, parseInt(ItemType),FeatureID, "TANK_WALL_2W");
+var TANK_WALL_2W = val_ret.ParamDoubleVal;
+var val_ret = document.pwl.pwlParameterValueGet(layoutModelNameExt, parseInt(ItemType),FeatureID, "TANK_WALL_T");
+var WALL_T = val_ret.ParamDoubleVal;
+
+switch (WALL_T){
+	case 1 :
+		var TANK_WALL_T = 9;
+		break;
+	case 2 :
+		var TANK_WALL_T = 12;
+		break;	
+	case 3 :
+		var TANK_WALL_T = 16;
+		break;
+	case 4 :
+		var TANK_WALL_T = 19;
+		break;
+	case 5 :
+		var TANK_WALL_T = 22;
+		break;		
+	}
+
+var test = parseFloat(LV_CAB_VW2/2) + parseFloat(LV_CAS_W2/2) +parseFloat(LV_CAS_Y2);
+var test2 = parseFloat(LV_CAB_VW2/2) + parseFloat(LV_CAS_W2/2)+ parseFloat(LV_CAS_X2);
+//長邊
+/*
+if (LV_CAS_SW3==0){
+	alert("請開啟電纜箱");
+	}
+if (LV_CAS_SW3==1){
+	if(LV_CAB_Y3 > test){
+	//alert(test);
+	TRParametersSave();
+	}
+	else{
+	alert("請確認電纜箱垂直段與中心距離是否正確");
+	//TRParametersSave()
+	}
+}
+else if (LV_CAS_SW3==2)
+	if(LV_CAB_Y3 > test2){TRParametersSave();}
+	else{alert("請確認電纜箱垂直段與中心距離是否正確");}	
+*/
+	
+switch (parseInt(LV_CAS_SW2)){ //LV_CAS_SW為字串需轉成數值
+	case 0 :
+		TRParametersSave();
+		break;
+	case 1 :
+		if(LV_CAB_Y2 > test){TRParametersSave();drop2();}
+		else{alert("請確認電纜箱垂直段與中心距離是否正確");}
+		break;
+	case 2 :
+		if(LV_CAB_Y2 > test2){TRParametersSave();drop2();}
+		else{alert("請確認電纜箱垂直段與中心距離是否正確");}	
+		break;
+	}
+
+}
+var dd1 = [];
+var dd2 = [];
+/*讀取電纜箱材質、厚度下拉式選單*/
+function drop(){
+
+dd1.push(document.tankForm.CAB_material2.selectedIndex);
+dd1.push(document.tankForm.CAB_T.selectedIndex);
+
+}
+/*寫入電纜箱材質、厚度下拉式選單*/
+function drop2(){
+
+var temp = [];
+temp.push(document.tankForm.CAB_material2.selectedIndex);
+temp.push(document.tankForm.CAB_T.selectedIndex);
+
+for (var t=0;t < dd1.length;t++)
+	{
+	dd2[t] = dd1[t];
+	}
+	
+for (var t=0;t < dd1.length;t++)
+	{
+	dd1[t] = temp[t];
+	}
+
+for (var t=0;t < dd1.length;t++)
+	{
+	if(dd2[t] == dd1[t])
+		{
+		continue;
+		}
+	else
+		{
+		switch(t){
+			case 0 :
+				material2(document.tankForm.CAB_material2.selectedIndex);
+				break;
+			case 1 :
+				CBT(document.tankForm.CAB_T.selectedIndex);
+				break;
+			}
+				
+		}
+	}
+}
+</script>
+
+<body >
+<div class="topbar">
+			<ul class="topbar">
+			<li ><a href="index.html" target="right"><img src="../img/web.png" width="30px"></a></li>
+			<li ><a href="../WebLink使用手冊.pdf" target="right"><strong>WebLink使用說明</strong></a></li>
+			<li style="float:right"><a href="mailto:jack.you@fortune.com.tw"><strong>問題回饋</strong></a></li>
+			<li style="float:right"><a href="http://www.fortune.com.tw/" target="right"><strong>關於我們</strong></a></li>
+			</ul>
+</div>
+<!-- Trigger/Open The Modal -->
+<!-- FY按鈕 -->
+<!--1.<button> 標籤在表格內無法使用modal改成<input type>或其他圖片方式即可，原因不明2.Chrome無法以jQuery讀取不同protocol檔案-->
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+<!-- Modal content -->
+	<div class="modal-content">
+		<div class="modal-header">
+			<span class="close" onclick="modal_close()">×</span>
+			<h2>歷史異常</h2>
+		</div>
+		
+		<div class="modal-body" id="modal-body">
+		</div>
+		
+		<div class="modal-footer">
+		<span class="close-btn" onclick="modal_close()">close</span>
+		</div>
+	</div>
+</div>
+		
+
+<div class="button-group">
+<li><div class="button" onclick="LV_CAB_check();" style="cursor:pointer;"><a><img src="../img/wrench.png"  align="left" style="height:30px;"/><strong>寫入參數</strong></a></div></li>
+<li><div class="button" onclick="rege();" style="cursor:pointer;"><a><img src="../img/circle.png"  align="left" style="height:30px;"/><strong>切換至模型</strong></a></div></li>
+<li><div class="button" id="closetip"><a href="#." ><img src="../img/delete.png"  align="left" style="height:30px;"/><strong >關閉提示</strong></a></div></li>
+<li><div class="button" id="opentip"><a href="#." ><img src="../img/arrows.png"  align="left" style="height:30px;"/><strong >開啟提示</strong></a></div></li>
+</div>
+
+
+
+	<form name="tankForm" id="tankFormID" class="myform">
+           	<table width="900" border="0" cellspacing="0" cellpadding="0">
+                       <tr><td>
+			
+
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"  >
+                <tr>
+				<td colspan="2" align="right" valign="middle" style="font-size:40px"><p><i> <marquee> <font face="monospace font" color="gray">變壓器上蓋設計</font></marquee></i></p></td>
+				</tr>
+				</table>
+			
+				
+						
+				<div style="display:none;">
+						<div id="tip0">
+							<img src="../pic/LVCAS.PNG" style="float:right;width:800px;height:600px;" alt="" />
+							<h1 align="center"><font face="monospace font">LV側套管箱示意圖</font></h1>
+						</div>
+						<div id="tip1">
+						<h1>關閉:0 長邊:1 短邊(右):2</h1>
+						</div>
+						<div id="tip2">
+							<h1>位置:</h1>
+							<h1>1: 左</h1>
+							<h1>2: 右</h1>
+						</div>				
+						<div id="tip3">
+							<h1>法蘭上平面至上蓋基準</h1>
+						</div>		
+						<div id="tip4">
+							<h1>實外長</h1>
+						</div>	
+						<div id="tip5">
+							<h1>實外寬</h1>
+						</div>
+						<div id="tip6">
+							<h1>套管箱中心至TR中心</h1>
+						</div>
+						<div id="tip7">
+							<h1>電纜箱與上蓋基準距離</h1>
+						</div>	
+						<div id="tip8">
+							<h1>電纜箱與TR中心距離</h1>
+						</div>
+						<div id="tip9">
+							<img src="../pic/LVCAB.PNG" style="float:right;width:900px;height:700px;" alt="" />
+							<h1 align="center"><font face="monospace font">LV側落地導口示意圖</font></h1>
+						</div>						
+				</div>	
+				
+				
+				
+
+	
+	
+
+	
+	<UL type=disc>
+
+<!--LV側防止墜落座-->
+	<LI><A name="LV側落地導口1"><B><I><font face="monospace font"  size="5.5" color="blue">LV側落地導口2</font></B></I></A>
+	
+	
+
+		<p><table width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr>			
+					<th style="width: 30%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>	
+					<th  style="width: 55%; background-color:#E6E6FA;" colspan="2"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th  style="width: 15%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">LV側落地導口2<br>
+					<!--<img src="../pic/q1.png" align="center" width="75" height="75" value="說明三"  onmouseover="tooltip.pop(this, '#tip5',{hideDelay:100,calloutPosition: 0.5, maxWidth: 500})">-->
+					<img src="../pic/q1.png" align="center" width="75" height="75" id="pic2" style="cursor:help">
+					</font>
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left">  <font face="monospace font"  size="5.5">
+					<p>套管箱開關<input type="text" name="LV_CAS_SW2" id="LV_CAS_SW2" value="" size="5" onmouseover=""/></p>
+					<p>套管箱位置<input type="text" name="LV_CAS_XP2" id="LV_CAS_XP2" value="" size="5" onmouseover=""/></p>
+					<p>套管箱高度<input type="text" name="LV_CAS_H2" id="LV_CAS_H2" value="" size="5" onmouseover=""/><img src="../img/icon2.png" align="center" width="32" height="32" id="pic1" style="cursor:help"></p>
+					<p>套管箱長度<input type="text" name="LV_CAS_L2" id="LV_CAS_L2" value="" size="5" onmouseover=""/></p>
+					<p>套管箱寬度<input type="text" name="LV_CAS_W2" id="LV_CAS_W2" value="" size="5" onmouseover=""/></p>
+					<p>套管箱距離X<input type="text" name="LV_CAS_X2" id="LV_CAS_X2" value="" size="5" onmouseover=""/></p>
+					<p>套管箱距離Y<input type="text" name="LV_CAS_Y2" id="LV_CAS_Y2" value="" size="5" onmouseover=""/></p>
+					<p>電纜箱水平段與上蓋距離<input type="text" name="LV_CAB_H2" id="LV_CAB_H2" value="" size="5" onmouseover=""/></p>
+					<p>電纜箱垂直段與中心距離<input type="text" name="LV_CAB_Y2" id="LV_CAB_Y2" value="" size="5" onmouseover=""/></p>
+					<p>電纜箱水平段寬度<input type="text" name="LV_CAB_HW2" id="LV_CAB_HW2" value="" size="5" onmouseover=""/></p>
+					<p>電纜箱垂直段寬度<input type="text" name="LV_CAB_VW2" id="LV_CAB_VW2" value="" size="5" onmouseover=""/></p>
+					<p>電纜箱落地距離<input type="text" name="LV_CAB_G2" id="LV_CAB_G2" value="" size="5" onmouseover=""/></p>
+					</td>
+					<td style="background-color:#FFFACD;width:15%;"> <font face="monospace font"  size="4"><b>
+					<div class="bushing"><p>套管數量<select  name="bushing_number" id="bushing_number" style="height:30px;width:100px;font-size:20px" onchange ="number(document.tankForm.bushing_number.selectedIndex)">
+					<option value='None' style="font-size:20px">None</option>
+					<option value='3'    style="font-size:20px">3</option>
+					<option value='4'    style="font-size:20px">4</option>	
+					</select></div>
+					<div class="bushing_check"><font face="monospace font"  ><a href="javascript: number(document.tankForm.bushing_number.selectedIndex);"><img src="../img/check3.png" align="center" width="120" height="80" id="pic99" style="cursor:help"></a></div>
+					</td>					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<!--<div class="myBtn" id="myBtn23" style="cursor:pointer;"><strong >LV側落地導口異常</strong></div>-->
+					</td>					
+				</tr>
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">電纜箱材質<br></font>
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left" colspan="2">  <font face="monospace font"  size="5.5">
+					<!--
+					<p>材質<select  name="CAB_material" id="CAB_material" style="height:30px;width:100px;font-size:20px" onchange ="material(document.tankForm.CAB_material.selectedIndex)">
+					<option value='SS400'     style="font-size:20px">SS400</option>
+					<option value='SUS304'    style="font-size:20px">SUS304</option>
+					<option value='SUS316'    style="font-size:20px">SUS316</option>					
+					</select></p>
+					-->
+					<p>材質<select  name="CAB_material2" id="CAB_material2" style="height:30px;width:100px;font-size:20px" onchange ="material_change(document.tankForm.CAB_material2.selectedIndex)">
+					<option value='SS400'     style="font-size:20px">SS400</option>
+					<option value='SUS304'    style="font-size:20px">SUS304</option>
+					<option value='SUS316'    style="font-size:20px">SUS316</option>	
+					</select></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left" ><font face="monospace font"  size="5.5" >
+					
+					</td>							
+						
+				</tr>
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">電纜箱厚度<br></font>
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left" colspan="2">  <font face="monospace font"  size="5.5">
+					<p>厚度<select  name="CAB_T" id="CAB_T" style="height:30px;width:100px;font-size:20px" onchange ="">
+					<option value='4.5t'     style="font-size:20px">4.5t</option>
+					<option value='6t'    style="font-size:20px">6t</option>
+					<option value='9t'    style="font-size:20px">9t</option>	
+					</select></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left" ><font face="monospace font"  size="5.5" >
+					
+					</td>					
+						
+				</tr>				
+				
+			</tbody>			
+		</table></p>
+	
+	</form>
+	<script type="text/javascript">
+	//取得資料
+	TRParametersSet();
+	load_material();
+	</script>
+</body>
+
+
+</HTML>

@@ -1,0 +1,818 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<script type="text/javascript" src="../jscript/pfcUtils.js"></script>	
+	<script type="text/javascript" src="../jscript/TankDesign.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<link href="../jscript/tooltip.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/tooltip.js" type="text/javascript"></script>	
+	<link href="../jscript/modal.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/modal.js" type="text/javascript"></script>	
+	<link href="../css/button.css" rel="stylesheet" type="text/css" />	
+	<style>
+input[type=text] {
+    width: 80px;
+	height:32px; 
+	font-size:20px;
+	text-align:center; 
+}
+
+
+.myform {
+	position:absolute;
+	left:0%;
+	top:2em;
+	padding:10px;
+}
+
+.check_btn {
+	width:200px;
+	
+	position:relative;
+	bottom:65px;
+	left:60%;
+	//border: 1px solid;
+	text-align:center;
+}
+.FY {
+	height:160px;
+	//border: 1px solid;
+}
+	</style>
+	
+</head>
+<script language="JavaScript" type="text/JavaScript">
+
+$(document).ready(function(){
+	
+    $("#pic1").on("click",function(){
+		tooltip.pop(this, '#tip0',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic2").on("click",function(){
+		tooltip.pop(this, '#tip4',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic3").on("click",function(){
+		tooltip.pop(this, '#tip16',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic4").on("click",function(){
+		tooltip.pop(this, '#tip19',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic5").on("click",function(){
+		tooltip.pop(this, '#tip5',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic6").on("click",function(){
+		tooltip.pop(this, '#tip8',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic7").on("click",function(){
+		tooltip.pop(this, '#tip12',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic8").on("click",function(){
+		tooltip.pop(this, '#tip15',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic9").on("click",function(){
+		tooltip.pop(this, '#tip21',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic10").on("click",function(){
+		tooltip.pop(this, '#tip22',{hideDelay:100,calloutPosition: 0.5});
+		});		
+    $("#pic11").on("click",function(){
+		tooltip.pop(this, '#tip22',{hideDelay:100,calloutPosition: 0.5});
+		});			
+    $("#pic12").on("click",function(){
+		tooltip.pop(this, '#tip22',{hideDelay:100,calloutPosition: 0.5});
+		});	
+    $("#pic13").on("click",function(){
+		tooltip.pop(this, '#tip27',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic14").on("click",function(){
+		tooltip.pop(this, '#tip28',{hideDelay:100,calloutPosition: 0.5});
+		});		
+});
+var SS = 0;
+
+function Standard_Select(i) {
+
+var ANSI_Impulse_withstand_level = [60,75,95,125,200,250,300,450,550,650,750,825,975]; 
+var IEC_Impulse_withstand_level  = [60,75,95,110,150,200,250,350,450,550,650,750,850,950,1050,1175]; 
+
+SS = i;
+switch (i) {
+        case 0:    //None
+
+			for (j = 0 ; j < 16 ; j++)
+				{		
+				document.getElementById("IEC_BIL1").options.remove(0);
+				document.getElementById("IEC_BIL2").options.remove(0);  				
+				}
+				var op = document.createElement("option");
+				op.text = "None";
+				var op1 = document.createElement("option");
+				op1.text = "None";
+				document.getElementById("IEC_BIL1").options.add(op);      //一個createElement 只能搭配一個add
+				document.getElementById("IEC_BIL2").options.add(op1);
+            break;
+        case 1:    //IEC
+
+			
+			var L = document.getElementById("IEC_BIL1").options.length;   //取得目前select option 長度
+			
+			for (j = 0 ; j < L ; j++)									 //移除全部選項
+				{		
+				document.getElementById("IEC_BIL1").options.remove(0);
+				document.getElementById("IEC_BIL2").options.remove(0); 	
+				}
+			for (j = 0 ; j < IEC_Impulse_withstand_level.length ; j++)  //替換成IEC標準
+				{
+				var op = document.createElement("option");
+				op.text = IEC_Impulse_withstand_level[j]+"kV";
+				document.getElementById("IEC_BIL1").options.add(op,j);
+				//document.getElementById("IEC_BIL2").options.add(op,j);
+				}
+			for (j = 0 ; j < IEC_Impulse_withstand_level.length ; j++)  //替換成IEC標準
+				{
+				var op = document.createElement("option");
+				op.text = IEC_Impulse_withstand_level[j]+"kV";
+				//document.getElementById("IEC_BIL1").options.add(op,j);
+				document.getElementById("IEC_BIL2").options.add(op,j);
+				}
+            break;
+			
+        case 2:   //ANSI
+
+			
+			var L = document.getElementById("IEC_BIL1").options.length;
+			
+			for (j = 0 ; j < L ; j++)
+				{
+				document.getElementById("IEC_BIL1").options.remove(0);
+				document.getElementById("IEC_BIL2").options.remove(0); 
+				}
+	
+			for (j = 0 ; j < ANSI_Impulse_withstand_level.length ; j++)
+				{
+				var op = document.createElement("option");
+				op.text = ANSI_Impulse_withstand_level[j]+"kV";
+				document.getElementById("IEC_BIL1").options.add(op,j);
+				//document.getElementById("IEC_BIL2").options.add(op,j);
+				}
+			for (j = 0 ; j < ANSI_Impulse_withstand_level.length ; j++)
+				{
+				var op = document.createElement("option");
+				op.text = ANSI_Impulse_withstand_level[j]+"kV";
+				//document.getElementById("IEC_BIL1").options.add(op,j);
+				document.getElementById("IEC_BIL2").options.add(op,j);
+				}
+            break;
+			}
+
+}
+
+function myFunction(i,j){
+
+var HV_FLANGE_1_Y = document.getElementById("HV_FLANGE_1_Y").value;
+var BA_AR_TR = document.getElementById("BA_AR_TR").value;
+var AR_Distnace = BA_AR_TR - HV_FLANGE_1_Y;    //避雷器與套管之間水平距離
+
+
+/*ANSI BIL標準*/
+var ANSI_Impulse_withstand_level = [60,75,95,125,200,250,300,450,550,650,750,825,975];
+var ANSI_Clearance_distance_to_ground = [89,114,152,203,305,381,584,762,940,1118,1321,1600,1930];
+var ANSI_Clearance_distance_to_phase = [102,127,165,229,330,432,635,838,1041,1245,1448,1778,2134];
+
+
+/*IEC BIL標準*/
+var IEC_Impulse_withstand_level = [60,75,95,110,150,200,250,350,450,550,650,750,850,950,1050,1175];
+var IEC_Clearance_distance_to_ground = [65,100,140,165,225,330,450,630,830,1050,1250,1450,1500,1900,2300,2700];
+var IEC_Clearance_distance_to_phase = [65,100,140,165,225,330,450,630,830,1050,1250,1450,1800,2250,2650,3100];
+
+//alert("套管BIL:"+ i +"避雷器BIL:" + j);
+var temp;
+var flag;
+
+var BA_BR_X1 = document.getElementById("BA_BR_X1").value;  //避雷器座 右
+var BA_BR_X2 = document.getElementById("BA_BR_X2").value;  //避雷器座 中
+var BA_BR_X3 = document.getElementById("BA_BR_X3").value;  //避雷器座 左
+
+var BA_BR_XP2 = document.getElementById("BA_BR_XP2").value; //中 位置  1:左 2:右
+
+var BR_D1 = 0;
+var BR_D2 = 0;
+var temp2 = "";
+if (BA_BR_XP2 == 1){
+					BR_D1 = BA_BR_X1 - BA_BR_X2;
+					BR_D2 = BA_BR_X3 - BA_BR_X2*(-1);
+					}
+else if(BA_BR_XP2 == 2){
+					BR_D1 = BA_BR_X1 - BA_BR_X2*(-1);
+					BR_D2 = BA_BR_X3 - BA_BR_X2;
+					} 
+
+switch (SS) {
+		case 0:
+			alert("請先選擇安全標準");
+		break;
+		
+		case 1: /*IEC*/
+			/*避雷器相間距離判斷*/
+			if(BR_D1 < IEC_Clearance_distance_to_phase[j]){temp2 = temp2 + "A";}
+			if(BR_D2 < IEC_Clearance_distance_to_phase[j]){temp2 = temp2 + "B";}
+		    /*IEC套管與避雷器安全距離判斷*/
+			if(IEC_Clearance_distance_to_phase[i] > IEC_Clearance_distance_to_phase[j]){temp = IEC_Clearance_distance_to_phase[i];flag = 0;}
+			else{temp = IEC_Clearance_distance_to_phase[j];flag = 1;}
+			if(AR_Distnace < IEC_Clearance_distance_to_phase[i] || AR_Distnace < IEC_Clearance_distance_to_phase[j]){
+				switch (flag){
+						case 0 :
+							temp2 = temp2 + "C";
+							break;
+						case 1 :
+							temp2 = temp2 + "D";
+							break;
+							}
+				}			
+			
+			switch (temp2){
+					case "" : /*皆符合*/
+						document.getElementById("BA_AR_TR").style.color = "black";
+						document.getElementById("BA_BR_X1").style.color = "black";
+						document.getElementById("BA_BR_X2").style.color = "black";
+						document.getElementById("BA_BR_X3").style.color = "black";
+						alert("符合IEC規範\n"+"「右、中」避雷器距離 = "+BR_D1+" mm\n"+"「左、中」避雷器距離 = "+BR_D2+" mm\n"+"套管與避雷器水平距離 = "+AR_Distnace+" mm");
+						break;
+					case "A" : /*「右、中」避雷器距離不符*/
+						document.getElementById("BA_AR_TR").style.color = "black";
+						document.getElementById("BA_BR_X1").style.color = "red";
+						document.getElementById("BA_BR_X2").style.color = "red";
+						document.getElementById("BA_BR_X3").style.color = "black";						
+						alert("「右、中」避雷器距離 = "+BR_D1+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[j]+"kV等級規範，請增加「右、中」避雷器距離，至少大於"+IEC_Clearance_distance_to_phase[j]+" mm");
+						break;
+					case "B" : /*「左、中」避雷器距離不符*/
+						document.getElementById("BA_AR_TR").style.color = "black";
+						document.getElementById("BA_BR_X1").style.color = "black";
+						document.getElementById("BA_BR_X2").style.color = "red";
+						document.getElementById("BA_BR_X3").style.color = "red";
+						alert("「左、中」避雷器距離 = "+BR_D2+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[j]+"kV等級規範，請增加「左、中」避雷器距離，至少大於"+IEC_Clearance_distance_to_phase[j]+" mm");
+						break;
+					case "AB" : /*「右、中、左」避雷器距離不符*/
+						document.getElementById("BA_AR_TR").style.color = "black";
+					    document.getElementById("BA_BR_X1").style.color = "red";
+					    document.getElementById("BA_BR_X2").style.color = "red";
+					    document.getElementById("BA_BR_X3").style.color = "red";
+						alert("「右、中」避雷器距離 = "+BR_D1+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[j]+"kV等級規範，請增加「右、中」避雷器距離，至少大於"+IEC_Clearance_distance_to_phase[j]+" mm\n\n「左、中」避雷器距離 = "+BR_D2+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[j]+"kV等級規範，請增加「左、中」避雷器距離，至少大於"+IEC_Clearance_distance_to_phase[j]+" mm");
+						break;
+					case "C" : /*套管與避雷器安全距離不符*/
+						document.getElementById("BA_AR_TR").style.color = "red";
+						document.getElementById("BA_BR_X1").style.color = "black";
+					    document.getElementById("BA_BR_X2").style.color = "black";
+					    document.getElementById("BA_BR_X3").style.color = "black";
+						alert("套管與避雷器水平距離 = "+AR_Distnace+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[i]+"kV等級規範，請增加「避雷器座至TR中心距離」，相間距離至少大於"+temp+" mm");
+						break;
+					case "D" : /*套管與避雷器安全距離不符*/
+						document.getElementById("BA_AR_TR").style.color = "red";
+						document.getElementById("BA_BR_X1").style.color = "black";
+						document.getElementById("BA_BR_X2").style.color = "black";
+						document.getElementById("BA_BR_X3").style.color = "black";
+						alert("套管與避雷器水平距離 = "+AR_Distnace+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[j]+"kV等級規範，請增加「避雷器座至TR中心距離」，相間距離至少大於"+temp+" mm");
+						break;
+					case "AC" : /*「右、中」避雷器距離、套管與避雷器安全距離不符*/
+						document.getElementById("BA_AR_TR").style.color = "red";
+					    document.getElementById("BA_BR_X1").style.color = "red";
+					    document.getElementById("BA_BR_X2").style.color = "red";
+					    document.getElementById("BA_BR_X3").style.color = "black";
+						alert("「右、中」避雷器距離 = "+BR_D1+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[j]+"kV等級規範，請增加「右、中」避雷器距離，至少大於"+IEC_Clearance_distance_to_phase[j]+" mm\n\n套管與避雷器水平距離 = "+AR_Distnace+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[i]+"kV等級規範，請增加「避雷器座至TR中心距離」，相間距離至少大於"+temp+" mm");
+						break;
+					case "AD" : /*「右、中」避雷器距離、套管與避雷器安全距離不符*/
+						document.getElementById("BA_AR_TR").style.color = "red";
+					    document.getElementById("BA_BR_X1").style.color = "red";
+					    document.getElementById("BA_BR_X2").style.color = "red";
+					    document.getElementById("BA_BR_X3").style.color = "black";
+						alert("「右、中」避雷器距離 = "+BR_D1+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[j]+"kV等級規範，請增加「右、中」避雷器距離，至少大於"+IEC_Clearance_distance_to_phase[j]+" mm\n\n套管與避雷器水平距離 = "+AR_Distnace+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[j]+"kV等級規範，請增加「避雷器座至TR中心距離」，相間距離至少大於"+temp+" mm");
+						break;
+					case "BC" : /*「左、中」避雷器距離、套管與避雷器安全距離不符*/
+						document.getElementById("BA_AR_TR").style.color = "red";
+                        document.getElementById("BA_BR_X1").style.color = "black";
+                        document.getElementById("BA_BR_X2").style.color = "red";
+					    document.getElementById("BA_BR_X3").style.color = "red";
+					    alert("「左、中」避雷器距離 = "+BR_D2+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[j]+"kV等級規範，請增加「左、中」避雷器距離，至少大於"+IEC_Clearance_distance_to_phase[j]+" mm\n\n套管與避雷器水平距離 = "+AR_Distnace+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[i]+"kV等級規範，請增加「避雷器座至TR中心距離」，相間距離至少大於"+temp+" mm");
+						break;
+					case "BD" : /*「左、中」避雷器距離、套管與避雷器安全距離不符*/	
+						document.getElementById("BA_AR_TR").style.color = "red";
+                        document.getElementById("BA_BR_X1").style.color = "black";
+                        document.getElementById("BA_BR_X2").style.color = "red";
+					    document.getElementById("BA_BR_X3").style.color = "red";
+						alert("「左、中」避雷器距離 = "+BR_D2+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[j]+"kV等級規範，請增加「左、中」避雷器距離，至少大於"+IEC_Clearance_distance_to_phase[j]+" mm\n\n套管與避雷器水平距離 = "+AR_Distnace+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[j]+"kV等級規範，請增加「避雷器座至TR中心距離」，相間距離至少大於"+temp+" mm");
+						break;
+					case "ABC" : /*「右、中、左」避雷器距離、套管與避雷器安全距離不符*/
+						document.getElementById("BA_AR_TR").style.color = "red";
+						document.getElementById("BA_BR_X1").style.color = "red";
+						document.getElementById("BA_BR_X2").style.color = "red";
+						document.getElementById("BA_BR_X3").style.color = "red";
+						alert("「右、中」避雷器距離 = "+BR_D1+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[j]+"kV等級規範，請增加「右、中」避雷器距離，至少大於"+IEC_Clearance_distance_to_phase[j]+" mm\n\n「左、中」避雷器距離 = "+BR_D2+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[j]+"kV等級規範，請增加「左、中」避雷器距離，至少大於"+IEC_Clearance_distance_to_phase[j]+" mm\n\n套管與避雷器水平距離 = "+AR_Distnace+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[i]+"kV等級規範，請增加「避雷器座至TR中心距離」，相間距離至少大於"+temp+" mm");
+						break;
+					case "ABD" : /*「右、中、左」避雷器距離、套管與避雷器安全距離不符*/
+						document.getElementById("BA_AR_TR").style.color = "red";
+						document.getElementById("BA_BR_X1").style.color = "red";
+						document.getElementById("BA_BR_X2").style.color = "red";
+						document.getElementById("BA_BR_X3").style.color = "red";
+						alert("「右、中」避雷器距離 = "+BR_D1+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[j]+"kV等級規範，請增加「右、中」避雷器距離，至少大於"+IEC_Clearance_distance_to_phase[j]+" mm\n\n「左、中」避雷器距離 = "+BR_D2+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[j]+"kV等級規範，請增加「左、中」避雷器距離，至少大於"+IEC_Clearance_distance_to_phase[j]+" mm\n\n套管與避雷器水平距離 = "+AR_Distnace+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[j]+"kV等級規範，請增加「避雷器座至TR中心距離」，相間距離至少大於"+temp+" mm");
+						break;
+								
+			}
+		
+			/*
+			if(BR_D1 < IEC_Clearance_distance_to_phase[j]){alert("「右、中」避雷器距離 = "+BR_D1+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[j]+"kV等級規範，請增加「右、中」避雷器距離，至少大於"+IEC_Clearance_distance_to_phase[j]+" mm");}
+			else{temp2++;}
+			if (BR_D2 < IEC_Clearance_distance_to_phase[j]){alert("「左、中」避雷器距離 = "+BR_D2+" mm，不符合IEC BIL"+IEC_Impulse_withstand_level[j]+"kV等級規範，請增加「左、中」避雷器距離，至少大於"+IEC_Clearance_distance_to_phase[j]+" mm");}
+			else{temp2++;}
+			if(temp2 ==2){alert("避雷器相間距離符合IEC規範");}
+			if(IEC_Clearance_distance_to_phase[i] > IEC_Clearance_distance_to_phase[j]){temp = IEC_Clearance_distance_to_phase[i];flag = 0;}
+			else{temp = IEC_Clearance_distance_to_phase[j];flag = 1;}
+			if(AR_Distnace < IEC_Clearance_distance_to_phase[i] || AR_Distnace < IEC_Clearance_distance_to_phase[j]){
+				switch (flag){
+						case 0 :
+							alert("套管與避雷器水平距離 = "+AR_Distnace+" mm，不符合HV套管-IEC BIL"+IEC_Impulse_withstand_level[i]+"kV等級規範，請增加「避雷器座至TR中心距離」，相間距離至少大於"+temp+" mm");
+							break;
+						case 1 :
+							alert("套管與避雷器水平距離 = "+AR_Distnace+" mm，不符合避雷器-IEC BIL"+IEC_Impulse_withstand_level[j]+"kV等級規範，請增加「避雷器座至TR中心距離」，相間距離至少大於"+temp+" mm");
+							break;
+							}
+
+				}
+			else{alert("HV套管與避雷器間距符合IEC規範");}
+			*/
+		break;
+		
+		case 2: /*ANSI*/
+			/*避雷器相間距離判斷*/
+			if(BR_D1 < ANSI_Clearance_distance_to_phase[j]){temp2 = temp2 + "A";}
+			if(BR_D2 < ANSI_Clearance_distance_to_phase[j]){temp2 = temp2 + "B";}
+		    /*ANSI套管與避雷器安全距離判斷*/
+			if(ANSI_Clearance_distance_to_phase[i] > ANSI_Clearance_distance_to_phase[j]){temp = ANSI_Clearance_distance_to_phase[i];flag = 0;}
+			else{temp = ANSI_Clearance_distance_to_phase[j];flag = 1;}
+			if(AR_Distnace < ANSI_Clearance_distance_to_phase[i] || AR_Distnace < ANSI_Clearance_distance_to_phase[j]){
+				switch (flag){
+						case 0 :
+							temp2 = temp2 + "C";
+							break;
+						case 1 :
+							temp2 = temp2 + "D";
+							break;
+							}
+				}			
+			
+			switch (temp2){
+					case "" : /*皆符合*/
+						document.getElementById("BA_AR_TR").style.color = "black";
+						document.getElementById("BA_BR_X1").style.color = "black";
+						document.getElementById("BA_BR_X2").style.color = "black";
+						document.getElementById("BA_BR_X3").style.color = "black";
+						alert("符合ANSI規範\n"+"「右、中」避雷器距離 = "+BR_D1+" mm\n"+"「左、中」避雷器距離 = "+BR_D2+" mm\n"+"套管與避雷器水平距離 = "+AR_Distnace+" mm");
+						break;
+					case "A" : /*「右、中」避雷器距離不符*/
+						document.getElementById("BA_AR_TR").style.color = "black";
+						document.getElementById("BA_BR_X1").style.color = "red";
+						document.getElementById("BA_BR_X2").style.color = "red";
+						document.getElementById("BA_BR_X3").style.color = "black";						
+						alert("「右、中」避雷器距離 = "+BR_D1+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[j]+"kV等級規範，請增加「右、中」避雷器距離，至少大於"+ANSI_Clearance_distance_to_phase[j]+" mm");
+						break;
+					case "B" : /*「左、中」避雷器距離不符*/
+						document.getElementById("BA_AR_TR").style.color = "black";
+						document.getElementById("BA_BR_X1").style.color = "black";
+						document.getElementById("BA_BR_X2").style.color = "red";
+						document.getElementById("BA_BR_X3").style.color = "red";
+						alert("「左、中」避雷器距離 = "+BR_D2+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[j]+"kV等級規範，請增加「左、中」避雷器距離，至少大於"+ANSI_Clearance_distance_to_phase[j]+" mm");
+						break;
+					case "AB" : /*「右、中、左」避雷器距離不符*/
+						document.getElementById("BA_AR_TR").style.color = "black";
+					    document.getElementById("BA_BR_X1").style.color = "red";
+					    document.getElementById("BA_BR_X2").style.color = "red";
+					    document.getElementById("BA_BR_X3").style.color = "red";
+						alert("「右、中」避雷器距離 = "+BR_D1+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[j]+"kV等級規範，請增加「右、中」避雷器距離，至少大於"+ANSI_Clearance_distance_to_phase[j]+" mm\n\n「左、中」避雷器距離 = "+BR_D2+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[j]+"kV等級規範，請增加「左、中」避雷器距離，至少大於"+ANSI_Clearance_distance_to_phase[j]+" mm");
+						break;
+					case "C" : /*套管與避雷器安全距離不符*/
+						document.getElementById("BA_AR_TR").style.color = "red";
+						document.getElementById("BA_BR_X1").style.color = "black";
+					    document.getElementById("BA_BR_X2").style.color = "black";
+					    document.getElementById("BA_BR_X3").style.color = "black";
+						alert("套管與避雷器水平距離 = "+AR_Distnace+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[i]+"kV等級規範，請增加「避雷器座至TR中心距離」，相間距離至少大於"+temp+" mm");
+						break;
+					case "D" : /*套管與避雷器安全距離不符*/
+						document.getElementById("BA_AR_TR").style.color = "red";
+						document.getElementById("BA_BR_X1").style.color = "black";
+						document.getElementById("BA_BR_X2").style.color = "black";
+						document.getElementById("BA_BR_X3").style.color = "black";
+						alert("套管與避雷器水平距離 = "+AR_Distnace+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[j]+"kV等級規範，請增加「避雷器座至TR中心距離」，相間距離至少大於"+temp+" mm");
+						break;
+					case "AC" : /*「右、中」避雷器距離、套管與避雷器安全距離不符*/
+						document.getElementById("BA_AR_TR").style.color = "red";
+					    document.getElementById("BA_BR_X1").style.color = "red";
+					    document.getElementById("BA_BR_X2").style.color = "red";
+					    document.getElementById("BA_BR_X3").style.color = "black";
+						alert("「右、中」避雷器距離 = "+BR_D1+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[j]+"kV等級規範，請增加「右、中」避雷器距離，至少大於"+ANSI_Clearance_distance_to_phase[j]+" mm\n\n套管與避雷器水平距離 = "+AR_Distnace+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[i]+"kV等級規範，請增加「避雷器座至TR中心距離」，相間距離至少大於"+temp+" mm");
+						break;
+					case "AD" : /*「右、中」避雷器距離、套管與避雷器安全距離不符*/
+						document.getElementById("BA_AR_TR").style.color = "red";
+					    document.getElementById("BA_BR_X1").style.color = "red";
+					    document.getElementById("BA_BR_X2").style.color = "red";
+					    document.getElementById("BA_BR_X3").style.color = "black";
+						alert("「右、中」避雷器距離 = "+BR_D1+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[j]+"kV等級規範，請增加「右、中」避雷器距離，至少大於"+ANSI_Clearance_distance_to_phase[j]+" mm\n\n套管與避雷器水平距離 = "+AR_Distnace+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[j]+"kV等級規範，請增加「避雷器座至TR中心距離」，相間距離至少大於"+temp+" mm");
+						break;
+					case "BC" : /*「左、中」避雷器距離、套管與避雷器安全距離不符*/
+						document.getElementById("BA_AR_TR").style.color = "red";
+                        document.getElementById("BA_BR_X1").style.color = "black";
+                        document.getElementById("BA_BR_X2").style.color = "red";
+					    document.getElementById("BA_BR_X3").style.color = "red";
+					    alert("「左、中」避雷器距離 = "+BR_D2+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[j]+"kV等級規範，請增加「左、中」避雷器距離，至少大於"+ANSI_Clearance_distance_to_phase[j]+" mm\n\n套管與避雷器水平距離 = "+AR_Distnace+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[i]+"kV等級規範，請增加「避雷器座至TR中心距離」，相間距離至少大於"+temp+" mm");
+						break;
+					case "BD" : /*「左、中」避雷器距離、套管與避雷器安全距離不符*/	
+						document.getElementById("BA_AR_TR").style.color = "red";
+                        document.getElementById("BA_BR_X1").style.color = "black";
+                        document.getElementById("BA_BR_X2").style.color = "red";
+					    document.getElementById("BA_BR_X3").style.color = "red";
+						alert("「左、中」避雷器距離 = "+BR_D2+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[j]+"kV等級規範，請增加「左、中」避雷器距離，至少大於"+ANSI_Clearance_distance_to_phase[j]+" mm\n\n套管與避雷器水平距離 = "+AR_Distnace+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[j]+"kV等級規範，請增加「避雷器座至TR中心距離」，相間距離至少大於"+temp+" mm");
+						break;
+					case "ABC" : /*「右、中、左」避雷器距離、套管與避雷器安全距離不符*/
+						document.getElementById("BA_AR_TR").style.color = "red";
+						document.getElementById("BA_BR_X1").style.color = "red";
+						document.getElementById("BA_BR_X2").style.color = "red";
+						document.getElementById("BA_BR_X3").style.color = "red";
+						alert("「右、中」避雷器距離 = "+BR_D1+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[j]+"kV等級規範，請增加「右、中」避雷器距離，至少大於"+ANSI_Clearance_distance_to_phase[j]+" mm\n\n「左、中」避雷器距離 = "+BR_D2+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[j]+"kV等級規範，請增加「左、中」避雷器距離，至少大於"+ANSI_Clearance_distance_to_phase[j]+" mm\n\n套管與避雷器水平距離 = "+AR_Distnace+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[i]+"kV等級規範，請增加「避雷器座至TR中心距離」，相間距離至少大於"+temp+" mm");
+						break;
+					case "ABD" : /*「右、中、左」避雷器距離、套管與避雷器安全距離不符*/
+						document.getElementById("BA_AR_TR").style.color = "red";
+						document.getElementById("BA_BR_X1").style.color = "red";
+						document.getElementById("BA_BR_X2").style.color = "red";
+						document.getElementById("BA_BR_X3").style.color = "red";
+						alert("「右、中」避雷器距離 = "+BR_D1+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[j]+"kV等級規範，請增加「右、中」避雷器距離，至少大於"+ANSI_Clearance_distance_to_phase[j]+" mm\n\n「左、中」避雷器距離 = "+BR_D2+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[j]+"kV等級規範，請增加「左、中」避雷器距離，至少大於"+ANSI_Clearance_distance_to_phase[j]+" mm\n\n套管與避雷器水平距離 = "+AR_Distnace+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[j]+"kV等級規範，請增加「避雷器座至TR中心距離」，相間距離至少大於"+temp+" mm");
+						break;
+								
+			}
+            /*
+			if(BR_D1 < ANSI_Clearance_distance_to_phase[j]){alert("「右、中」避雷器距離 = "+BR_D1+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[j]+"kV等級規範，請增加「右、中」避雷器距離，至少大於"+ANSI_Clearance_distance_to_phase[j]+" mm");}
+			else{temp2++;}
+			if (BR_D2 < ANSI_Clearance_distance_to_phase[j]){alert("「左、中」避雷器距離 = "+BR_D2+" mm，不符合ANSI BIL"+ANSI_Impulse_withstand_level[j]+"kV等級規範，請增加「左、中」避雷器距離，至少大於"+ANSI_Clearance_distance_to_phase[j]+" mm");}
+			else{temp2++;}
+			if(temp2 == 2){alert("避雷器相間距離符合ANSI規範");}		
+
+			if(ANSI_Clearance_distance_to_phase[i] > ANSI_Clearance_distance_to_phase[j]){temp = ANSI_Clearance_distance_to_phase[i];flag = 0;}
+			else{temp = ANSI_Clearance_distance_to_phase[j];flag = 1;}
+			if(AR_Distnace < ANSI_Clearance_distance_to_phase[i] || AR_Distnace < ANSI_Clearance_distance_to_phase[j]){
+				switch (flag){
+						case 0 :
+							alert("套管與避雷器水平距離 = "+AR_Distnace+" mm，不符合HV套管-ANSI BIL"+ANSI_Impulse_withstand_level[i]+"kV等級規範，請增加「避雷器座至TR中心距離」，相間距離至少大於"+temp+" mm");
+							break;
+						case 1 :
+							alert("套管與避雷器水平距離 = "+AR_Distnace+" mm，不符合避雷器-ANSI BIL"+ANSI_Impulse_withstand_level[j]+"kV等級規範，請增加「避雷器座至TR中心距離」，相間距離至少大於"+temp+" mm");
+							break;
+							}
+
+				}
+			else{alert("HV套管與避雷器間距符合ANSI規範");}
+			*/
+		break;
+	}
+}
+
+
+
+
+</script>
+
+<body>
+<div class="topbar">
+			<ul class="topbar">
+			<li ><a href="index.html" target="right"><img src="../img/web.png" width="30px"></a></li>
+			<li ><a href="../WebLink使用手冊.pdf" target="right"><strong>WebLink使用說明</strong></a></li>
+			<li style="float:right"><a href="mailto:jack.you@fortune.com.tw"><strong>問題回饋</strong></a></li>
+			<li style="float:right"><a href="http://www.fortune.com.tw/" target="right"><strong>關於我們</strong></a></li>
+			</ul>
+</div>
+<!-- Trigger/Open The Modal -->
+<!-- FY按鈕 -->
+<!--1.<button> 標籤在表格內無法使用modal改成<input type>或其他圖片方式即可，原因不明2.Chrome無法以jQuery讀取不同protocol檔案-->
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+<!-- Modal content -->
+	<div class="modal-content">
+		<div class="modal-header">
+			<span class="close" onclick="modal_close()">×</span>
+			<h2>歷史異常</h2>
+		</div>
+		
+		<div class="modal-body" id="modal-body">
+		</div>
+		
+		<div class="modal-footer">
+		<span class="close-btn" onclick="modal_close()">close</span>
+		</div>
+	</div>
+</div>
+
+
+<div class="button-group">
+<li><div class="button" onclick="TRParametersSave();" style="cursor:pointer;"><a><img src="../img/wrench.png"  align="left" style="height:30px;"/><strong>寫入參數</strong></a></div></li>
+<li><div class="button" onclick="rege();" style="cursor:pointer;"><a><img src="../img/circle.png"  align="left" style="height:30px;"/><strong>切換至模型</strong></a></div></li>
+<li><div class="button" id="closetip"><a href="#." ><img src="../img/delete.png"  align="left" style="height:30px;"/><strong >關閉提示</strong></a></div></li>
+<li><div class="button" id="opentip"><a href="#." ><img src="../img/arrows.png"  align="left" style="height:30px;"/><strong >開啟提示</strong></a></div></li>
+</div>
+
+	<form name="tankForm" id="tankFormID" class="myform">
+           	<table width="900" border="0" cellspacing="0" cellpadding="0">
+                       <tr><td>
+			
+
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+				<td colspan="2" align="right" valign="middle" style="font-size:40px"><p><i> <marquee> <font face="monospace font" color="gray">變壓器外殼設計</font></marquee></i></p></td>
+				</tr>
+				</table>
+			
+				
+						
+				<div style="display:none;">
+						<div id="tip0">
+							<img src="../pic/BAMHFA.png" style="float:right;width:754px;height:548px;" alt="" />
+							<h1 align="center"><font face="monospace font">Back人手孔示意圖</font></h1>
+						</div>
+						<div id="tip1">
+							<h1>公稱直徑:</h1>
+							<h1>1. 300</h1>
+							<h1>2. 400</h1>
+							<h1>3. 500</h1>
+							<h1>4. 600</h1>
+						</div>
+						<div id="tip2">
+							<h1>位置:</h1>
+							<h1>1: 左</h1>
+							<h1>2: 右</h1>
+						</div>
+						<div id="tip3">
+							<h1>橢圓手孔尺寸:</h1>
+							<h1>0. 關閉</h1>
+							<h1>1. 23A4387</h1>
+							<h1>2. 23A2444</h1>
+							<h1>3. 3TF1270_A作業</h1>
+							<h1>4. 3TF1270_B作業</h1>
+						</div>	
+						<div id="tip4">
+							<img src="../pic/BAOMH.png" style="float:right;width:754px;height:548px;" alt="" />
+							<h1 align="center"><font face="monospace font">Back橢圓手孔示意圖</font></h1>
+						</div>
+						<div id="tip5">
+							<img src="../pic/TANKLUGB1.png" style="float:right;width:801px;height:389px;" alt="" />
+							<h1 align="center"><font face="monospace font">吊耳示意圖</font></h1>
+						</div>
+						<div id="tip6">
+							<h1>吊耳作業形式:</h1>
+							<h1>1: A作業</h1>
+							<h1>2: B作業</h1>
+							<h1>3: C作業</h1>
+							<h1>4: D作業</h1>
+						</div>
+						<div id="tip7">
+							<h1>吊耳長度統一控制</h1>
+						</div>
+						<div id="tip8">
+							<img src="../pic/RADIATORFLANGEB.png" style="float:right;width:754px;height:343px;" alt="" />
+							<h1 align="center"><font face="monospace font">散熱器法蘭示意圖</font></h1>
+						</div>
+						<div id="tip9">
+							<h1>外殼散熱器共用</h1>
+						</div>	
+						<div id="tip10">
+							<h1>編號由左至右 0:關,數字不可為1</h1>
+						</div>
+						<div id="tip11">
+							<h1>關閉:0 開啟:1</h1>
+						</div>	
+						<div id="tip12">
+							<img src="../pic/JACKBack.png" style="float:right;width:754px;height:343px;" alt="" />
+							<h1 align="center"><font face="monospace font">千斤頂示意圖</font></h1>
+						</div>	
+						<div id="tip13">
+							<h1>千斤頂作業形式:</h1>
+							<h1>1: A作業</h1>
+							<h1>2: B作業</h1>
+							<h1>3: C作業</h1>
+						</div>
+						<div id="tip14">
+							<h1>形式與長度共用</h1>
+						</div>					
+						<div id="tip15">
+							<img src="../pic/BAGT.png" style="float:right;width:654px;height:343px;" alt="" />
+							<h1 align="center"><font face="monospace font">接地端子示意圖</font></h1>
+						</div>
+						<div id="tip16">
+							<img src="../pic/BAFLANGE.png" style="float:right;width:654px;height:343px;" alt="" />
+							<h1 align="center"><font face="monospace font">衝擊油壓電驛法蘭示意圖</font></h1>
+						</div>
+						<div id="tip17">
+							<h1>電驛法蘭尺寸:</h1>
+							<h1>1: 1/2"</h1>
+							<h1>2: 1"</h1>
+							<h1>3: 3/2"</h1>
+							<h1>4: 2"</h1>
+							<h1>5: 3"</h1>
+							<h1>6: 4"</h1>
+						</div>
+						<div id="tip18">
+							<h1>種類:</h1>
+							<h1>0: 平法蘭</h1>
+							<h1>1: 溝法蘭</h1>
+						</div>
+						<div id="tip19">
+							<img src="../pic/BAVALVE.png" style="float:right;width:654px;height:343px;" alt="" />
+							<h1 align="center"><font face="monospace font">油中氣體用閥座示意圖</font></h1>
+						</div>
+						<div id="tip20">
+							<h1>圓心至底板上緣</h1>
+						</div>		
+						<div id="tip21">
+							<img src="../pic/BABR3.png" style="float:right;width:680px;height:478px;" alt="" />
+							<h1 align="center"><font face="monospace font">避雷器支架座示意圖</font></h1>
+						</div>
+						<div id="tip22">
+							<img src="../pic/BABR2.png" style="float:right;width:800px;height:450px;" alt="" />
+							<h1 align="center"><font face="monospace font">支架座示意圖</font></h1>
+						</div>		
+						<div id="tip23">
+							<h1>支架座中心至底板上緣</h1>
+						</div>
+						<div id="tip24">
+							<h1>端子中心至底板上緣</h1>
+						</div>	
+						<div id="tip25">
+							<h1>圓心至TR中心</h1>
+						</div>	
+						<div id="tip26">
+							<h1>千斤頂底座至底板上緣</h1>
+						</div>						
+						<div id="tip27">
+							<img src="../pic/BAARRESTERBASE.png" style="float:right;width:650px;height:650px;" alt="" />
+							<h1 align="center"><font face="monospace font">避雷器支架示意圖</font></h1>
+						</div>	
+						<div id="tip28">
+							<img src="../pic/BA_ARRESTER_CHECK.png" style="float:right;width:650px;height:650px;" alt="" />
+							<h1 align="center"><font face="monospace font">避雷器安全距離示意圖</font></h1>
+						</div>						
+				</div>	
+				
+				
+
+	
+	
+
+	
+	<UL type=disc>
+
+
+	
+	
+	<!--上蓋-->
+	<LI><A name="外殼"><B><I><font face="monospace font"  size="5.5" color="blue">外殼-Back</font></B></I></A>
+
+	
+	
+		<p><table width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr style="background-color:#000000;">			                                             
+					<th style="width: 30%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>	
+					<th  style="width: 55%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th  style="width: 15%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+			
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">Back支架座(右)<br>(與避雷器支架連動<br>此處須在TR中心左側)</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>
+					<!--<a href="cover.PNG"   onclick="window.open(this.href, '_blank', 'scrollbars=0,resizable=0,width=1300,height=700');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					<br>
+					<!--<img src="../pic/q1.png" align="center" width="75" height="75" value="說明一"  onmouseover="tooltip.pop(this, '#tip21',{hideDelay:100,calloutPosition: 0.5, maxWidth: 500})">-->
+					<img src="../pic/q1.png" align="center" width="75" height="75" id="pic9" style="cursor:help">
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>  支架座型式<input type="text" name="BA_BR1" id="BA_BR1" value="" size="5.5" /><img src="../img/icon2.png" align="center" width="32" height="32" id="pic10" style="cursor:help"></p>
+					<p>  位置<input type="text" name="BA_BR_XP1"id="BA_BR_XP1" value="" size="5.5" /></p>
+					<p>  距離X<input type="text" name="BA_BR_X1" id="BA_BR_X1" value="" size="5.5"/></p>
+					<p>  距離Y<input type="text" name="BA_BR_Y1" id="BA_BR_Y1" value="" size="5.5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<!--<div class="myBtn" id="myBtn47" style="cursor:pointer;"><strong >Back支架座異常</strong></div>-->
+					</td>					
+				</tr>	
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">Back支架座(中)</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>
+					<!--<a href="cover.PNG"   onclick="window.open(this.href, '_blank', 'scrollbars=0,resizable=0,width=1300,height=700');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+                     </td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>  支架座型式<input type="text" name="BA_BR2" id="BA_BR2" value="" size="5.5" /><img src="../img/icon2.png" align="center" width="32" height="32" id="pic11" style="cursor:help"></p>
+					<p>  位置<input type="text" name="BA_BR_XP2"id="BA_BR_XP2" value="" size="5.5" /></p>
+					<p>  距離X<input type="text" name="BA_BR_X2" id="BA_BR_X2" value="" size="5.5"/></p>
+					<p>  距離Y<input type="text" name="BA_BR_Y2" id="BA_BR_Y2" value="" size="5.5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					
+					</td>					
+				</tr>	
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">Back支架座(左)</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>
+					<!--<a href="cover.PNG"   onclick="window.open(this.href, '_blank', 'scrollbars=0,resizable=0,width=1300,height=700');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>  支架座型式<input type="text" name="BA_BR3" id="BA_BR3" value="" size="5.5" /><img src="../img/icon2.png" align="center" width="32" height="32" id="pic12" style="cursor:help"></p>
+					<p>  位置<input type="text" name="BA_BR_XP3"id="BA_BR_XP3" value="" size="5.5" /></p>
+					<p>  距離X<input type="text" name="BA_BR_X3" id="BA_BR_X3" value="" size="5.5"/></p>
+					<p>  距離Y<input type="text" name="BA_BR_Y3" id="BA_BR_Y3" value="" size="5.5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					
+					</td>					
+				</tr>	
+
+				
+			</tbody>			
+		</table></p>
+		
+			<p><table width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr style="background-color:#000000;">			                                             
+					<th style="width: 30%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>	
+					<th  style="width: 55%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th  style="width: 15%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+			
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">Back避雷器支架</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>
+					<!--<a href="cover.PNG"   onclick="window.open(this.href, '_blank', 'scrollbars=0,resizable=0,width=1300,height=700');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					<br>
+					<!--<img src="../pic/q1.png" align="center" width="75" height="75" value="說明一"  onmouseover="tooltip.pop(this, '#tip21',{hideDelay:100,calloutPosition: 0.5, maxWidth: 500})">-->
+					<img src="../pic/q1.png" align="center" width="75" height="75" id="pic13" style="cursor:help">
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5"  >
+					<p>  避雷器座至TR中心距離<input type="text" name="BA_AR_TR" id="BA_AR_TR" value="" size="5.5" /></p>
+					<p>  避雷器座頂部高度<input type="text" name="BA_AR_H"id="BA_AR_H" value="" size="5.5" /></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<!--<div class="myBtn" id="myBtn38" style="cursor:pointer;"><strong >Back避雷器支架異常</strong></div>-->
+					</td>					
+				</tr>
+			
+
+				<tr>	
+					<td style="background-color:#FFFACD;" align="left" colspan="3"><font face="monospace font"  size="4" >
+					<div class = "FY" >
+					<p>  <b>HV側避雷器安全距離確認:<img src="../img/warning.png" align="center" width="32" height="32" id="pic14" style="cursor:help"></p>
+					<p>  <b>選擇標準:
+					<select  name="BIL_STANDARD" id="BIL_STANDARD" style="height:30px;width:130px;font-size:20px" onchange ="Standard_Select(document.tankForm.BIL_STANDARD.selectedIndex)">
+							<option value=7    style="font-size:20px">None</option>
+							<option value=60    style="font-size:20px">IEC標準</option>
+							<option value=75    style="font-size:20px">ANSI標準</option>							
+					</select></p>
+					<p>  <b>套管BIL等級:
+					<select  name="IEC_BIL1" id="IEC_BIL1" style="height:30px;width:100px;font-size:20px" onchange ="">
+							<option value=975    style="font-size:20px">None</option>
+					</select>避雷器BIL等級:	<select  name="IEC_BIL2" id="IEC_BIL2" style="height:30px;width:100px;font-size:20px" onchange ="">
+							<option value=975    style="font-size:20px">None</option>
+					</select></p>
+					<div class="check_btn" id="check_btn" style=""><a><img src="../img/check2.png" align="center" width="200" height="50" id="pic99" style="cursor:help" onclick="myFunction(document.tankForm.IEC_BIL1.selectedIndex,document.tankForm.IEC_BIL2.selectedIndex);"></a></div>
+					</div></td>	
+				</tr>				
+
+
+				
+			</tbody>			
+		</table></p>
+		<!--test-->
+		<div style="position:absolute;bottom:400px;visibility:hidden;"><input type="text" name="HV_FLANGE_1_Y" id="HV_FLANGE_1_Y" value="" size="5"/></div>				
+	</form>
+
+	<script type="text/javascript">
+	
+	//取得資料
+	TRParametersSet();
+	</script>
+</body>
+
+
+</HTML>

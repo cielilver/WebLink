@@ -1,0 +1,634 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script type="text/javascript" src="../jscript/myjc3.js"></script>
+    <title> T1P501外殼計算程式 </title>
+</head>
+<body>
+    <form name="myform">
+	
+        <div class="形式選擇">
+            <div class="上補強型式">
+                <select name="input_L" size="2" style="height:80px;width:150px" onchange ="type_L(document.myform.input_L.selectedIndex)">
+                    <!--type_L(this.selectedIndex)-->
+                    <option value=" " style="font-size:20px">上補強種類</option>
+                    <option value="1" style="font-size:20px">上補強 NO.1</option>
+                    <option value="2" style="font-size:20px">上補強 NO.2</option>
+                </select>
+				
+            </div>
+        </div>
+        <div class="標題">
+            T1P501外殼程式計算
+        </div>
+        <div class="基本設置">
+            <div class="Title">
+                <label for="">基本設置</label><br />
+                <label for="">壓力P0(kg/cm2)</label><br />
+                <label for="">外殼長2L(mm)</label><br />
+                <label for="">外殼寬2W(mm)</label><br />
+                
+            </div>
+            <div class="text">
+                <br />
+                <input type="text" id="P0" value=" " style="text-align:center;width: 80px"><br />
+                <input type="text" id="Tank_2L" value=" " style="text-align:center;width: 80px"><br />
+                <input type="text" id="Tank_2W" value=" " style="text-align:center;width: 80px"><br />
+                
+            </div>
+        </div>
+        <div class="上補強">
+            <div class="Title1">
+                <label for="">上補強</label><br />
+            </div>
+            <div class="Title2">
+                <label for="">長邊側</label><br />
+                <label for="">壓力負擔距離BB(mm)</label><br />
+                <label for="">外殼側板厚度T(mm)</label><br />
+                <label for="">法蘭寬W (mm)</label><br />
+                <label for="">法蘭厚T2(mm)</label><br />
+                <label for="">補強寬B0(mm)</label><br />
+                <label for="">補強高H1(mm)</label><br />
+                <label for="">補強厚T1(mm)</label><br />
+                <label for="">補強寬XB(mm)</label><br />
+                <label for="">補強高H2(mm)</label><br />
+            </div>
+            <div class="text2">
+                <br />
+                <input type="text" id="BB" value=" " style="text-align:center;width: 80px" disabled><br />
+                <input type="text" id="T_L" value=" " style="text-align:center;width: 80px" disabled><br />
+                <input type="text" id="W_L" value=" " style="text-align:center;width: 80px" disabled><br />
+                <input type="text" id="T2_L" value=" " style="text-align:center;width: 80px" disabled><br />
+                <input type="text" id="B0_L" value=" " style="text-align:center;width: 80px" disabled><br />
+                <input type="text" id="H1_L" value=" " style="text-align:center;width: 80px" disabled><br />
+                <input type="text" id="T1_L" value=" " style="text-align:center;width: 80px" disabled><br />
+                <input type="text" id="XB_L" value=" " style="text-align:center;width: 80px" disabled><br />
+                <input type="text" id="H2_L" value=" " style="text-align:center;width: 80px" disabled><br />
+            </div>
+            <div class="Title2">
+                <label for="">短邊側</label><br /><br>
+                <label for="">外殼側板厚度T(mm)</label><br />
+                <label for="">法蘭寬W (mm)</label><br />
+                <label for="">法蘭厚T2(mm)</label><br />
+                <label for="">補強寬B0(mm)</label><br />
+                <label for="">補強高H1(mm)</label><br />
+                <label for="">補強厚T1(mm)</label><br />
+            </div>
+            <div class="text2">
+                <br /><br>
+                <input type="text" id="T_S" value=" " style="text-align:center;width: 80px" disabled><br />
+                <input type="text" id="W_S" value=" " style="text-align:center;width: 80px" disabled><br />
+                <input type="text" id="T2_S" value=" " style="text-align:center;width: 80px" disabled><br />
+                <input type="text" id="B0_S" value=" " style="text-align:center;width: 80px" disabled><br />
+                <input type="text" id="H1_S" value=" " style="text-align:center;width: 80px" disabled><br />
+                <input type="text" id="T1_S" value=" " style="text-align:center;width: 80px" disabled><br />
+            </div>
+            </div>
+            <div class="下補強">
+                <div class="Title3">
+                    <label for="">下補強</label><br />
+                </div>
+                <div class="Title4">
+                    <label for="">長邊側</label><br />
+                    <label for="">壓力負擔距離BB(mm)</label><br />
+                    <label for="">外殼側板厚度T(mm)</label><br />
+                    <label for="">補強寬B0(mm)</label><br />
+                    <label for="">補強高H1(mm)</label><br />
+                    <label for="">補強厚T1(mm)</label><br />
+                </div>
+                <div class="text3">
+                    <br />
+                    <input type="text" id="BB_s" value=" " style="text-align:center;width: 80px"><br />
+                    <input type="text" id="T_Ls" value=" " style="text-align:center;width: 80px" ><br />
+                    <input type="text" id="B0_Ls" value=" " style="text-align:center;width: 80px" ><br />
+                    <input type="text" id="H1_Ls" value=" " style="text-align:center;width: 80px" ><br />
+                    <input type="text" id="T1_Ls" value=" " style="text-align:center;width: 80px" ><br />
+                </div>
+                <div class="Title4">
+                    <label for="">短邊側</label><br /><br>
+                    <label for="">外殼側板厚度T(mm)</label><br />
+                    <label for="">補強寬B0(mm)</label><br />
+                    <label for="">補強高H1(mm)</label><br />
+                    <label for="">補強厚T1(mm)</label><br />
+                </div>
+                <div class="text3">
+                    <br /><br>
+                    <input type="text" id="T_Ss" value=" " style="text-align:center;width: 80px" ><br />
+                    <input type="text" id="B0_Ss" value=" " style="text-align:center;width: 80px" ><br />
+                    <input type="text" id="H1_Ss" value=" " style="text-align:center;width: 80px" ><br />
+                    <input type="text" id="T1_Ss" value=" " style="text-align:center;width: 80px" ><br />
+                </div>
+            </div>
+        <!-------------------------------上補強-------------------------------------->
+        <div class="Sectional_constant">
+            <div class="Title5">
+                <label for="">上補強</label><br />
+                <label for="">Be(mm)</label><br />
+                <label for="">A(mm2)</label><br />
+                <label for="">ei(mm)</label><br />
+                <label for="">eo(mm)</label><br />
+                <label for="">I(mm4)</label><br />
+                <label for="">Zi(mm3)</label><br />
+                <label for="">Zo(mm3)</label><br />
+            </div>
+            <div class="text4">
+                <label for="">長邊</label><br />
+                <input type="text" id="Be_L" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="A_L" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="ei_L" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="eo_L" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="I_L" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="Zi_L" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="Zo_L" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+            </div>
+            <div class="text5">
+                <label for="">短邊</label><br />
+                <input type="text" id="Be_S" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="A_S" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="ei_S" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="eo_S" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="I_S" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="Zi_S" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="Zo_S" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+            </div>
+        </div>
+        <div class="Bending_monent">
+            <div class="Title6">
+                <label for="">Point</label><br />
+                <label for="">A</label><br />
+                <label for="">B</label><br />
+                <label for="">C</label><br />
+                <label for="">D</label><br />
+            </div>
+            <div class="text6">
+                <label for="">Moment(kg-mm)</label><br />
+                <input type="text" id="MA" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="MB" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="MC" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="MD" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+            </div>
+            <div class="text7">
+                <label for="">變形(mm)</label><br />
+                <br />
+                <input type="text" id="DFB" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <br />
+                <input type="text" id="DFD" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+            </div>
+        </div>
+        <div class="Stress">
+            <div class="Title7">
+                <label for="">Point</label><br />
+                <label for="">A</label><br />
+                <label for="">B</label><br />
+                <label for="">C</label><br />
+                <label for="">D</label><br />
+            </div>
+            <div class="text8">
+                <label for="">Outter</label><br />
+                <input type="text" id="SREO_A" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="SREO_B" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="SREO_C" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="SREO_D" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+            </div>
+            <div class="text9">
+                <label for="">Inner</label><br />
+                <input type="text" id="SREI_A" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="SREI_B" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="SREI_C" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="SREI_D" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+            </div>
+        </div>
+        <!-------------------------------下補強-------------------------------------->
+        <div class="Sectional_constants">
+            <div class="Title5">
+                <label for="">下補強</label><br />
+                <label for="">Be(mm)</label><br />
+                <label for="">A(mm2)</label><br />
+                <label for="">ei(mm)</label><br />
+                <label for="">eo(mm)</label><br />
+                <label for="">I(mm4)</label><br />
+                <label for="">Zi(mm3)</label><br />
+                <label for="">Zo(mm3)</label><br />
+            </div>
+            <div class="text4">
+                <label for="">長邊</label><br />
+                <input type="text" id="Be_Ls" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="A_Ls" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="ei_Ls" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="eo_Ls" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="I_Ls" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="Zi_Ls" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="Zo_Ls" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+            </div>
+            <div class="text5">
+                <label for="">短邊</label><br />
+                <input type="text" id="Be_Ss" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="A_Ss" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="ei_Ss" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="eo_Ss" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="I_Ss" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="Zi_Ss" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="Zo_Ss" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+            </div>
+        </div>
+        <div class="Bending_monents">
+            <div class="Title6">
+                <label for="">Point</label><br />
+                <label for="">A</label><br />
+                <label for="">B</label><br />
+                <label for="">C</label><br />
+                <label for="">D</label><br />
+            </div>
+            <div class="text6">
+                <label for="">Moment(kg-mm)</label><br />
+                <input type="text" id="MA_s" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="MB_s" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="MC_s" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="MD_s" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+            </div>                       
+            <div class="text7">
+                <label for="">變形(mm)</label><br />
+                <br />
+                <input type="text" id="DFB_s" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <br />
+                <input type="text" id="DFD_s" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+            </div>
+        </div>
+        <div class="Stresss">
+            <div class="Title7">
+                <label for="">Point</label><br />
+                <label for="">A</label><br />
+                <label for="">B</label><br />
+                <label for="">C</label><br />
+                <label for="">D</label><br />
+            </div>
+            <div class="text8">
+                <label for="">Outter</label><br />
+                <input type="text" id="SREO_As" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="SREO_Bs" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="SREO_Cs" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="SREO_Ds" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+            </div>
+            <div class="text9">
+                <label for="">Inner</label><br />
+                <input type="text" id="SREI_As" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="SREI_Bs" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="SREI_Cs" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+                <input type="text" id="SREI_Ds" value=" " style="text-align:center;width: 80px" onchange=" "><br />
+            </div>
+        </div>
+            <div class="button">
+                <input id="Button1" type="button" style="height:40px ;width: 100px" value="計算" onclick="check()" />
+            </div>
+            <div class="reset">
+                <input id="Reset1" type="reset" style="height:40px ;width: 100px" value="重置參數" onclick=" " />
+            </div>
+            <div class="tank">
+            <img src="../pic/tank.jpg" style="height:300px ;width: 680px" />
+            </div>
+            <div class="up">
+            <img name="up" src="../pic/tip.png" style="height:240px ;width: 340px" />
+            </div>
+            <div class="down">
+            <img name="down" src="../pic/down.jpg " style="height:240px ;width: 340px" />
+             </div>
+        <div class="df">
+            <img name="df" src="../pic/df.jpg " style="height:240px ;width: 340px" />
+        </div>
+		
+		<div class="import">
+		<input id="Button3" type="button" style="height:40px ;width: 100px" value="匯入參數" onclick="window.opener.sendparam()" />
+		</div>
+		<div class="Bdf">
+		<li><label id="Bdf"></label></li>
+		<li><label id="Bdf1"></label></li>
+		</div>
+		<div class="Ddf">
+		<li><label id="Ddf"></label></li>
+		<li><label id="Ddf1"></label></li>
+		</div>
+
+
+</form>
+    <style type="text/css">
+
+        .基本設置 
+        {
+            width: 320px; /* 表單寬度 */
+            line-height: 25px; /*參數文字間隔*/
+            position:absolute;
+            top: 90px;
+            left:50px;
+            border: 1px solid;
+        }
+        .標題
+        {
+        position:absolute;
+        top: 10px;
+        left:660px;
+        font-size: 50px; 
+        font-weight: bold;
+        font-family:'Times New Roman';
+        }
+        .Title
+        {
+            float: left;
+            width: 200px; /* Label寬度，視情況調整 */
+            margin:5px;
+            /*
+            margin-top: 5px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            margin-left:5px;
+            */
+
+            text-align: center;
+        }
+
+        .text
+        {
+            float: right;
+            width: 100px;
+            margin:5px;
+            /*
+            margin-top: 5px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            margin-left:5px;
+            */
+            text-align: center;
+        }
+        .上補強
+        {
+            width: 660px; /* 表單寬度 */
+            line-height: 25px; /*參數文字間隔*/
+            position:absolute;
+            top: 400px;
+            left:50px;
+            border: 1px solid;
+        }
+        .Title1 
+        {
+            float: left;
+            width: 20px; /* Label寬度，視情況調整 */
+            text-align: center;
+            margin-top: 80px;
+            margin-bottom: 5px;
+        }
+        .Title2 
+        {
+            float: left;
+            width: 220px; /* Label寬度，視情況調整 */
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .text2 
+        {
+            float: left;
+            width: 100px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        .下補強
+        {
+            width: 660px; /* 表單寬度 */
+            line-height: 25px; /*參數文字間隔*/
+            position:absolute;
+            top: 680px;
+            left:50px;
+            border: 1px solid;
+        }
+        .Title3
+        {
+            float: left;
+            width: 20px; /* Label寬度，視情況調整 */
+            text-align: center;
+            margin-top: 35px;
+            margin-bottom: 5px;
+        }
+        .Title4
+        {
+            float: left;
+            width: 220px; /* Label寬度，視情況調整 */
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .text3
+        {
+            float: left;
+            width: 100px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+         /* 上補強 */
+         .Sectional_constant
+        {
+            width: 300px; /* 表單寬度 */
+            line-height: 25px; /*參數文字間隔*/
+            position:absolute;
+            top: 90px;
+            left:1080px;
+            border: 1px solid;
+        }
+
+        .Title5
+        {
+            float: left;
+            width: 100px; /* Label寬度，視情況調整 */
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .text4
+        {
+            float: left;
+            width: 100px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        .text5
+        {
+            float: left;
+            width: 100px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+         .Bending_monent
+        {
+            width: 300px; /* 表單寬度 */
+            line-height: 25px; /*參數文字間隔*/
+            position:absolute;
+            top: 310px;
+            left:1080px;
+            border: 1px solid;
+        }
+
+        .Title6
+        {
+            float: left;
+            width: 50px; /* Label寬度，視情況調整 */
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .text6
+        {
+            float: left;
+            width: 140px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            margin-left: 5px;
+            text-align: center;
+        }
+        .text7
+        {
+            float: left;
+            width: 100px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            margin-left: 5px;
+            text-align: center;
+        }
+        .Stress
+        {
+            width: 300px; /* 表單寬度 */
+            line-height: 25px; /*參數文字間隔*/
+            position:absolute;
+            top: 460px;
+            left:1080px;
+            border: 1px solid;
+        }
+
+        .Title7
+        {
+            float: left;
+            width: 50px; /* Label寬度，視情況調整 */
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .text8
+        {
+            float: left;
+            width: 140px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            margin-left: 5px;
+            text-align: center;
+        }
+        .text9
+        {
+            float: left;
+            width: 100px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            margin-left: 5px;
+            text-align: center;
+        }
+        /* 下補強 */
+        .Sectional_constants
+        {
+            width: 300px; /* 表單寬度 */
+            line-height: 25px; /*參數文字間隔*/
+            position:absolute;
+            top: 90px;
+            left:1380px;
+            border: 1px solid;
+        }
+        .Bending_monents
+        {
+            width: 300px; /* 表單寬度 */
+            line-height: 25px; /*參數文字間隔*/
+            position:absolute;
+            top: 310px;
+            left:1380px;
+            border: 1px solid;
+        }
+        .Stresss
+        {
+            width: 300px; /* 表單寬度 */
+            line-height: 25px; /*參數文字間隔*/
+            position:absolute;
+            top: 460px;
+            left:1380px;
+            border: 1px solid;
+        }
+        .button
+        {
+            position:absolute;
+            top: 850px;
+            left:300px;
+        }
+         .reset
+        {
+            position:absolute;
+            top: 850px;
+            left:500px;
+        }
+        .tank
+        {
+            position:absolute;
+            top: 70px;
+            left:380px;
+        }
+        .up
+        {
+            position:absolute;
+            top: 400px;
+            left:730px;
+        }
+        .down
+        {
+            position:absolute;
+            top: 650px;
+            left:730px;
+        }
+        .df
+        {
+            position:absolute;
+            top: 610px;
+            left:1230px;
+        }
+		.import
+		{
+		  position:absolute;
+		  top: 850px;
+          left:100px;
+		}
+		.Bdf
+		{
+		  position:absolute;
+          top: 870px;
+          left:1320px;
+		}
+		.Bdf li
+		{
+		  display:block;
+		}
+		.Ddf
+		{
+		  position:absolute;
+          top: 725px;
+          left:1600px;
+		}
+		.Ddf li
+		{
+		  display:block;
+		}
+    </style>
+</body>
+</html>

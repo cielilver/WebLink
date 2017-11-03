@@ -1,0 +1,121 @@
+﻿
+.myBtn {                 /*所有FY按鈕相關設定*/
+	position:relative;
+	
+	left:0px;
+	top:0px;
+	z-index:20;
+	//border: 1px solid;
+	text-align:center;
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 21; /* Sit on top */
+    padding-top: 5em; /* Location of the box */
+	padding-left: 5px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+	right:100px;  /*內容位置*/
+    margin: auto;
+    padding: 0;
+    
+    width: 70%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /*box-shadow 水平偏移 垂直偏移 模糊大小 陰影大小 顏色透明度  可加入多個陰影*/
+    -webkit-animation-name: animatetop; 
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+	border-radius: 8px;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {bottom:-100px; opacity:0;} 
+    to {bottom:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {bottom:-100px; opacity:0;}
+    to {bottom:0; opacity:1;}
+}
+
+/* The Close Button */
+.close {
+    color: #cccccc;
+    float: right;
+    font-size: 40px;
+    font-weight: bold;
+	transition :color 0.4s;
+
+}
+.close:hover {
+	color:black;
+	cursor: pointer;
+}
+.close-btn {
+    color: black;
+	position:absolute;
+	right:5px;
+	bottom:10px;
+	padding:  5px 10px;
+    font-size: 20px;
+	font-family: Times ;
+	transition :background-color 0.4s;
+	background-color:white;
+	border:1px solid;
+	border-color:#cccccc;
+	border-radius: 8px;
+}
+
+.close-btn:hover {
+	background-color:#e6e6e6;
+	cursor: pointer;
+}
+.modal-header {
+    padding: 5px;
+    background-color: #fff;
+	
+	border-bottom: 0px ridge;
+	border-bottom-color:#cccccc;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+    color: black;
+	width:100%;
+	height:60px;
+}
+
+.modal-body {
+	padding: 5px;
+	width:100%;
+	height:auto;
+	background-color: #fff;
+	max-height: calc(100vh - 200px);  /*max-height 最大高度 calc功能可計算     vh裝置畫面高度百分比  vw裝置畫面寬度百分比*/    
+	border-bottom: 0px ridge;
+	border-bottom-color:#cccccc;
+
+    overflow: auto;
+}
+
+.modal-footer {
+    padding: 5px;
+    background-color: #fff;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;	
+    color: black;
+	width:100%;
+	height:70px;
+}

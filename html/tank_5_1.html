@@ -1,0 +1,355 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<script type="text/javascript" src="../jscript/pfcUtils.js"></script>	
+	<script type="text/javascript" src="../jscript/TankDesign.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<link href="../jscript/tooltip.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/tooltip.js" type="text/javascript"></script>	
+	<link href="../jscript/modal.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/modal.js" type="text/javascript"></script>		
+	<link href="../css/button.css" rel="stylesheet" type="text/css" />
+	<style>
+input[type=text] {
+    width: 80px;
+	height:32px; 
+	font-size:20px;
+	text-align:center; 
+}
+
+
+.myform {
+	position:absolute;
+	left:0%;
+	top:2em;
+	padding:10px;
+}
+	</style>
+	
+</head>
+<script language="JavaScript" type="text/JavaScript">
+
+$(document).ready(function(){
+	
+    $("#pic1").on("click",function(){
+		tooltip.pop(this, '#tip0',{hideDelay:100,calloutPosition: 0.5,maxWidth: 300});
+		});
+    $("#pic2").on("click",function(){
+		tooltip.pop(this, '#tip4',{hideDelay:100,calloutPosition: 0.5,maxWidth: 300});
+		});
+    $("#pic3").on("click",function(){
+		tooltip.pop(this, '#tip15',{hideDelay:100,calloutPosition: 0.5,maxWidth: 300});
+		});
+    $("#pic4").on("click",function(){
+		tooltip.pop(this, '#tip16',{hideDelay:100,calloutPosition: 0.5,maxWidth: 300});
+		});
+    $("#pic5").on("click",function(){
+		tooltip.pop(this, '#tip17',{hideDelay:100,calloutPosition: 0.5,maxWidth: 300});
+		});
+    $("#pic6").on("click",function(){
+		tooltip.pop(this, '#tip5',{hideDelay:100,calloutPosition: 0.5,maxWidth: 300});
+		});
+    $("#pic7").on("click",function(){
+		tooltip.pop(this, '#tip10',{hideDelay:100,calloutPosition: 0.5,maxWidth: 300});
+		});
+    $("#pic8").on("click",function(){
+		tooltip.pop(this, '#tip23',{hideDelay:100,calloutPosition: 0.5,maxWidth: 300});
+		});
+});
+</script>
+
+<body>
+<div class="topbar">
+			<ul class="topbar">
+			<li ><a href="index.html" target="right"><img src="../img/web.png" width="30px"></a></li>
+			<li ><a href="../WebLink使用手冊.pdf" target="right"><strong>WebLink使用說明</strong></a></li>
+			<li style="float:right"><a href="mailto:jack.you@fortune.com.tw"><strong>問題回饋</strong></a></li>
+			<li style="float:right"><a href="http://www.fortune.com.tw/" target="right"><strong>關於我們</strong></a></li>
+			</ul>
+</div>
+<!-- Trigger/Open The Modal -->
+<!-- FY按鈕 -->
+<!--1.<button> 標籤在表格內無法使用modal改成<input type>或其他圖片方式即可，原因不明2.Chrome無法以jQuery讀取不同protocol檔案-->
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+<!-- Modal content -->
+	<div class="modal-content">
+		<div class="modal-header">
+			<span class="close" onclick="modal_close()">×</span>
+			<h2>歷史異常</h2>
+		</div>
+		
+		<div class="modal-body" id="modal-body">
+		</div>
+		
+		<div class="modal-footer">
+		<span class="close-btn" onclick="modal_close()">close</span>
+		</div>
+	</div>
+</div>
+
+
+<div class="button-group">
+<li><div class="button" onclick="TRParametersSave();" style="cursor:pointer;"><a><img src="../img/wrench.png"  align="left" style="height:30px;"/><strong>寫入參數</strong></a></div></li>
+<li><div class="button" onclick="rege();" style="cursor:pointer;"><a><img src="../img/circle.png"  align="left" style="height:30px;"/><strong>切換至模型</strong></a></div></li>
+<li><div class="button" id="closetip"><a href="#." ><img src="../img/delete.png"  align="left" style="height:30px;"/><strong >關閉提示</strong></a></div></li>
+<li><div class="button" id="opentip"><a href="#." ><img src="../img/arrows.png"  align="left" style="height:30px;"/><strong >開啟提示</strong></a></div></li>
+</div>
+
+	<form name="tankForm" id="tankFormID" class="myform">
+           	<table width="900" border="0" cellspacing="0" cellpadding="0">
+                       <tr><td>
+			
+
+				
+				
+	
+			
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" ">
+                <tr>
+				<td colspan="2" align="right" valign="middle" style="font-size:40px"><p><i> <marquee> <font face="monospace font" color="gray">變壓器外殼設計</font></marquee></i></p></td>
+				</tr>
+				</table>
+			
+				
+						
+				<div style="display:none;">
+						<div id="tip0">
+							<img src="../pic/RIMHFA.png" style="float:right;width:351px;height:519px;" alt="" />
+							<h1 align="center"><font face="monospace font">Right人手孔示意圖</font></h1>
+						</div>
+						<div id="tip1">
+							<h1>公稱直徑:</h1>
+							<h1>1. 300</h1>
+							<h1>2. 400</h1>
+							<h1>3. 500</h1>
+							<h1>4. 600</h1>
+						</div>
+						<div id="tip2">
+							<h1>位置:</h1>
+							<h1>1: 左</h1>
+							<h1>2: 右</h1>
+						</div>
+						<div id="tip3">
+							<h1>橢圓手孔尺寸:</h1>
+							<h1>0. 關閉</h1>
+							<h1>1. 23A4387</h1>
+							<h1>2. 23A2444</h1>
+							<h1>3. 3TF1270_A作業</h1>
+							<h1>4. 3TF1270_B作業</h1>
+						</div>	
+						<div id="tip4">
+							<img src="../pic/RIOMH.png" style="float:right;width:351px;height:519px;" alt="" />
+							<h1 align="center"><font face="monospace font">Right橢圓手孔示意圖</font></h1>
+						</div>
+						<div id="tip5">
+							<img src="../pic/TANKLUGR.png" style="float:right;width:662px;height:576px;" alt="" />
+							<h1 align="center"><font face="monospace font">吊耳示意圖</font></h1>
+						</div>
+						<div id="tip6">
+							<h1>吊耳作業形式:</h1>
+							<h1>1: A作業</h1>
+							<h1>2: B作業</h1>
+							<h1>3: C作業</h1>
+							<h1>4: D作業</h1>
+						</div>
+						<div id="tip7">
+							<h1>吊耳長度統一控制</h1>
+						</div>	
+						<div id="tip8">
+							<h1>編號由左至右 0:關,數字不可為1</h1>
+						</div>
+						<div id="tip9">
+							<h1>關閉:0 開啟:1</h1>
+						</div>	
+						<div id="tip10">
+							<img src="../pic/JACKRight.png" style="float:right;width:631px;height:554px;" alt="" />
+							<h1 align="center"><font face="monospace font">千斤頂示意圖</font></h1>
+						</div>	
+						<div id="tip11">
+							<h1>千斤頂作業形式:</h1>
+							<h1>1: A作業</h1>
+							<h1>2: B作業</h1>
+							<h1>3: C作業</h1>
+						</div>
+						<div id="tip12">
+							<h1>法蘭端面至側板間距</h1>
+						</div>					
+						
+						<div id="tip13">
+							<h1>種類:</h1>
+							<h1>0: 平法蘭</h1>
+							<h1>1: 溝法蘭</h1>
+						</div>
+						<div id="tip14">
+							<h1>濾油閥尺寸:</h1>
+							<h1>1: 1/2"</h1>
+							<h1>2: 1"</h1>
+							<h1>3: 3/2"</h1>
+							<h1>4: 2"</h1>
+							<h1>5: 3"</h1>
+							<h1>6: 4"</h1>
+						</div>
+						<div id="tip15">
+							<img src="../pic/RIVALVE.png" style="float:right;width:342px;height:524px;" alt="" />
+							<h1 align="center"><font face="monospace font">濾油閥示意圖</font></h1>
+						</div>
+						<div id="tip16">
+							<img src="../pic/RIVALVE2.png" style="float:right;width:342px;height:524px;" alt="" />
+							<h1 align="center"><font face="monospace font">排油閥示意圖</font></h1>
+						</div>
+						<div id="tip17">
+							<img src="../pic/RIFLANGE.png" style="float:right;width:351px;height:519px;" alt="" />
+							<h1 align="center"><font face="monospace font">Right切換器專用連接法蘭示意圖</font></h1>
+						</div>
+						<div id="tip18">
+							<h1>圓心至底板上緣</h1>
+						</div>
+						<div id="tip19">
+							<h1>法蘭端面至側板間距</h1>
+						</div>
+						<div id="tip20">
+							<h1>千斤頂底座至底板上緣</h1>
+						</div>
+						<div id="tip21">
+							<h1>支架座型式:</h1>
+							<h1>0. 關閉</h1>
+							<h1>1. 儲油槽支架座</h1>
+							<h1>2. 避雷器支架座</h1>
+						</div>	
+						<div id="tip22">
+							<h1>支架座中心至底板上緣</h1>
+						</div>
+						<div id="tip23">
+							<img src="../pic/RIBR.png" style="float:right;width:790px;height:637px;" alt="" />
+							<h1 align="center"><font face="monospace font">支架座示意圖</font></h1>
+						</div>						
+		
+				</div>	
+				
+				
+
+	
+	
+
+	
+	<UL type=disc>
+
+
+	
+	
+	<!--上蓋-->
+	<LI><A name="外殼"><B><I><font face="monospace font"  size="5.5" color="blue">外殼-Right</font></B></I></A>
+
+	
+		<p><table width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr style="background-color:#00FFFF;">			                                             
+					<th style="width: 30%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>	
+					<th  style="width: 55%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th  style="width: 15%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+			
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">Right人手孔1</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					<br>
+					<!--<img src="../pic/q1.png" align="center" width="75" height="75" value="說明一"  onmouseover="tooltip.pop(this, '#tip0',{hideDelay:100,calloutPosition: 0.5, maxWidth: 300})">-->
+					<img src="../pic/q1.png" align="center" width="75" height="75" id="pic1" style="cursor:help">
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>  公稱直徑<input type="text" name="RI_MHC_1" id="RI_MHC_1" value="" size="5.5"/></p>
+					<p>  法蘭位置<input type="text" name="RI_MH_1_XP" id="RI_MH_1_XP" value="" size="5.5"/></p>
+					<p>  法蘭距離X<input type="text" name="RI_MH_1_X" id="RI_MH_1_X" value="" size="5.5"/></p>
+					<p>  法蘭距離Y<input type="text" name="RI_MH_1_Y" id="RI_MH_1_Y" value="" size="5.5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<div class="myBtn" id="myBtn48" style="cursor:pointer;"><strong >Right人手孔異常</strong></div>
+					</td>
+					
+					
+				</tr>
+				
+				
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">Right人手孔2</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>  公稱直徑<input type="text" name="RI_MHC_2" id="RI_MHC_2" value="" size="5.5"/></p>
+					<p>  法蘭位置<input type="text" name="RI_MH_2_XP" id="RI_MH_2_XP" value="" size="5.5"/></p>
+					<p>  法蘭距離X<input type="text" name="RI_MH_2_X" id="RI_MH_2_X" value="" size="5.5"/></p>
+					<p>  法蘭距離Y<input type="text" name="RI_MH_2_Y" id="RI_MH_2_Y" value="" size="5.5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					</td>
+					
+									
+				</tr>
+				
+			</tbody>			
+		</table></p>
+		
+		<p><table width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr style="background-color:#000000;">			                                             
+					<th style="width: 30%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>	
+					<th  style="width: 55%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th  style="width: 15%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+			
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">Right橢圓手孔</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>
+					<!--<a href="cover.PNG"   onclick="window.open(this.href, '_blank', 'scrollbars=0,resizable=0,width=1300,height=700');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					<br>
+					<!--<img src="../pic/q1.png" align="center" width="75" height="75" value="說明一"  onmouseover="tooltip.pop(this, '#tip4',{hideDelay:100,calloutPosition: 0.5, maxWidth: 300})">-->
+					<img src="../pic/q1.png" align="center" width="75" height="75" id="pic2" style="cursor:help">
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>  尺寸<input type="text" name="RI_OMH_1" id="RI_OMH_1" value="" size="5.5"/></p>
+					<p>  法蘭位置<input type="text" name="RI_OMH_XP_1"id="RI_OMH_XP_1" value="" size="5.5"/></p>
+					<p>  法蘭距離X<input type="text" name="RI_OMH_X_1" id="RI_OMH_X_1" value="" size="5.5"/></p>
+					<p>  法蘭距離Y<input type="text" name="RI_OMH_Y_1" id="RI_OMH_Y_1" value="" size="5.5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<!--<div class="myBtn" id="myBtn49" style="cursor:pointer;"><strong >Right橢圓手孔異常</strong></div>-->
+					</td>
+					
+					
+				</tr>
+
+			</tbody></table></p>			
+
+		
+
+	</form>
+
+	<script type="text/javascript">
+	
+	//取得資料
+	TRParametersSet();
+	</script>
+</body>
+
+
+</HTML>

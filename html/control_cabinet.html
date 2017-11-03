@@ -1,0 +1,324 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<script type="text/javascript" src="../jscript/pfcUtils.js"></script>	
+	<script type="text/javascript" src="../jscript/TankDesign.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<link href="../jscript/tooltip.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/tooltip.js" type="text/javascript"></script>
+	<link href="../jscript/modal.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/modal.js" type="text/javascript"></script>		
+	<link href="../css/button.css" rel="stylesheet" type="text/css" />
+	<style>
+input[type=text] {
+    width: 80px;
+	height:32px; 
+	font-size:20px;
+	text-align:center;
+}
+
+
+.myform {
+	position:absolute;
+	left:0%;
+	top:2em;
+	padding:10px;
+}
+.cabinet {
+	position:absolute;
+	//border:1px solid;
+	width:400px;
+	height:90px;
+	top:150px;
+	left:43%;
+}
+
+.cabinet_packing {
+	position:absolute;
+	//border:1px solid;
+	width:150px;
+	height:90px;
+	top:200px;
+	left:43%;
+}
+	</style>
+	
+</head>
+<script language="JavaScript" type="text/JavaScript">
+
+$(document).ready(function(){
+	
+    $("#pic1").on("click",function(){
+		tooltip.pop(this, '#tip1',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic2").on("click",function(){
+		tooltip.pop(this, '#tip2',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic3").on("click",function(){
+		tooltip.pop(this, '#tip0',{hideDelay:100,calloutPosition: 0.5});
+		});	
+    $("#pic4").on("click",function(){
+		tooltip.pop(this, '#tip0',{hideDelay:100,calloutPosition: 0.5});
+		});	
+    $("#pic5").on("click",function(){
+		tooltip.pop(this, '#tip3',{hideDelay:100,calloutPosition: 0.5});
+		});			
+
+});
+
+
+function height_check(){
+
+var TERMINAL_H = document.getElementById("TERMINAL_H").value;
+	if (TERMINAL_H < 600){
+	document.getElementById("TERMINAL_H").style.color = "red";
+	alert("控制箱離地距離小於600mm，請重新確認!!");
+	}
+	else{
+		document.getElementById("TERMINAL_H").style.color = "black";
+		TRParametersSave();
+	}
+
+	
+	
+}
+
+function load_cabinet_packing() {
+
+var ItemType = document.pwl.eval("PWL_MODEL");
+	if (parseInt(ItemType) === parseInt(document.pwlc.PWL_MODEL)) {
+		FeatureID = -1;
+	}
+
+var val_ret = document.pwl.pwlParameterValueGet(layoutModelNameExt, parseInt(ItemType),FeatureID, "TERMINAL_RUBBER");
+var TERMINAL_RUBBER = val_ret.ParamDoubleVal;	
+
+
+switch (TERMINAL_RUBBER){
+	case 0:
+			document.getElementById("TERMINAL_RUBBER").selectedIndex = 0;
+			break;
+	case 1:
+			document.getElementById("TERMINAL_RUBBER").selectedIndex = 1;
+			break;
+
+	}
+	
+
+}
+</script>
+
+<body >
+<div class="topbar">
+			<ul class="topbar">
+			<li ><a href="index.html" target="right"><img src="../img/web.png" width="30px"></a></li>
+			<li ><a href="../WebLink使用手冊.pdf" target="right"><strong>WebLink使用說明</strong></a></li>
+			<li style="float:right"><a href="mailto:jack.you@fortune.com.tw"><strong>問題回饋</strong></a></li>
+			<li style="float:right"><a href="http://www.fortune.com.tw/" target="right"><strong>關於我們</strong></a></li>
+			</ul>
+</div>
+<!-- Trigger/Open The Modal -->
+<!-- FY按鈕 -->
+<!--1.<button> 標籤在表格內無法使用modal改成<input type>或其他圖片方式即可，原因不明2.Chrome無法以jQuery讀取不同protocol檔案-->
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+<!-- Modal content -->
+	<div class="modal-content">
+		<div class="modal-header">
+			<span class="close" onclick="modal_close()">×</span>
+			<h2>歷史異常</h2>
+		</div>
+		
+		<div class="modal-body" id="modal-body">
+		</div>
+		
+		<div class="modal-footer">
+		<span class="close-btn" onclick="modal_close()">close</span>
+		</div>
+	</div>
+</div>
+		
+
+<div class="button-group">
+<li><div class="button" onclick="height_check();" style="cursor:pointer;"><a><img src="../img/wrench.png"  align="left" style="height:30px;"/><strong>寫入參數</strong></a></div></li>
+<li><div class="button" onclick="rege();" style="cursor:pointer;"><a><img src="../img/circle.png"  align="left" style="height:30px;"/><strong>切換至模型</strong></a></div></li>
+<li><div class="button" id="closetip"><a href="#." ><img src="../img/delete.png"  align="left" style="height:30px;"/><strong >關閉提示</strong></a></div></li>
+<li><div class="button" id="opentip"><a href="#." ><img src="../img/arrows.png"  align="left" style="height:30px;"/><strong >開啟提示</strong></a></div></li>
+</div>
+
+
+	<form name="tankForm" id="tankFormID" class="myform">
+           	<table width="900" border="0" cellspacing="0" cellpadding="0">
+                       <tr><td>
+			
+
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"  >
+                <tr>
+				<td colspan="2" align="right" valign="middle" style="font-size:40px"><p><i> <marquee> <font face="monospace font" color="gray">變壓器上蓋設計</font></marquee></i></p></td>
+				</tr>
+				</table>
+			
+				
+						
+				<div style="display:none;">
+						<div id="tip0">
+						<img src="../pic/CRONTROLCABINET.png" style="float:left;width:600px;height:500px;" />
+						<h1 align="center"><font face="monospace font">控制箱尺寸</font></h1>
+						</div>	
+						<div id="tip1">
+							<img src="../pic/CABINETGENERAL.png" style="float:right;width:1000px;height:800px;" alt="" />
+							<h1 align="center"><font face="monospace font">控制箱通用項</font></h1>
+						</div>
+						<div id="tip2">
+							<img src="../pic/TERMINALRUBBER.png" style="float:right;width:800px;height:600px;" alt="" />
+							<h1 align="center"><font face="monospace font">防震橡膠</font></h1>
+						</div>
+						<div id="tip3">
+							<img src="../pic/CABINETORIENTATION.png" style="float:right;width:800px;height:600px;" alt="" />
+							<h1 align="center"><font face="monospace font">儲油槽方位</font></h1>
+						</div>							
+				</div>	
+				
+				
+				
+
+	
+	
+
+	
+	<UL type=disc>
+
+<!--右側控制箱-->
+	<LI><A name="控制箱"><B><I><font face="monospace font"  size="5.5" color="blue">左側控制箱</font></B></I></A>
+	
+	
+		<p><table width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr>			
+					<th style="width: 20%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>	
+					<th  style="width: 65%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th  style="width: 15%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+				
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">控制箱共用項<br>
+					<!--<img src="../pic/q1.png" align="center" width="75" height="75" value="說明三"  onmouseover="tooltip.pop(this, '#tip0',{hideDelay:100,calloutPosition: 0.5, maxWidth: 500})">-->
+					<img src="../pic/q1.png" align="center" width="75" height="75" id="pic1" style="cursor:help">
+					</font>
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left">  <font face="monospace font"  size="5.5">
+					<p>   控制箱位置<select  name="TERMINAL_POS" id="TERMINAL_POS" style="height:30px;width:50px;font-size:20px" onchange ="">
+					<option value='0'    style="font-size:20px">關</option>
+					<option value='1'    style="font-size:20px">左</option>	
+					<option value='2'    style="font-size:20px">右</option>	
+					<option value='3'    style="font-size:20px">前</option>	
+					<option value='4'    style="font-size:20px">後</option>						
+					</select><img src="../img/icon2.png" align="center" width="32" height="32" id="pic5" style="cursor:help"></p>
+					<p>   控制箱大小形式<select  name="TERMINAL_SIZE" id="TERMINAL_SIZE" style="height:30px;width:360px;font-size:20px" onchange ="">
+					<option value='None' style="font-size:20px">None(寬×深×高 單位:mm)</option>
+					<option value='1'    style="font-size:20px">FE(大)-1500×1000×1800</option>
+					<option value='2'    style="font-size:20px">FE(中)-1200×800×1600</option>	
+					<option value='3'    style="font-size:20px">FE(小)-800×600×1200</option>
+					<option value='4'    style="font-size:20px">台電(通宵)-1400×600×2000</option>
+					<option value='5'    style="font-size:20px">台電(大林/林口)-1200×600×1800</option>	
+					<option value='6'    style="font-size:20px">Pacificorp-1100×900×2235</option>	
+					<option value='7'    style="font-size:20px">Kiewit-1140×900×1775</option>
+					<option value='8'    style="font-size:20px">NIPSCO(100MVA)-1400×1000×1775</option>	
+					<option value='9'    style="font-size:20px">NIPSCO(25MVA)-1300×800×1775</option>	
+					<option value='10'    style="font-size:20px">Dominion-1500×800×1700</option>
+					<option value='11'    style="font-size:20px">AltaLink-1500×600×1375</option>						
+					</select><img src="../img/icon2.png" align="center" width="32" height="32" id="pic3" style="cursor:help"></p>
+					<p>   控制箱防振橡膠<select  name="TERMINAL_RUBBER" id="TERMINAL_RUBBER" style="height:30px;width:50px;font-size:20px" onchange ="">
+					<option value='0'    style="font-size:20px">無</option>
+					<option value='1'    style="font-size:20px">有</option>					
+					</select><img src="../img/icon2.png" align="center" width="32" height="32" id="pic2" style="cursor:help"></p>
+					<p>   控制箱離地高度<input type="text" name="TERMINAL_H" id="TERMINAL_H" value="" size="5" /></p>	
+					<p>   控制箱底部支架_左<input type="text" name="TERMINAL_CH_L" id="TERMINAL_CH_L" value="" size="5" /></p>
+					<p>   控制箱底部支架_右<input type="text" name="TERMINAL_CH_R" id="TERMINAL_CH_R" value="" size="5" /></p>					
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+
+					</td>					
+				</tr>
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">短邊側右側控制箱<br>
+					<!--<img src="../pic/q1.png" align="center" width="75" height="75" value="說明三"  onmouseover="tooltip.pop(this, '#tip0',{hideDelay:100,calloutPosition: 0.5, maxWidth: 500})">-->
+					</font>
+					</td>
+					<td style="background-color:#FFFACD;" align="left">  <font face="monospace font"  size="5.5">
+					<p>   控制箱距離<input type="text" name="TERMINAL_R" id="TERMINAL_R" value="" size="5" /></p>	
+					<p>   控制箱偏移方向<input type="text" name="TBR_TRP" id="TBR_TRP" value="" size="5" /></p>
+					<p>   控制箱偏移距離<input type="text" name="TBR_TR" id="TBR_TR" value="" size="5" /></p>					
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					</td>					
+				</tr>				
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">短邊側左側控制箱<br>
+					<!--<img src="../pic/q1.png" align="center" width="75" height="75" value="說明三"  onmouseover="tooltip.pop(this, '#tip0',{hideDelay:100,calloutPosition: 0.5, maxWidth: 500})">-->
+					</font>
+					</td>
+					<td style="background-color:#FFFACD;" align="left">  <font face="monospace font"  size="5.5">
+					<p>   控制箱距離<input type="text" name="TERMINAL_L" id="TERMINAL_L" value="" size="5" /></p>	
+					<p>   控制箱偏移方向<input type="text" name="TBL_TRP" id="TBL_TRP" value="" size="5" /></p>
+					<p>   控制箱偏移距離<input type="text" name="TBL_TR" id="TBL_TR" value="" size="5" /></p>					
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					</td>					
+				</tr>
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">長邊側正面控制箱<br>
+					<!--<img src="../pic/q1.png" align="center" width="75" height="75" value="說明三"  onmouseover="tooltip.pop(this, '#tip0',{hideDelay:100,calloutPosition: 0.5, maxWidth: 500})">-->
+					</font>
+					</td>
+					<td style="background-color:#FFFACD;" align="left">  <font face="monospace font"  size="5.5">
+					<p>   控制箱距離<input type="text" name="TERMINAL_F" id="TERMINAL_F" value="" size="5" /></p>	
+					<p>   控制箱偏移方向<input type="text" name="TBF_TRP" id="TBF_TRP" value="" size="5" /></p>
+					<p>   控制箱偏移距離<input type="text" name="TBF_TR" id="TBF_TR" value="" size="5" /></p>					
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					</td>					
+				</tr>
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">長邊側背面控制箱<br>
+					<!--<img src="../pic/q1.png" align="center" width="75" height="75" value="說明三"  onmouseover="tooltip.pop(this, '#tip0',{hideDelay:100,calloutPosition: 0.5, maxWidth: 500})">-->
+					</font>
+					</td>
+					<td style="background-color:#FFFACD;" align="left">  <font face="monospace font"  size="5.5">
+					<p>   控制箱距離<input type="text" name="TERMINAL_B" id="TERMINAL_B" value="" size="5" /></p>	
+					<p>   控制箱偏移方向<input type="text" name="TBB_TRP" id="TBB_TRP" value="" size="5" /></p>
+					<p>   控制箱偏移距離<input type="text" name="TBB_TR" id="TBB_TR" value="" size="5" /></p>					
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					</td>					
+				</tr>				
+			</tbody>			
+		</table></p>		
+		
+
+	
+	</form>
+	<script type="text/javascript">
+	//取得資料
+	TRParametersSet();
+	load_cabinet_packing();
+	</script>
+</body>
+
+
+</HTML>

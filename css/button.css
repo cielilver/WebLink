@@ -1,0 +1,74 @@
+/*------按鈕區------*/
+.button {
+    background-color: #000;
+    border: 1px solid white;
+    padding: 5px;
+    
+    
+    transition: width 0.3s;
+    width: 200px;
+    float:right;
+}
+
+.button-group li
+{
+	display: block;
+	
+    
+}
+.button a
+{
+	text-decoration: none; 
+	color: white;
+	font-size: 30px;
+}
+.button:hover { 
+    width: 220px;
+}
+.button-group{
+	position:fixed;
+	right:0px;
+	top:30%;
+	z-index:999;
+	width:250px;  /*不設定IE無法顯示*/
+	//border:1px solid;
+}	
+
+
+/*--------topbar-------------*/
+.topbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(95, 95, 95,1);
+    position: fixed;
+    top: 0;
+	left:0;
+    width: 100%; /*topbar背景寬度*/
+	height:36px; /*topbar背景高度*/
+    z-index: 200;
+}
+
+.topbar li {
+    float: left;
+	border-right:1px solid #bbb;
+	
+}
+
+.topbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 7px 8px 7px 8px;
+    text-decoration: none;
+	/*opacity: 1;*/
+	transition: background-color 0.5s;   /*topbar點選 黑色淡出時間*/
+	font-size: 25px;            /*topbar字體大小*/
+	font-family: monospace;     /*topbar字形*/
+}
+
+.topbar li a:hover:not(.active) {
+    background-color: #000;
+	/*opacity: 1;*/
+}

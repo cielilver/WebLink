@@ -1,0 +1,334 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<script type="text/javascript" src="../jscript/pfcUtils.js"></script>	
+	<script type="text/javascript" src="../jscript/TankDesign.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<link href="../jscript/tooltip.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/tooltip.js" type="text/javascript"></script>	
+	<link href="../jscript/modal.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/modal.js" type="text/javascript"></script>	
+	<link href="../css/button.css" rel="stylesheet" type="text/css" />	
+	<style>
+input[type=text] {
+    width: 80px;
+	height:32px; 
+	font-size:20px;
+	text-align:center; 
+}
+
+.myform {
+	position:absolute;
+	left:0%;
+	top:2em;
+	padding:10px;
+}
+	</style>
+	
+</head>
+<script language="JavaScript" type="text/JavaScript">
+
+
+$(document).ready(function(){
+	
+    $("#pic1").on("click",function(){
+		tooltip.pop(this, '#tip0',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic2").on("click",function(){
+		tooltip.pop(this, '#tip4',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic3").on("click",function(){
+		tooltip.pop(this, '#tip7',{hideDelay:100,calloutPosition: 0.5});
+		});
+
+});
+</script>
+
+<body>
+<div class="topbar">
+			<ul class="topbar">
+			<li ><a href="index.html" target="right"><img src="../img/web.png" width="30px"></a></li>
+			<li ><a href="../WebLink使用手冊.pdf" target="right"><strong>WebLink使用說明</strong></a></li>
+			<li style="float:right"><a href="mailto:jack.you@fortune.com.tw"><strong>問題回饋</strong></a></li>
+			<li style="float:right"><a href="http://www.fortune.com.tw/" target="right"><strong>關於我們</strong></a></li>
+			</ul>
+</div>
+<!-- Trigger/Open The Modal -->
+<!-- FY按鈕 -->
+<!--1.<button> 標籤在表格內無法使用modal改成<input type>或其他圖片方式即可，原因不明2.Chrome無法以jQuery讀取不同protocol檔案-->
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+<!-- Modal content -->
+	<div class="modal-content">
+		<div class="modal-header">
+			<span class="close" onclick="modal_close()">×</span>
+			<h2>歷史異常</h2>
+		</div>
+		
+		<div class="modal-body" id="modal-body">
+		</div>
+		
+		<div class="modal-footer">
+		<span class="close-btn" onclick="modal_close()">close</span>
+		</div>
+	</div>
+</div>
+
+<div class="button-group">
+<li><div class="button" onclick="TRParametersSave();" style="cursor:pointer;"><a><img src="../img/wrench.png"  align="left" style="height:30px;"/><strong>寫入參數</strong></a></div></li>
+<li><div class="button" onclick="rege();" style="cursor:pointer;"><a><img src="../img/circle.png"  align="left" style="height:30px;"/><strong>切換至模型</strong></a></div></li>
+<li><div class="button" id="closetip"><a href="#." ><img src="../img/delete.png"  align="left" style="height:30px;"/><strong >關閉提示</strong></a></div></li>
+<li><div class="button" id="opentip"><a href="#." ><img src="../img/arrows.png"  align="left" style="height:30px;"/><strong >開啟提示</strong></a></div></li>
+</div>
+
+	<form name="tankForm" id="tankFormID" class="myform">
+           	<table width="900" border="0" cellspacing="0" cellpadding="0">
+                       <tr><td>
+			
+
+				
+				
+	
+			
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+				<td colspan="2" align="right" valign="middle" style="font-size:40px"><p><i> <marquee> <font face="monospace font" color="gray">變壓器外殼設計</font></marquee></i></p></td>
+				</tr>
+				</table>
+			
+				
+						
+				<div style="display:none;">
+						<div id="tip0">
+							<img src="../pic/ST.png" style="float:right;width:845px;height:400px;" alt="" />
+							<h1 align="center"><font face="monospace font">心體擋鐵示意圖</font></h1>
+						</div>
+						<div id="tip1">
+							<h1>關閉:0 開啟:1</h1>
+						</div>
+						<div id="tip2">
+							<h1>位置:</h1>
+							<h1>1: 左</h1>
+							<h1>2: 右</h1>
+						</div>
+						<div id="tip3">
+							<h1>位置:</h1>
+							<h1>1: 上</h1>
+							<h1>2: 下</h1>
+						</div>
+						<div id="tip4">
+							<img src="../pic/BS.png" style="float:right;width:873px;height:373px;" alt="" />
+							<h1 align="center"><font face="monospace font">止振座示意圖</font></h1>
+						</div>
+						<div id="tip5">
+						    <h1>型式:</h1>
+							<h1>0: 關</h1>
+							<h1>1: 21T4A4277(雙)</h1>
+							<h1>2: 單</h1>
+						</div>						
+						<div id="tip6">
+							<h1>數量1~8個，距離皆以TR為中心</h1>
+						</div>
+						<div id="tip7">
+							<img src="../pic/IS.png" style="float:right;width:910px;height:513px;" alt="" />
+							<h1 align="center"><font face="monospace font">下橫鐵絕緣物擋鐵示意圖</font></h1>
+						</div>						
+				</div>	
+				
+				
+
+	
+	
+
+	
+	<UL type=disc>
+
+
+	<LI><A name="底座"><B><I><font face="monospace font"  size="5.5" color="blue">底座</font></B></I></A>
+
+	
+
+		<p><table width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr style="background-color:#00FFFF;">			                                             
+					<th style="width: 30%;background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>		
+					<th style="width: 55%;background-color:#E6E6FA;"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th  style="width: 15%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+			
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">下橫鐵絕緣物擋鐵</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					<!--<br><img src="../pic/q1.png" align="center" width="75" height="75" value="說明一"  onmouseover="tooltip.pop(this, '#tip4',{hideDelay:100,calloutPosition: 0.5, maxWidth: 500})">-->
+					<img src="../pic/q1.png" align="center" width="75" height="75" id="pic3" style="cursor:help">
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>  數量<input type="text" name="IS" id="IS" value="" size="5.5"/></p>
+
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<!--<div class="myBtn" id="myBtn29" style="cursor:pointer;"><strong >下橫鐵絕緣物擋鐵異常</strong></div>-->
+					</td>					
+				</tr>
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">下橫鐵絕緣物擋鐵1</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>  水平方向<input type="text" name="IS_XP1" id="IS_XP1" value="" size="5.5"/></p>
+					<p>  垂直方向<input type="text" name="IS_YP1" id="IS_YP1" value="" size="5.5"/></p>					
+					<p>  與TR中心水平距離<input type="text" name="IS_X1" id="IS_X1" value="" size="5.5"/></p>
+					<p>  與TR中心垂直距離<input type="text" name="IS_Y1" id="IS_Y1" value="" size="5.5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					
+					</td>					
+				</tr>				
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">下橫鐵絕緣物擋鐵2</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>  水平方向<input type="text" name="IS_XP2" id="IS_XP2" value="" size="5.5"/></p>
+					<p>  垂直方向<input type="text" name="IS_YP2" id="IS_YP2" value="" size="5.5"/></p>					
+					<p>  與TR中心水平距離<input type="text" name="IS_X2" id="IS_X2" value="" size="5.5"/></p>
+					<p>  與TR中心垂直距離<input type="text" name="IS_Y2" id="IS_Y2" value="" size="5.5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					
+					</td>					
+				</tr>
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">下橫鐵絕緣物擋鐵3</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>  水平方向<input type="text" name="IS_XP3" id="IS_XP3" value="" size="5.5"/></p>
+					<p>  垂直方向<input type="text" name="IS_YP3" id="IS_YP3" value="" size="5.5"/></p>					
+					<p>  與TR中心水平距離<input type="text" name="IS_X3" id="IS_X3" value="" size="5.5"/></p>
+					<p>  與TR中心垂直距離<input type="text" name="IS_Y3" id="IS_Y3" value="" size="5.5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					
+					</td>					
+				</tr>
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">下橫鐵絕緣物擋鐵4</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>  水平方向<input type="text" name="IS_XP4" id="IS_XP4" value="" size="5.5"/></p>
+					<p>  垂直方向<input type="text" name="IS_YP4" id="IS_YP4" value="" size="5.5"/></p>					
+					<p>  與TR中心水平距離<input type="text" name="IS_X4" id="IS_X4" value="" size="5.5"/></p>
+					<p>  與TR中心垂直距離<input type="text" name="IS_Y4" id="IS_Y4" value="" size="5.5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					
+					</td>					
+				</tr>
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">下橫鐵絕緣物擋鐵5</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>  水平方向<input type="text" name="IS_XP5" id="IS_XP5" value="" size="5.5"/></p>
+					<p>  垂直方向<input type="text" name="IS_YP5" id="IS_YP5" value="" size="5.5"/></p>					
+					<p>  與TR中心水平距離<input type="text" name="IS_X5" id="IS_X5" value="" size="5.5"/></p>
+					<p>  與TR中心垂直距離<input type="text" name="IS_Y5" id="IS_Y5" value="" size="5.5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					
+					</td>					
+				</tr>
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">下橫鐵絕緣物擋鐵6</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>  水平方向<input type="text" name="IS_XP6" id="IS_XP6" value="" size="5.5"/></p>
+					<p>  垂直方向<input type="text" name="IS_YP6" id="IS_YP6" value="" size="5.5"/></p>					
+					<p>  與TR中心水平距離<input type="text" name="IS_X6" id="IS_X6" value="" size="5.5"/></p>
+					<p>  與TR中心垂直距離<input type="text" name="IS_Y6" id="IS_Y6" value="" size="5.5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					
+					</td>					
+				</tr>	
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">下橫鐵絕緣物擋鐵7</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>  水平方向<input type="text" name="IS_XP7" id="IS_XP7" value="" size="5.5"/></p>
+					<p>  垂直方向<input type="text" name="IS_YP7" id="IS_YP7" value="" size="5.5"/></p>					
+					<p>  與TR中心水平距離<input type="text" name="IS_X7" id="IS_X7" value="" size="5.5"/></p>
+					<p>  與TR中心垂直距離<input type="text" name="IS_Y7" id="IS_Y7" value="" size="5.5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					
+					</td>					
+				</tr>	
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">下橫鐵絕緣物擋鐵8</font>
+					<!--<a href=" "   onclick="OpenFullSizeWindow(this.href,'','');return false"><img src="../q1.png" align="center" width="75" height="75" value="說明一" ></a>-->
+					
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<p>  水平方向<input type="text" name="IS_XP8" id="IS_XP8" value="" size="5.5"/></p>
+					<p>  垂直方向<input type="text" name="IS_YP8" id="IS_YP8" value="" size="5.5"/></p>					
+					<p>  與TR中心水平距離<input type="text" name="IS_X8" id="IS_X8" value="" size="5.5"/></p>
+					<p>  與TR中心垂直距離<input type="text" name="IS_Y8" id="IS_Y8" value="" size="5.5"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					
+					</td>					
+				</tr>				
+			</tbody>			
+		</table></p>				
+		
+
+	</form>
+
+	<script type="text/javascript">
+	
+	//取得資料
+	TRParametersSet();
+	</script>
+</body>
+
+
+</HTML>

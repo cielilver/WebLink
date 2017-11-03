@@ -1,0 +1,249 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<script type="text/javascript" src="../jscript/pfcUtils.js"></script>	
+	<script type="text/javascript" src="../jscript/TankDesign.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<link href="../jscript/tooltip.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/tooltip.js" type="text/javascript"></script>	
+	<link href="../jscript/modal.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/modal.js" type="text/javascript"></script>
+	<link href="../css/button.css" rel="stylesheet" type="text/css" />
+	<style>
+
+input[type=text] {
+    width: 80px;
+	height:32px; 
+	font-size:20px;
+	text-align:center; 
+}
+
+
+.myform {
+	position:absolute;
+	left:0%;
+	top:2em;
+	padding:10px;
+}
+	</style>
+	
+</head>
+<script language="JavaScript" type="text/JavaScript">
+
+$(document).ready(function(){
+	
+    $("#pic1").on("click",function(){
+		tooltip.pop(this, '#tip0',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic2").on("click",function(){
+		tooltip.pop(this, '#tip5',{hideDelay:100,calloutPosition: 0.5});
+		});
+
+});
+
+</script>
+
+<body >
+<div class="topbar">
+			<ul class="topbar">
+			<li ><a href="index.html" target="right"><img src="../img/web.png" width="30px"></a></li>
+			<li ><a href="../WebLink使用手冊.pdf" target="right"><strong>WebLink使用說明</strong></a></li>
+			<li style="float:right"><a href="mailto:jack.you@fortune.com.tw"><strong>問題回饋</strong></a></li>
+			<li style="float:right"><a href="http://www.fortune.com.tw/" target="right"><strong>關於我們</strong></a></li>
+			</ul>
+</div>
+<!-- Trigger/Open The Modal -->
+<!-- FY按鈕 -->
+<!--1.<button> 標籤在表格內無法使用modal改成<input type>或其他圖片方式即可，原因不明2.Chrome無法以jQuery讀取不同protocol檔案-->
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+<!-- Modal content -->
+	<div class="modal-content">
+		<div class="modal-header">
+			<span class="close" onclick="modal_close()">×</span>
+			<h2>歷史異常</h2>
+		</div>
+		
+		<div class="modal-body" id="modal-body">
+		</div>
+		
+		<div class="modal-footer">
+		<span class="close-btn" onclick="modal_close()">close</span>
+		</div>
+	</div>
+</div>
+
+<div class="button-group">
+<li><div class="button" onclick="TRParametersSave();" style="cursor:pointer;"><a><img src="../img/wrench.png"  align="left" style="height:30px;"/><strong>寫入參數</strong></a></div></li>
+<li><div class="button" onclick="rege();" style="cursor:pointer;"><a><img src="../img/circle.png"  align="left" style="height:30px;"/><strong>切換至模型</strong></a></div></li>
+<li><div class="button" id="closetip"><a href="#." ><img src="../img/delete.png"  align="left" style="height:30px;"/><strong >關閉提示</strong></a></div></li>
+<li><div class="button" id="opentip"><a href="#." ><img src="../img/arrows.png"  align="left" style="height:30px;"/><strong >開啟提示</strong></a></div></li>
+</div>
+
+
+
+	<form name="tankForm" id="tankFormID" class="myform">
+           	<table width="900" border="0" cellspacing="0" cellpadding="0">
+                       <tr><td>
+			
+
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+                <tr>
+				<td colspan="2" align="right" valign="middle" style="font-size:40px"><p><i> <marquee> <font face="monospace font" color="gray">變壓器上蓋設計</font></marquee></i></p></td>
+				</tr>
+				</table>
+			
+				<div style="display:none;">
+						<div id="tip0">
+							<img src="../pic/HVSRS.PNG" style="float:right;width:900px;height:400px;" alt="" />
+							<h1 align="center"><font face="monospace font">HV側衝擊記錄器座示意圖</font></h1>
+						</div>
+						<div id="tip1">
+						<h1>關閉:0 開啟:1</h1>
+						</div>
+						<div id="tip2">
+							<h1>位置:</h1>
+							<h1>1: 左</h1>
+							<h1>2: 右</h1>
+						</div>	
+						<div id="tip3">
+							<h1>數量 0:關閉  數量:1~4</h1>
+						</div>
+						<div id="tip4">
+							<h1>法蘭端面至上蓋基準</h1>
+						</div>		
+						<div id="tip5">
+							<img src="../pic/HVPFS.PNG" style="float:right;width:900px;height:400px;" alt="" />
+							<h1 align="center"><font face="monospace font">HV側防止墜落座示意圖</font></h1>
+						</div>
+						<div id="tip6">
+							<h1>記錄座中心至TR中心</h1>
+						</div>	
+						<div id="tip7">
+							<h1>防止墜落座中心至TR中心</h1>
+						</div>							
+				</div>	
+				
+				
+				
+
+	
+	
+
+	
+	<UL type=disc>
+
+	<LI><A name="HV側防止墜落座"><B><I><font face="monospace font"  size="5.5" color="blue">HV側防止墜落座 </font></B></I></A>
+	
+	
+
+		<p><table width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr>			
+					<th style="width: 30%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>	
+					<th  style="width: 55%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th  style="width: 15%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">HV側防止墜落座<br>
+					<!--<img src="../pic/q1.png" align="center" width="75" height="75" value="說明三"  onmouseover="tooltip.pop(this, '#tip5',{hideDelay:100,calloutPosition: 0.5, maxWidth: 500})">-->
+					<img src="../pic/q1.png" align="center" width="75" height="75" id="pic2" style="cursor:help">
+					</font>
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left">  <font face="monospace font"  size="5.5">
+					<p>   防止墜落座數量<input type="text" name="HV_PFS" id="HV_PFS" value="" size="5" onmouseover="tooltip.pop(this, '#tip3',{hideDelay:100,calloutPosition: 0.5, maxWidth: 500})"/></p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<div class="myBtn" id="myBtn21" style="cursor:pointer;"><strong >HV側防止墜落座異常</strong></div>
+					</td>					
+				</tr>
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">HV側防止墜落座1<br>
+					</font>
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left">  <font face="monospace font"  size="5.5">
+					<p>   位置<input type="text" name="HV_PFS_XP_1" id="HV_PFS_XP_1" value="" size="5"/></p>
+					<p>   距離X<input type="text" name="HV_PFS_X_1" id="HV_PFS_X_1" value="" size="5"/> </p>
+					<p>   距離Y<input type="text" name="HV_PFS_Y_1" id="HV_PFS_Y_1" value="" size="5"/> </p>
+					<p>   高度<input type="text" name="HV_PFS_H_1" id="HV_PFS_H_1" value="" size="5"/> </p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+
+					</td>					
+				</tr>
+						<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">HV側防止墜落座2<br>
+					</font>
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left">  <font face="monospace font"  size="5.5">
+					<p>   位置<input type="text" name="HV_PFS_XP_2" id="HV_PFS_XP_2" value="" size="5"/></p>
+					<p>   距離X<input type="text" name="HV_PFS_X_2" id="HV_PFS_X_2" value="" size="5"/> </p>
+					<p>   距離Y<input type="text" name="HV_PFS_Y_2" id="HV_PFS_Y_2" value="" size="5"/> </p>
+					<p>   高度<input type="text" name="HV_PFS_H_2" id="HV_PFS_H_2" value="" size="5"/> </p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+
+					</td>					
+				</tr>
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">HV側防止墜落座3<br>
+					</font>
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left">  <font face="monospace font"  size="5.5">
+					<p>   位置<input type="text" name="HV_PFS_XP_3" id="HV_PFS_XP_3" value="" size="5"/></p>
+					<p>   距離X<input type="text" name="HV_PFS_X_3" id="HV_PFS_X_3" value="" size="5"/> </p>
+					<p>   距離Y<input type="text" name="HV_PFS_Y_3" id="HV_PFS_Y_3" value="" size="5"/> </p>
+					<p>   高度<input type="text" name="HV_PFS_H_3" id="HV_PFS_H_3" value="" size="5"/> </p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+
+					</td>					
+				</tr>
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">HV側防止墜落座4<br>
+					</font>
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left">  <font face="monospace font"  size="5.5">
+					<p>   位置<input type="text" name="HV_PFS_XP_4" id="HV_PFS_XP_4" value="" size="5"/></p>
+					<p>   距離X<input type="text" name="HV_PFS_X_4" id="HV_PFS_X_4" value="" size="5"/> </p>
+					<p>   距離Y<input type="text" name="HV_PFS_Y_4" id="HV_PFS_Y_4" value="" size="5"/> </p>
+					<p>   高度<input type="text" name="HV_PFS_H_4" id="HV_PFS_H_4" value="" size="5"/> </p>
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+
+					</td>					
+				</tr>
+				
+			</tbody>			
+		</table></p>
+	
+	
+	
+	</form>
+	<script type="text/javascript">
+	//取得資料
+	TRParametersSet();
+	</script>
+</body>
+
+
+</HTML>

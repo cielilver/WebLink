@@ -1,0 +1,218 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<script type="text/javascript" src="../jscript/pfcUtils.js"></script>	
+	<script type="text/javascript" src="../jscript/TankDesign2.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<link href="../jscript/tooltip.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/tooltip.js" type="text/javascript"></script>
+	
+	<link href="../jscript/modal.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/modal.js" type="text/javascript"></script>	
+	<link href="../css/button.css" rel="stylesheet" type="text/css" />
+
+	<style>
+		
+input[type=text] {
+    width: 80px;
+	height:32px; 
+	font-size:20px;
+	text-align:center; 
+}
+
+
+.myform {
+	position:absolute;
+	left:0%;
+	top:2em;
+	padding:10px;
+}
+	</style>
+	
+</head>
+<script language="JavaScript" type="text/JavaScript">
+
+
+$(document).ready(function(){
+	
+    $("#pic1").on("click",function(){
+		tooltip.pop(this, '#tip0',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic2").on("click",function(){
+		tooltip.pop(this, '#tip4',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic3").on("click",function(){
+		tooltip.pop(this, '#tip8',{hideDelay:100,calloutPosition: 0.5});
+		});
+
+});		
+</script>
+
+
+<body>
+<div class="topbar">
+			<ul class="topbar">
+			<li ><a href="index.html" target="right"><img src="../img/web.png" width="30px"></a></li>
+			<li ><a href="../WebLink使用手冊.pdf" target="right"><strong>WebLink使用說明</strong></a></li>
+			<li style="float:right"><a href="mailto:jack.you@fortune.com.tw"><strong>問題回饋</strong></a></li>
+			<li style="float:right"><a href="http://www.fortune.com.tw/" target="right"><strong>關於我們</strong></a></li>
+			</ul>
+</div>
+<!-- Trigger/Open The Modal -->
+<!-- FY按鈕 -->
+<!--<button> 標籤在表格內無法使用modal改成<input type>或其他圖片方式即可，原因不明-->
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+<!-- Modal content -->
+	<div class="modal-content">
+		<div class="modal-header">
+			<span class="close" onclick="modal_close()">×</span>
+			<h2>Modal Header</h2>
+		</div>
+		
+		<div class="modal-body" id="modal-body">
+		</div>
+		
+		<div class="modal-footer">
+		<span class="close-btn" onclick="modal_close()">close</span>
+		</div>
+	</div>
+</div>
+
+<div class="button-group">
+<li><div class="button"><a href="javascript: TRParametersSave();"><img src="../img/wrench.png"  align="left" style="height:30px;"/><strong>寫入參數</strong></a></div></li>
+<li><div class="button"><a href="javascript: rege();"><img src="../img/circle.png"  align="left" style="height:30px;"/><strong>切換至模型</strong></a></div></li>
+<li><div class="button" id="closetip"><a href="#." ><img src="../img/delete.png"  align="left" style="height:30px;"/><strong >關閉提示</strong></a></div></li>
+<li><div class="button" id="opentip"><a href="#." ><img src="../img/arrows.png"  align="left" style="height:30px;"/><strong >開啟提示</strong></a></div></li>
+<li><div class="button" id="opentip"><a href="javascript: test();" ><img src="../img/arrows.png"  align="left" style="height:30px;"/><strong >讀取模型</strong></a></div></li>
+<li><div class="button" id="opentip"><a href="javascript: test2();" ><img src="../img/arrows.png"  align="left" style="height:30px;"/><strong >test</strong></a></div></li>
+</div>
+
+
+	<form name="tankForm" id="tankFormID" class="myform">
+           	<table width="900" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+				<td>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+				<td colspan="2" align="right" valign="middle" style="font-size:40px"><p><i> <marquee> <font face="monospace font" color="gray">變壓器上蓋設計</font></marquee></i></p></td>
+				</tr>
+				</table>
+			
+				<div style="display:none;">
+						<div id="tip0">
+							<img src="../pic/HVPTUPE.PNG" style="float:right;width:900px;height:400px;" alt="" />
+							<h1 align="center">HV側釋壓裝置示意圖</h1>
+						</div>
+						<div id="tip1">
+							<h1>型號:</h1>
+							<h1>1: 3吋</h1>
+							<h1>2: 4吋</h1>
+							<h1>3: 6吋</h1>
+							<h1>4: 8吋</h1>
+							<h1>5: 10吋</h1>
+						</div>
+						<div id="tip2">
+							<h1>種類:</h1>
+							<h1>0: 平法蘭</h1>
+							<h1>1: 溝法蘭</h1>
+						</div>
+						<div id="tip3">
+							<h1>位置:</h1>
+							<h1>1: 左</h1>
+							<h1>2: 右</h1>
+						</div>
+						<div id="tip4">
+							<img src="../pic/HVVACUUN.PNG" style="float:right;width:900px;height:400px;" alt="" />
+							<h1 align="center">HV側抽真空管示意圖</h1>
+						</div>
+						<div id="tip5">
+							<h1>端面至上蓋基準</h1>
+						</div>
+						<div id="tip6">
+							<h1>套管插入上蓋深度 </h1>
+						</div>
+						<div id="tip7">
+							<h1>型號:</h1>
+							<h1>1: 1/2B</h1>
+							<h1>2: 1B</h1>
+							<h1>3: 3/2B</h1>
+							<h1>4: 2B</h1>
+							<h1>5: 3B</h1>
+							<h1>6: 4B</h1>							
+						</div>
+						<div id="tip8">
+							<img src="../pic/HV11.PNG" style="float:right;width:900px;height:400px;" alt="" />
+							<h1 align="center">HV側法蘭套管箱示意圖</h1>
+						</div>
+						<div id="tip9">
+							<h1>公稱直徑:</h1>
+							<h1>1: 400</h1>
+							<h1>2: 500</h1>
+							<h1>3: 600</h1>
+						</div>
+						<div id="tip10">
+							<h1>圓心至TR中心</h1>
+						</div>		
+						<div id="tip11">
+							<h1>法蘭之間間距</h1>
+						</div>						
+				</div>	
+				
+				
+				
+
+	
+	
+
+	
+	<UL type=disc>
+
+<!--報價外型圖-->
+	<LI><A name="報價外型圖"><B><I><font face="monospace font"  size="5.5" color="blue">報價外型圖</font></B></I></A>
+	
+		<p><table width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr>			
+					<th style="width: 30%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>		
+					<th style="width: 55%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th  style="width: 15%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+
+			
+			<tbody align="center">
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">外殼<br>
+					<!--<img src="pic/q1.png" align="center" width="75" height="75" value="說明一" onmouseover="tooltip.pop(this, '#tip0',{hideDelay:100})">-->
+					<img src="../pic/q1.png" align="center" width="75" height="75" id="pic1" style="cursor:help">
+					</font>
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left"> <font face="monospace font"  size="5.5">
+					<p>  外殼長度<input type="text" name="外殼長度" id="外殼長度" value="" size="5"/></p>
+					<p>  HV套管型式<input type="text" name="HV套管的型式" id="HV套管的型式" value="" size="5"/></p>
+						
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<img src="../img/business.png" width="50px" class="myBtn" id="myBtn4" style="cursor:pointer;">
+					</td>					
+				</tr>
+				
+
+	<script type="text/javascript">
+	
+	//取得資料
+	TRParametersSet2();
+	</script>
+</body>
+
+
+</HTML>

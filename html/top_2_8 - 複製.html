@@ -1,0 +1,474 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<script type="text/javascript" src="../jscript/pfcUtils.js"></script>	
+	<script type="text/javascript" src="../jscript/TankDesign.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<link href="../jscript/tooltip.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/tooltip.js" type="text/javascript"></script>
+	
+	<link href="../jscript/modal.css" rel="stylesheet" type="text/css" />
+    <script src="../jscript/modal.js" type="text/javascript"></script>	
+	<link href="../css/button.css" rel="stylesheet" type="text/css" />
+
+	<style>
+		
+input[type=text] {
+    width: 80px;
+	height:32px; 
+	font-size:20px;
+	text-align:center; 
+}
+
+
+.myform {
+	position:absolute;
+	left:0%;
+	top:2em;
+	padding:10px;
+}
+
+.FY3 {        
+	/*套管安全距離確認*/
+	position:absolute;
+	top:170px;
+	width:250px;
+	height:210px;
+	//border: 1px solid;
+}
+.FY2 {
+	position:absolute;
+	top:380px;
+	width:245px;
+	height:210px;
+	//border: 1px solid;
+}
+.ANSI_BIL {
+	width:80px;
+	height:40px;
+	position:absolute;
+	top:30%;
+	left:0%;
+	//border: 1px solid;
+
+}
+
+.IEC_BIL {                   
+	width:80px;
+	height:40px;
+	position:absolute;
+	top:45%;
+	left:58%;
+	//border: 1px solid;
+}
+.check_btn1 {
+	position:absolute;
+	bottom:40px;
+	left:5%;
+	//border: 1px solid;
+	text-align:center;
+}
+
+.check_btn2 {                  
+	position:absolute;
+	bottom:0%;
+	left:10%;
+	//border: 1px solid;
+	text-align:center;
+}
+	</style>
+	
+</head>
+<script language="JavaScript" type="text/JavaScript">
+
+
+$(document).ready(function(){
+	
+    $("#pic1").on("click",function(){
+		tooltip.pop(this, '#tip0',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic2").on("click",function(){
+		tooltip.pop(this, '#tip4',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic3").on("click",function(){
+		tooltip.pop(this, '#tip8',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic4").on("click",function(){
+		tooltip.pop(this, '#tip16',{hideDelay:100,calloutPosition: 0.5});
+		});
+    $("#pic5").on("click",function(){
+		tooltip.pop(this, '#tip17',{hideDelay:100,calloutPosition: 0.5});
+		});
+	
+});	
+
+var SS = 0;
+
+function Standard_Select(i) {
+
+var ANSI_Impulse_withstand_level = [60,75,95,125,200,250,300,450,550,650,750,825,975]; 
+var IEC_Impulse_withstand_level  = [60,75,95,110,150,200,250,350,450,550,650,750,850,950,1050,1175]; 
+
+SS = i;
+switch (i) {
+        case 0:    //None
+			//document.getElementById("IEC_BIL").style.display = "none";
+			//document.getElementById("ANSI_BIL").style.display = "none";
+			//document.getElementById("check_btn1").style.display = "none";
+			//document.getElementById("check_btn2").style.display = "none";
+			for (j = 0 ; j < 16 ; j++)
+				{		
+				document.getElementById("IEC_BIL").options.remove(0);   
+				}
+				var op = document.createElement("option");
+				op.text = "None";
+				document.getElementById("IEC_BIL").options.add(op);
+				
+            break;
+        case 1:    //IEC
+			//document.getElementById("IEC_BIL").style.display = "none";
+			//document.getElementById("check_btn2").style.display = "none";
+			//document.getElementById("ANSI_BIL").style.display = "block";
+			//document.getElementById("check_btn1").style.display = "block";
+			
+			var L = document.getElementById("IEC_BIL").options.length;   //取得目前select option 長度
+			
+			for (j = 0 ; j < L ; j++)									 //移除全部選項
+				{		
+				document.getElementById("IEC_BIL").options.remove(0);   
+				}
+			for (j = 0 ; j < IEC_Impulse_withstand_level.length ; j++)  //替換成IEC標準
+				{
+				var op = document.createElement("option");
+				op.text = IEC_Impulse_withstand_level[j]+"kV";
+				document.getElementById("IEC_BIL").options.add(op,j);
+				}
+            break;
+			
+        case 2:   //ANSI
+			//document.getElementById("ANSI_BIL").style.display = "none";
+			//document.getElementById("check_btn1").style.display = "none";
+			//document.getElementById("IEC_BIL").style.display = "block";
+			//document.getElementById("check_btn2").style.display = "block";
+			
+			var L = document.getElementById("IEC_BIL").options.length;
+			
+			for (j = 0 ; j < L ; j++)
+				{
+				document.getElementById("IEC_BIL").options.remove(0);   
+				}
+	
+			for (j = 0 ; j < ANSI_Impulse_withstand_level.length ; j++)
+				{
+				var op = document.createElement("option");
+				op.text = ANSI_Impulse_withstand_level[j]+"kV";
+				document.getElementById("IEC_BIL").options.add(op,j);
+				}
+            break;
+			}
+
+}
+
+
+function myFunction(i) {
+/*ANSI BIL標準*/
+var ANSI_Impulse_withstand_level = [60,75,95,125,200,250,300,450,550,650,750,825,975];
+var ANSI_Clearance_distance_to_ground = [89,114,152,203,305,381,584,762,940,1118,1321,1600,1930];
+var ANSI_Clearance_distance_to_phase = [102,127,165,229,330,432,635,838,1041,1245,1448,1778,2134];
+
+
+/*IEC BIL標準*/
+var IEC_Impulse_withstand_level = [60,75,95,110,150,200,250,350,450,550,650,750,850,950,1050,1175];
+var IEC_Clearance_distance_to_ground = [65,100,140,165,225,330,450,630,830,1050,1250,1450,1500,1900,2300,2700];
+var IEC_Clearance_distance_to_phase = [65,100,140,165,225,330,450,630,830,1050,1250,1450,1800,2250,2650,3100];
+
+switch (SS) {
+		case 0:
+			alert("請先選擇安全標準");
+		break;
+		
+		case 1:
+			if(document.getElementById("HV_FLANGE_1_X").value <IEC_Clearance_distance_to_phase[i]){alert("不符合IEC BIL"+IEC_Impulse_withstand_level[i]+"kV等級規範，請修改法蘭間距X，至少大於"+IEC_Clearance_distance_to_phase[i]+"mm");}
+			else{alert("符合規範");}
+		break;
+		
+		case 2:
+			if(document.getElementById("HV_FLANGE_1_X").value <ANSI_Clearance_distance_to_phase[i]){alert("不符合ANSI BIL"+ANSI_Impulse_withstand_level[i]+"kV等級規範，請修改法蘭間距X，至少大於"+ANSI_Clearance_distance_to_phase[i]+"mm");}
+			else{alert("符合規範");}
+		break;
+			}
+
+
+
+    
+}
+
+</script>
+
+
+<body>
+<div class="topbar">
+			<ul class="topbar">
+			<li ><a href="index.html" target="right"><img src="../img/web.png" width="30px"></a></li>
+			<li ><a href="../WebLink使用手冊.pdf" target="right"><strong>WebLink使用說明</strong></a></li>
+			<li style="float:right"><a href="mailto:jack.you@fortune.com.tw"><strong>問題回饋</strong></a></li>
+			<li style="float:right"><a href="http://www.fortune.com.tw/" target="right"><strong>關於我們</strong></a></li>
+			</ul>
+</div>
+<!-- Trigger/Open The Modal -->
+<!-- FY按鈕 -->
+<!--<button> 標籤在表格內無法使用modal改成<input type>或其他圖片方式即可，原因不明-->
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+<!-- Modal content -->
+	<div class="modal-content">
+		<div class="modal-header">
+			<span class="close" onclick="modal_close()">×</span>
+			<h2>Modal Header</h2>
+		</div>
+		
+		<div class="modal-body" id="modal-body">
+		</div>
+		
+		<div class="modal-footer">
+		<span class="close-btn" onclick="modal_close()">close</span>
+		</div>
+	</div>
+</div>
+
+<div class="button-group">
+<li><div class="button" onclick="TRParametersSave();" style="cursor:pointer;"><a><img src="../img/wrench.png"  align="left" style="height:30px;"/><strong>寫入參數</strong></a></div></li>
+<li><div class="button" onclick="rege();" style="cursor:pointer;"><a><img src="../img/circle.png"  align="left" style="height:30px;"/><strong>切換至模型</strong></a></div></li>
+<li><div class="button" id="closetip"><a href="#." ><img src="../img/delete.png"  align="left" style="height:30px;"/><strong >關閉提示</strong></a></div></li>
+<li><div class="button" id="opentip"><a href="#." ><img src="../img/arrows.png"  align="left" style="height:30px;"/><strong >開啟提示</strong></a></div></li>
+</div>
+
+
+
+	<form name="tankForm" id="tankFormID" class="myform">
+           	<table width="900" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+				<td>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+				<td colspan="2" align="right" valign="middle" style="font-size:40px"><p><i> <marquee> <font face="monospace font" color="gray">變壓器上蓋設計</font></marquee></i></p></td>
+				</tr>
+				</table>
+			
+				<div style="display:none;">
+						<div id="tip0">
+							<img src="../pic/HVPTUPE.PNG" style="float:right;width:900px;height:400px;" alt="" />
+							<h1 align="center">HV側釋壓裝置示意圖</h1>
+						</div>
+						<div id="tip1">
+							<h1>型號:</h1>
+							<h1>1: 3吋</h1>
+							<h1>2: 4吋</h1>
+							<h1>3: 6吋</h1>
+							<h1>4: 8吋</h1>
+							<h1>5: 10吋</h1>
+						</div>
+						<div id="tip2">
+							<h1>種類:</h1>
+							<h1>0: 平法蘭</h1>
+							<h1>1: 溝法蘭</h1>
+						</div>
+						<div id="tip3">
+							<h1>位置:</h1>
+							<h1>1: 左</h1>
+							<h1>2: 右</h1>
+						</div>
+						<div id="tip4">
+							<img src="../pic/HVVACUUN.PNG" style="float:right;width:900px;height:400px;" alt="" />
+							<h1 align="center">HV側抽真空管示意圖</h1>
+						</div>
+						<div id="tip5">
+							<h1>端面至上蓋基準</h1>
+						</div>
+						<div id="tip6">
+							<h1>套管插入上蓋深度 </h1>
+						</div>
+						<div id="tip7">
+							<h1>型號:</h1>
+							<h1>1: 1/2B</h1>
+							<h1>2: 1B</h1>
+							<h1>3: 3/2B</h1>
+							<h1>4: 2B</h1>
+							<h1>5: 3B</h1>
+							<h1>6: 4B</h1>							
+						</div>
+						<div id="tip8">
+							<img src="../pic/HV11.PNG" style="float:right;width:800px;height:400px;" alt="" />
+							<h1 align="center">HV側法蘭示意圖</h1>
+						</div>
+						<div id="tip9">
+							<h1>公稱直徑:</h1>
+							<h1>1: 400</h1>
+							<h1>2: 500</h1>
+							<h1>3: 600</h1>
+						</div>
+						<div id="tip10">
+							<h1>圓心至TR中心</h1>
+						</div>		
+						<div id="tip11">
+							<h1>法蘭之間間距</h1>
+						</div>
+						<div id="tip12">
+							<h1>開關:</h1>
+							<h1>0: 關</h1>
+							<h1>1: 開</h1>
+						</div>	
+						<div id="tip13">
+							<h1>上部法蘭上緣至下部法蘭下緣</h1>
+						</div>
+						<div id="tip14">
+							<h1>BCT型式:</h1>
+							<h1>1. 21T3B2765-水平</h1>
+							<h1>2. 21T3B3383-水平</h1>
+							<h1>3. 21SA30583(圓形)</h1>
+							<h1>4. 21SA40680(圓形)</h1>
+						</div>
+						<div id="tip15">
+							<h1>法蘭面至套管箱中心</h1>
+						</div>		
+						<div id="tip16">
+							<img src="../pic/HVCASINGBOX.PNG" style="float:right;width:800px;height:400px;" alt="" />
+							<h1 align="center">HV側法蘭套管箱示意圖</h1>
+						</div>	
+						<div id="tip17">
+							<img src="../pic/BCTBOX.PNG" style="float:right;width:500px;height:600px;" alt="" />
+							<h1 align="center">BCT型式示意圖</h1>
+						</div>							
+				</div>	
+				
+				
+				
+
+	
+	
+
+	
+	<UL type=disc>
+
+<!--HV側法蘭-->
+	<LI><A name="HV側法蘭"><B><I><font face="monospace font"  size="5.5" color="blue">HV側法蘭 </font></B></I></A>
+
+		
+		
+		<p><table width="900" align="center" style="border:2px solid;" rules="all" >
+			<thead>
+				<tr>			
+					<th style="width: 30%;background-color:#E6E6FA;"><font face="monospace font"  size="5.5">名稱</th>		
+					<th style="width: 55%;background-color:#E6E6FA;" colspan="2"><font face="monospace font"  size="5.5">參數設計項目</th>
+					<th  style="width: 15%; background-color:#E6E6FA;"><font face="monospace font"  size="5.5">歷史異常</th>
+				</tr>
+			</thead>
+			
+			<tbody align="center">
+				<tr>
+					<td style="background-color:#FFFACD;" rowspan="2">
+					<font face="monospace font"  size="5.5" rowspan="2">HV側法蘭<br>
+					<!--<img src="pic/q1.png" align="center" width="75" height="75" value="說明一"  onmouseover="tooltip.pop(this, '#tip8',{hideDelay:100,calloutPosition: 0.5})">-->
+					<img src="../pic/q1.png" align="center" width="75" height="75" id="pic3" style="cursor:help">
+					</font>
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left" rowspan="2"> <font face="monospace font"  size="5.5">
+					<p>  公稱直徑<input type="text" name="HV_FC_1" id="HV_FC_1" value="" size="5"/></p>
+					<p>  法蘭種類<input type="text" name="HV_F_1_S" id="HV_F_1_S" value="" size="5"/></p>
+					<p>  法蘭位置<input type="text" name="HV_FLANGE_1_XP" id="HV_FLANGE_1_XP" value="" size="5"/></p>
+					<p>  法蘭距離<input type="text" name="HV_FLANGE_1_DIS" id="HV_FLANGE_1_DIS" value="" size="5"/></p>
+					<p>  法蘭間距X<input type="text" name="HV_FLANGE_1_X" id="HV_FLANGE_1_X" value="" size="5"/></p>					
+					<p>  法蘭距離Y<input type="text" name="HV_FLANGE_1_Y" id="HV_FLANGE_1_Y" value="" size="5"/></p>
+					<p>  法蘭高度<input type="text" name="HV_FLANGE_1_H" id="HV_FLANGE_1_H" value="" size="5"/></p>					
+					<!--<p>  插入深度<input type="text" name="HV_FLANGE_1_DEEP" id="HV_FLANGE_1_DEEP" value="" size="5"/></p>-->	
+					</td>
+					<td style="background-color:#FFFACD;width:28%;height:1px;" align="left" ><font face="monospace font"  size="5.5" >
+					<div class ="FY3"><font face="monospace font"  size="4" ><B>套管安全距離確認<br>選擇標準:</font>
+					<select  name="BIL_STANDARD" id="BIL_STANDARD" style="height:30px;width:130px;font-size:20px" onchange ="Standard_Select(document.tankForm.BIL_STANDARD.selectedIndex)">
+							<option value=7    style="font-size:20px">None</option>
+							<option value=60    style="font-size:20px">IEC標準</option>
+							<option value=75    style="font-size:20px">ANSI標準</option>							
+					</select><br><br>
+					<font face="monospace font"  size="4" >選擇BIL等級:</font>
+					<!--<div class="ANSI_BIL"><select  name="ANSI_BIL" id="ANSI_BIL" style="height:30px;width:100px;font-size:20px" onchange ="">
+							<option value=60    style="font-size:20px">60kV </option>
+							<option value=75    style="font-size:20px">75kV </option>
+							<option value=95    style="font-size:20px">95kV </option>
+							<option value=125    style="font-size:20px">125kV</option>
+							<option value=200    style="font-size:20px">200kV</option>
+							<option value=250    style="font-size:20px">250kV</option>
+							<option value=300    style="font-size:20px">300kV</option>
+							<option value=450    style="font-size:20px">450kV</option>
+							<option value=550    style="font-size:20px">550kV</option>
+							<option value=650    style="font-size:20px">650kV</option>
+							<option value=750    style="font-size:20px">750kV</option>
+							<option value=825    style="font-size:20px">825kV</option>
+							<option value=975    style="font-size:20px">975kV</option>							
+					</select></div>
+					-->
+					<div class="IEC_BIL"><select  name="IEC_BIL" id="IEC_BIL" style="height:30px;width:100px;font-size:20px" onchange ="">
+							<option value=975    style="font-size:20px">None</option>
+					</select></div>
+					
+					<!--<div class="check_btn1" id="check_btn1" style=""><a href="javascript: myFunction1(document.tankForm.ANSI_BIL.selectedIndex);"><img src="../img/check2.png" align="center" width="200" height="50" id="pic99" style="cursor:help"></a></div>-->
+					<div class="check_btn2" id="check_btn2" style=""><a href="javascript: myFunction(document.tankForm.IEC_BIL.selectedIndex);"><img src="../img/check2.png" align="center" width="200" height="50" id="pic99" style="cursor:help"></a></div>
+					</div>
+					</td>	
+
+					<td style="background-color:#FFFACD;" align="left" rowspan="2"><font face="monospace font"  size="5.5" >
+					<img src="../img/business.png" width="50px" class="myBtn" id="myBtn6" style="cursor:pointer;">
+					</td>
+				</tr>
+				
+				<tr>
+
+					<td style="background-color:#FFFACD;height:30%" align="left" ><font face="monospace font"  size="5.5" >
+					<div class="FY2"><font face="monospace font"  size="4" ><b>套管箱與BCT外徑確認</font></div>
+					</td>
+				</tr>
+				
+				<tr>
+					<td style="background-color:#FFFACD;">
+					<font face="monospace font"  size="5.5">HV側法蘭套管箱<br>
+					<!--<img src="pic/q1.png" align="center" width="75" height="75" value="說明一"  onmouseover="tooltip.pop(this, '#tip8',{hideDelay:100,calloutPosition: 0.5})">-->
+					<img src="../pic/q1.png" align="center" width="75" height="75" id="pic4" style="cursor:help;">
+					</font>
+					</td>
+					
+					<td style="background-color:#FFFACD;" align="left" colspan="2"> <font face="monospace font"  size="5.5">
+					<p>  套管箱開關<input type="text" name="HV_CAS_SW" id="HV_CAS_SW" value="" size="5"/></p>
+					<p>  套管高度<input type="text" name="HV_CAS_H" id="HV_CAS_H" value="" size="5"/></p>
+					<p>  BCT型式<input type="text" name="HV_CAS_B" id="HV_CAS_B" value="" size="5"/><img src="../img/icon2.png" align="center" width="32" height="32" id="pic5" style="cursor:help"></p>
+					<p>  BCT高度<input type="text" name="HV_CAS_BH" id="HV_CAS_BH" value="" size="5"/></p>
+					<p>  BCT深度<input type="text" name="HV_CAS_BD" id="HV_CAS_BD" value="" size="5"/></p>													
+					</td>
+					<td style="background-color:#FFFACD;" align="left"><font face="monospace font"  size="5.5" >
+					<img src="../img/business.png" width="50px" class="myBtn" id="myBtn67" style="cursor:pointer;">
+					</td>
+				</tr>
+
+			</tbody>			
+		</table></p>	
+		<!--test-->
+		<div style="position:absolute;bottom:400px;visibility:hidden;"><input type="text" name="FR_AR_TR" id="FR_AR_TR" value="" size="5"/></div>			
+	</form>
+	
+	<script type="text/javascript">
+	//document.getElementById("ANSI_BIL").style.display = "none";
+	//document.getElementById("IEC_BIL").style.display = "none";
+	//document.getElementById("check_btn1").style.display = "none";
+	//document.getElementById("check_btn2").style.display = "none";
+	//取得資料
+	TRParametersSet();
+	</script>
+</body>
+
+
+</HTML>
